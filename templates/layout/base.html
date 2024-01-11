@@ -51,7 +51,7 @@
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
         {{~inject 'token' settings.storefront_api.token}}
     </head>
-    <body class="page-type-{{page_type}}{{#if customer}} is-login{{/if}}{{#if theme_settings.halo_homepage_layout_1}} home-layout-1{{/if}}{{#if theme_settings.halo_homepage_layout_2}} home-layout-2{{/if}}{{#if theme_settings.halo_homepage_layout_3}} home-layout-3{{/if}}{{#if theme_settings.halo_homepage_layout_4}} home-layout-4{{/if}}" data-page-type="{{page_type}}">
+    <body class="page-type-{{page_type}}{{#if customer}} is-login{{/if}}{{#if theme_settings.custom_layout}} home-layout-custom{{else}}{{#if theme_settings.halo_homepage_layout_1}} home-layout-1{{/if}}{{#if theme_settings.halo_homepage_layout_2}} home-layout-2{{/if}}{{#if theme_settings.halo_homepage_layout_3}} home-layout-3{{/if}}{{#if theme_settings.halo_homepage_layout_4}} home-layout-4{{/if}}{{/if}}" data-page-type="{{page_type}}">
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
         
         {{> components/common/header }}

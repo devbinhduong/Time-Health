@@ -4,6 +4,16 @@
     "settings": [
       {
         "type": "heading",
+        "content": "Custom Style"
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_layout",
+        "label": "Use Custom Layout",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
         "content": "Text And Links"
       },
       {
@@ -342,7 +352,13 @@
       },
       {
         "type": "checkbox",
-        "label": "Show Top Bar Promotion",
+        "label": "Show Top Bar Promotion Custom",
+        "id": "custom_top_headerPromotion",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Top Bar Promotion Default",
         "id": "halo_top_bar_promotion",
         "force_reload": true
       },

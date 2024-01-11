@@ -1,5 +1,9 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
-{{> components/halothemes/header/halo-top-bar-promotion}}
+{{#if theme_settings.custom_top_headerPromotion}}
+    {{> components/custom/header/custom-top-header-promotion}}
+{{else}}
+    {{> components/halothemes/header/halo-top-bar-promotion}}
+{{/if}}
 
 <header class="header header-logo--{{theme_settings.halo_position_logo}}" role="banner">
     {{#if theme_settings.enable_tabs}}

@@ -1202,7 +1202,9 @@
         "haloHome3Section7": "halo-section-7",
         "haloHome3Section8": "halo-section-8",
         "haloHome3Section9": "halo-section-9",
-        "haloHome3Section10": "halo-section-10"
+        "haloHome3Section10": "halo-section-10",
+        "custom_layout": true,
+        "custom_top_headerPromotion": true
       }
     },
     {
