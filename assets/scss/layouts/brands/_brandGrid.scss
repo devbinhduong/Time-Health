@@ -1,0 +1,216 @@
+// =============================================================================
+// BRAND GRID (CSS)
+// =============================================================================
+
+
+// Brand grid view
+// -----------------------------------------------------------------------------
+//
+// 1. Re-set the font-size, as we're reducing it to 0 in the .brandGrid class.
+//
+// -----------------------------------------------------------------------------
+
+.brandGrid {
+
+    @include u-listBullets("none");
+    @include grid-row($behavior: "nest");
+    font-size: 0; // 1
+    margin-bottom: spacing("single");
+
+    .brand {
+        @include grid-column(6, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+
+        @include breakpoint("small") {
+            width: grid-calc(4, $total-columns);
+        }
+
+        @include breakpoint("medium") {
+            width: grid-calc(3, $total-columns);
+        }
+
+        @media(min-width: 1200px) {
+            width: 16.66667%;
+        }
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        .card-title {
+            text-align: center;
+        }
+
+        .card-figure {
+            border: 1px solid #e6e6e6;
+            border-radius: 4px;
+        }
+    }
+}
+
+/*---------- Brand List A to Z view --------*/
+
+.azBrands__container {
+    max-width: 1370px;
+    display: block;
+    margin: 0 auto;
+}
+
+#azBrandsTable {
+    font-size: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 0 30px 0;
+    overflow-x: auto;
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+        height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #EAEAEA;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #000000;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+        border: 1px solid #e2e4e8;
+        border-left: none;
+        a {
+            color: stencilColor('color-textHeading');
+            display: block;
+            height: 40px;
+            font-size: fontSize("base");
+            min-width: 40px;
+            font-weight: 600;
+            line-height: 40px; 
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        &.disable a {
+            color: #B3B3B3;
+            pointer-events: none;
+        }
+        &:first-child {
+            min-width: 70px;
+            border-left: 1px solid #e2e4e8;
+            /*border-radius: 3px 0 0 3px;*/
+        }
+        &:last-child {
+            /*border-radius: 0 3px 3px 0;*/
+        }
+        &.is-active {
+            background-color: #f6f6f6;
+            a {
+                color: inherit;
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        margin: 0 0 40px 0;
+        overflow: visible;
+        li {
+            width: 10%;
+        }
+    }
+}
+
+#azBrands{
+    &.active-all {
+        column-count: 2;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        .azBrands-group {
+            display: block;
+            -moz-page-break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+            -o-column-break-inside: avoid;
+            -ms-column-break-inside: avoid;
+            column-break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        @include breakpoint('small') {
+            column-count: 3;
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+        }
+        @include breakpoint('medium') {
+            column-count: 4;
+            -moz-column-count: 4;
+            -webkit-column-count: 4;
+        }
+    }
+    &:not(.active-all) {
+        .azBrands-group {
+            column-count: 2;
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            @include breakpoint('small') {
+                column-count: 3;
+                -moz-column-count: 3;
+                -webkit-column-count: 3;
+            }
+            @include breakpoint('medium') {
+                column-count: 4;
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+            }
+        }
+    }
+
+    + .brandList.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.azBrands-group-title {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+    font-weight: 700;
+}
+
+.brandList {
+    margin: 0;
+    list-style: none;
+    .brand {
+        padding: 3px 0;
+        margin-bottom: 0;
+    }
+}
+
+.brand-name {
+    .title {
+        margin: 0;
+        font-size: fontSize("base");
+        line-height: 20px;
+        font-weight: 400;
+        color: #6e6e6e;
+        text-transform: capitalize;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: stencilColor("color-textLink--hover");
+        }
+    }
+}
+
+.azBrands-group {
+    margin-bottom: 30px;
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}

@@ -1,0 +1,4632 @@
+[
+  {
+    "name": "Global",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Text And Links"
+      },
+      {
+        "type": "font",
+        "label": "Heading Text Font Family",
+        "id": "headings-font",
+        "force_reload": true,
+        "options": [
+          {
+            "group": "Jost",
+            "label": "Jost",
+            "value": "Google_Jost_400"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "SourceSansPro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Arsenal",
+            "label": "Arsenal",
+            "value": "Google_Arsenal_400"
+          },
+          {
+            "group": "Playfair Display",
+            "label": "Playfair Display",
+            "value": "Google_Playfair+Display_400"
+          },
+          {
+            "group": "Nunito",
+            "label": "Nunito",
+            "value": "Google_Nunito_400"
+          },
+          {
+            "group": "Poppins",
+            "label": "Poppins",
+            "value": "Google_Poppins_400"
+          }
+        ]
+      },
+      {
+        "type": "font",
+        "label": "Body Text Font Family",
+        "id": "body-font",
+        "force_reload": true,
+        "options": [
+          {
+            "group": "Jost",
+            "label": "Jost",
+            "value": "Google_Jost_400"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "SourceSansPro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Arsenal",
+            "label": "Arsenal",
+            "value": "Google_Arsenal_400"
+          },
+          {
+            "group": "Playfair Display",
+            "label": "Playfair Display",
+            "value": "Google_Playfair+Display_400"
+          },
+          {
+            "group": "Nunito",
+            "label": "Nunito",
+            "value": "Google_Nunito_400"
+          },
+          {
+            "group": "Poppins",
+            "label": "Poppins",
+            "value": "Google_Poppins_400"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Body Text Font Size",
+        "id": "fontSize-root",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 13,
+            "label": "13px"
+          },
+          {
+            "value": 14,
+            "label": "14px"
+          },
+          {
+            "value": 15,
+            "label": "15px"
+          },
+          {
+            "value": 16,
+            "label": "16px"
+          },
+          {
+            "value": 17,
+            "label": "17px"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Heading Text Color",
+        "id": "color-textHeading"
+      },
+      {
+        "type": "color",
+        "label": "Body Text: Primary Color",
+        "id": "color-textBase"
+      },
+      {
+        "type": "color",
+        "label": "Body Text: Secondary Color",
+        "id": "color-textSecondary"
+      },
+      {
+        "type": "color",
+        "label": "Link Color",
+        "id": "color-textLink"
+      },
+      {
+        "type": "color",
+        "label": "Link Hover Color",
+        "id": "color-textLink--hover"
+      },
+      {
+        "type": "color",
+        "label": "Link Active Color",
+        "id": "color-textLink--active"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons And Icons"
+      },
+      {
+        "type": "color",
+        "label": "Primary Button: Text Color",
+        "id": "button--primary-color"
+      },
+      {
+        "type": "color",
+        "label": "Primary Button: Text Hover Color",
+        "id": "button--primary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Primary Button: Background",
+        "id": "button--primary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Primary Button: Background Hover",
+        "id": "button--primary-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Primary Button: Border",
+        "id": "button--primary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Primary Button: Border Hover",
+        "id": "button--primary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Button: Text Color",
+        "id": "button--default-color"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Button: Text Hover Color",
+        "id": "button--default-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Button: Background",
+        "id": "button--default-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Button: Background Hover",
+        "id": "button--default-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Button: Border",
+        "id": "button--default-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Button: Border Hover",
+        "id": "button--default-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Tertiary Button: Text Color",
+        "id": "button--tertiary-color"
+      },
+      {
+        "type": "color",
+        "label": "Tertiary Button: Text Hover Color",
+        "id": "button--tertiary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Tertiary Button: Background",
+        "id": "button--tertiary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Tertiary Button: Background Hover",
+        "id": "button--tertiary-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Tertiary Button: Border",
+        "id": "button--tertiary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Tertiary Button: Border Hover",
+        "id": "button--tertiary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Icons Color",
+        "id": "icon-color"
+      },
+      {
+        "type": "color",
+        "label": "Star Review Icon Full",
+        "id": "icon-ratingFull"
+      },
+      {
+        "type": "color",
+        "label": "Star Review Icon Empty",
+        "id": "icon-ratingEmpty"
+      },
+      {
+        "type": "heading",
+        "content": "Other Colors"
+      },
+      {
+        "type": "color",
+        "label": "Global Color",
+        "id": "global-color"
+      },
+      {
+        "type": "color",
+        "label": "Body Background Color",
+        "id": "body-bg"
+      },
+      {
+        "type": "heading",
+        "content": "Lazyload"
+      },
+      {
+        "type": "select",
+        "id": "lazyload_mode",
+        "force_reload": true,
+        "label": "Lazy loading Mode",
+        "options": [
+          {
+            "value": "lazyload",
+            "label": "Lazyload"
+          },
+          {
+            "value": "lazyload+lqip",
+            "label": "Lazyload With LQIP"
+          },
+          {
+            "value": "disabled",
+            "label": "Disabled"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Header Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sticky Header",
+        "id": "halo_headerSticky",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Header Style"
+      },
+      {
+        "type": "color",
+        "label": "Background",
+        "id": "header-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "header-color"
+      },
+      {
+        "type": "heading",
+        "content": "Top Bar Promotion"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Top Bar Promotion",
+        "id": "halo_top_bar_promotion",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "halo_top_bar_promotion_text_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 1",
+        "id": "halo_top_bar_promotion_link_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "halo_top_bar_promotion_text_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 2",
+        "id": "halo_top_bar_promotion_link_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 3",
+        "id": "halo_top_bar_promotion_text_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 3",
+        "id": "halo_top_bar_promotion_link_3",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "topBarPromotion_textColor"
+      },
+      {
+        "type": "color",
+        "label": "Background Color",
+        "id": "topBarPromotion_bgColor"
+      },
+      {
+        "type": "text",
+        "label": "Background Image",
+        "id": "topBarPro_img",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Header Tabs"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Header Tabs",
+        "id": "enable_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Tab 1 Name",
+        "id": "tab_name_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Tab 2 Name",
+        "id": "tab_name_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Tab 2 Link",
+        "id": "tab_lk_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Tab 3 Name",
+        "id": "tab_name_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Tab 3 Link",
+        "id": "tab_lk_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Title",
+        "id": "help_title",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Help: Show Phone",
+        "id": "help_phone",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Text 1",
+        "id": "help_txt_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Link 1",
+        "id": "help_lk_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Text 2",
+        "id": "help_txt_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Link 2",
+        "id": "help_lk_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Text 3",
+        "id": "help_txt_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Link 3",
+        "id": "help_lk_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Text 4",
+        "id": "help_txt_4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Link 4",
+        "id": "help_lk_4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Text 5",
+        "id": "help_txt_5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Link 5",
+        "id": "help_lk_5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Text 6",
+        "id": "help_txt_6",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Help: Link 6",
+        "id": "help_lk_6",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Background Color",
+        "id": "headeTabs_bgColor"
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "headeTabs_textColor"
+      },
+      {
+        "type": "heading",
+        "content": "Logo"
+      },
+      {
+        "type": "select",
+        "label": "Logo Position",
+        "id": "halo_position_logo",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "force_reload": true
+      },
+      {
+        "type": "imageDimension",
+        "label": "Logo Image Size",
+        "id": "logo_size",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "147x41",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "original",
+            "label": "Original As Uploaded"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Custom Link"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Custom Link",
+        "id": "halo_header_customTextLink",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "halo_header_customText_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 1",
+        "id": "halo_header_customLink_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "halo_header_customText_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 2",
+        "id": "halo_header_customLink_2",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Quick Search"
+      },
+      {
+        "type": "checkbox",
+        "label": "Recommended Products",
+        "id": "quickSearch_Recommended_Products",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Product IDs",
+        "id": "quickSearch_Recommended_Products_IDs"
+      },
+      {
+        "type": "checkbox",
+        "label": "Top Searches",
+        "id": "quickSearch_topSearches",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 1",
+        "id": "quickSearch_topSearches_text1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 2",
+        "id": "quickSearch_topSearches_text2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 3",
+        "id": "quickSearch_topSearches_text3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 4",
+        "id": "quickSearch_topSearches_text4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 5",
+        "id": "quickSearch_topSearches_text5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 6",
+        "id": "quickSearch_topSearches_text6",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Keyword 7",
+        "id": "quickSearch_topSearches_text7",
+        "force_reload": true
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Footer Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Back To Top",
+        "id": "halo-back-to-top"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Social Media Links",
+        "id": "show_social-links"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Copyright",
+        "id": "show_copyright_footer",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Powered By BigCommerce",
+        "id": "show_powered_by",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Power By: Text 1",
+        "id": "powered_by-text1"
+      },
+      {
+        "type": "text",
+        "label": "Power By: Text 2",
+        "id": "powered_by-text2"
+      },
+      {
+        "type": "text",
+        "label": "Power By: Link",
+        "id": "powered_by-link"
+      },
+      {
+        "type": "text",
+        "label": "Site Info: Text",
+        "id": "site_info-text"
+      },
+      {
+        "type": "text",
+        "label": "Site Info: Link",
+        "id": "site_info-link"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Copyright 2",
+        "id": "show_copyright_footer_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "site_info-text-2"
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "site_info-text-3"
+      },
+      {
+        "type": "text",
+        "label": "Link",
+        "id": "site_info-link-2"
+      },
+      {
+        "type": "heading",
+        "content": "Footer Style"
+      },
+      {
+        "type": "color",
+        "label": "Background",
+        "id": "footer-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Background Bottom",
+        "id": "footer-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Heading Color",
+        "id": "footer_heading_color"
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "footer_text_color"
+      },
+      {
+        "type": "heading",
+        "content": "Footer Layout"
+      },
+      {
+        "type": "select",
+        "label": "Layout",
+        "id": "footer_style",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "style_1",
+            "label": "Default"
+          },
+          {
+            "value": "style_2",
+            "label": "Custom"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Brands Slider"
+      },
+      {
+        "type": "checkbox",
+        "label": "Brands Slider Enable",
+        "id": "haloBrandsSlider",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 1",
+        "id": "haloBrandsSlider_img_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 1",
+        "id": "haloBrandsSlider_link_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 2",
+        "id": "haloBrandsSlider_img_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 2",
+        "id": "haloBrandsSlider_link_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 3",
+        "id": "haloBrandsSlider_img_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 3",
+        "id": "haloBrandsSlider_link_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 4",
+        "id": "haloBrandsSlider_img_4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 4",
+        "id": "haloBrandsSlider_link_4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 5",
+        "id": "haloBrandsSlider_img_5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 5",
+        "id": "haloBrandsSlider_link_5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 6",
+        "id": "haloBrandsSlider_img_6",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 6",
+        "id": "haloBrandsSlider_link_6",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 7",
+        "id": "haloBrandsSlider_img_7",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 7",
+        "id": "haloBrandsSlider_link_7",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 8",
+        "id": "haloBrandsSlider_img_8",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 8",
+        "id": "haloBrandsSlider_link_8",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 9",
+        "id": "haloBrandsSlider_img_9",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 9",
+        "id": "haloBrandsSlider_link_9",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 10",
+        "id": "haloBrandsSlider_img_10",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link 10",
+        "id": "haloBrandsSlider_link_10",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Column Store Info"
+      },
+      {
+        "type": "text",
+        "label": "Logo",
+        "id": "footer_info_logo",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Email",
+        "id": "info_email_support",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Social Icon Google Plus Link",
+        "id": "social_icon_google_plus_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Social Icon Snapchat Link",
+        "id": "social_icon_snapchat_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Column 1"
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "footer-info-1-heading"
+      },
+      {
+        "type": "heading",
+        "content": "Column 2"
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "footer-info-2-heading"
+      },
+      {
+        "type": "heading",
+        "content": "Column 3"
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "footer-info-3-heading"
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "footer-info-3-text1"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 1",
+        "id": "footer-info-3-link1"
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "footer-info-3-text2"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 2",
+        "id": "footer-info-3-link2"
+      },
+      {
+        "type": "text",
+        "label": "Text 3",
+        "id": "footer-info-3-text3"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 3",
+        "id": "footer-info-3-link3"
+      },
+      {
+        "type": "text",
+        "label": "Text 4",
+        "id": "footer-info-3-text4"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 4",
+        "id": "footer-info-3-link4"
+      },
+      {
+        "type": "text",
+        "label": "Text 5",
+        "id": "footer-info-3-text5"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 5",
+        "id": "footer-info-3-link5"
+      },
+      {
+        "type": "text",
+        "label": "Text 6",
+        "id": "footer-info-3-text6"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 6",
+        "id": "footer-info-3-link6"
+      },
+      {
+        "type": "text",
+        "label": "Text 7",
+        "id": "footer-info-3-text7"
+      },
+      {
+        "type": "text",
+        "label": "Link Text 7",
+        "id": "footer-info-3-link7"
+      },
+      {
+        "type": "heading",
+        "content": "Subscription Form"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Subscription Form",
+        "id": "halo_subscription_form",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Payment Icons"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Payment Icons",
+        "id": "show_payments_footer",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Visa",
+        "id": "show_accept_visa"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Master card",
+        "id": "show_accept_mastercard"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show American Express",
+        "id": "show_accept_amex"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Discover",
+        "id": "show_accept_discover"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Cirrus",
+        "id": "show_accept_cirrus"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show PayPal",
+        "id": "show_accept_paypal"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Western Union",
+        "id": "show_accept_western_union"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Amazon Pay",
+        "id": "show_accept_amazonpay"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Google Pay",
+        "id": "show_accept_googlepay"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Klarna",
+        "id": "show_accept_klarna"
+      },
+      {
+        "type": "select",
+        "label": "Apple Pay Color",
+        "id": "applePay-button",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "black",
+            "label": "Black/White Text"
+          },
+          {
+            "value": "white",
+            "label": "White/Black Text"
+          },
+          {
+            "value": "white-border",
+            "label": "White/Black Text With Border"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Menu",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Menu Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Hide Links To Web Pages",
+        "id": "hide_content_navigation",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Category Brands",
+        "id": "menu_brands",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable MegaMenu",
+        "id": "haloMegamenu",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "id": "haloMegamenuType",
+        "force_reload": true,
+        "label": "Edit MegaMenu",
+        "options": [
+          {
+            "value": "Editor",
+            "label": "Theme Editor"
+          },
+          {
+            "value": "Source",
+            "label": "Theme Source"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Sale Menu",
+        "id": "menu_sale",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Menu Style"
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "navPages-color"
+      },
+      {
+        "type": "color",
+        "label": "Text Hover Color",
+        "id": "navPages-color-hover"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown Background",
+        "id": "navPages-subMenu-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Separator Color",
+        "id": "navPages-subMenu-separatorColor"
+      },
+      {
+        "type": "heading",
+        "content": "MegaMenu Style 1"
+      },
+      {
+        "type": "text",
+        "label": "Position",
+        "id": "mega_menu_style1_item",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "id": "mega_menu_style1_item_col",
+        "force_reload": true,
+        "label": "Columns",
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Banner: Image URL 1",
+        "id": "mega_menu_style1_item1_img"
+      },
+      {
+        "type": "text",
+        "label": "Banner: Link 1",
+        "id": "mega_menu_style1_item1_link"
+      },
+      {
+        "type": "text",
+        "label": "Banner: Image URL 2",
+        "id": "mega_menu_style1_item2_img"
+      },
+      {
+        "type": "text",
+        "label": "Banner: Link 2",
+        "id": "mega_menu_style1_item2_link"
+      },
+      {
+        "type": "heading",
+        "content": "MegaMenu Style 2"
+      },
+      {
+        "type": "text",
+        "label": "Position",
+        "id": "mega_menu_style2_item",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "id": "mega_menu_style2_item_col",
+        "label": "Columns",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Product Block: Title",
+        "id": "mega_menu_style2_item_productBlock"
+      },
+      {
+        "type": "text",
+        "label": "Product Block: Product IDs",
+        "id": "mega_menu_style2_item_productID"
+      },
+      {
+        "type": "text",
+        "label": "Banner: Image URL 1",
+        "id": "mega_menu_style2_item_img1"
+      },
+      {
+        "type": "text",
+        "label": "Banner: Link 1",
+        "id": "mega_menu_style2_item_link1"
+      },
+      {
+        "type": "heading",
+        "content": "MegaMenu Style 3"
+      },
+      {
+        "type": "text",
+        "label": "Position",
+        "id": "mega_menu_style3_item",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "id": "mega_menu_style3_item_col",
+        "label": "Columns",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link Text 1",
+        "id": "mega_menu_style3_item_custom_linktext1"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link 1",
+        "id": "mega_menu_style3_item_custom_link1"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link Text 2",
+        "id": "mega_menu_style3_item_custom_linktext2"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link 2",
+        "id": "mega_menu_style3_item_custom_link2"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link Text 3",
+        "id": "mega_menu_style3_item_custom_linktext3"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link 3",
+        "id": "mega_menu_style3_item_custom_link3"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link Text 4",
+        "id": "mega_menu_style3_item_custom_linktext4"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link 4",
+        "id": "mega_menu_style3_item_custom_link4"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link Text 5",
+        "id": "mega_menu_style3_item_custom_linktext5"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link 5",
+        "id": "mega_menu_style3_item_custom_link5"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link Text 6",
+        "id": "mega_menu_style3_item_custom_linktext6"
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link 6",
+        "id": "mega_menu_style3_item_custom_link6"
+      },
+      {
+        "type": "text",
+        "label": "Bottom Block: Image 1",
+        "id": "mega_menu_style3_item_img1"
+      },
+      {
+        "type": "text",
+        "label": "Bottom Block: Link 1",
+        "id": "mega_menu_style3_item_link1"
+      },
+      {
+        "type": "text",
+        "label": "Bottom Block: Image 2",
+        "id": "mega_menu_style3_item_img2"
+      },
+      {
+        "type": "text",
+        "label": "Bottom Block: Link 2",
+        "id": "mega_menu_style3_item_link2"
+      },
+      {
+        "type": "heading",
+        "content": "Menu Label"
+      },
+      {
+        "type": "text",
+        "label": "New Label",
+        "id": "mega_menu_new_label",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "mega_menu_new_label_text",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text Color",
+        "id": "mega_menu_new_label_textColor"
+      },
+      {
+        "type": "text",
+        "label": "Background Color",
+        "id": "mega_menu_new_label_bgColor"
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "text",
+        "label": "Hot Label",
+        "id": "mega_menu_hot_label",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "mega_menu_hot_label_text",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text Color",
+        "id": "mega_menu_hot_label_textColor"
+      },
+      {
+        "type": "text",
+        "label": "Background Color",
+        "id": "mega_menu_hot_label_bgColor"
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "text",
+        "label": "Sale Label",
+        "id": "mega_menu_sale_label",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "mega_menu_sale_label_text",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text Color",
+        "id": "mega_menu_sale_label_textColor"
+      },
+      {
+        "type": "text",
+        "label": "Background Color",
+        "id": "mega_menu_sale_label_bgColor"
+      }
+    ]
+  },
+  {
+    "name": "Home Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Home Page Carousel"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Home Page Carousel",
+        "id": "homepage_show_carousel",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Carousel Arrows",
+        "id": "homepage_show_carousel_arrows",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Carousel Play/Pause Button",
+        "id": "homepage_show_carousel_play_pause_button",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Heading Text Color",
+        "id": "carousel-title-color"
+      },
+      {
+        "type": "color",
+        "label": "Description Text Color",
+        "id": "carousel-description-color"
+      },
+      {
+        "type": "color",
+        "label": "Dots Color",
+        "id": "carousel-dot-color"
+      },
+      {
+        "type": "color",
+        "label": "Dots Active Color",
+        "id": "carousel-dot-color-active"
+      },
+      {
+        "type": "color",
+        "label": "Arrows Background Color",
+        "id": "carousel-arrow-bgColor"
+      },
+      {
+        "type": "color",
+        "label": "Arrows Border Color",
+        "id": "carousel-arrow-borderColor"
+      },
+      {
+        "type": "text",
+        "label": "Spacing To The Left Of Content",
+        "id": "homepage_spacing_left_content"
+      },
+      {
+        "type": "text",
+        "label": "Slider 1: Mobile Image",
+        "id": "cl_sl1_img_mobile",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 1: Subtitle",
+        "id": "cl_slide1_subtitle",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 1: Button 2",
+        "id": "cl_sl1_btn2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 2: Mobile Image",
+        "id": "cl_sl2_img_mobile",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 2: Subtitle",
+        "id": "cl_slide2_subtitle",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 2: Button 2",
+        "id": "cl_sl2_btn2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 3: Mobile Image",
+        "id": "cl_sl3_img_mobile",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 3: Subtitle",
+        "id": "cl_slide3_subtitle",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 3: Button 2",
+        "id": "cl_sl3_btn2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 4: Mobile Image",
+        "id": "cl_sl4_img_mobile",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 4: Subtitle",
+        "id": "cl_slide4_subtitle",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 4: Button 2",
+        "id": "cl_sl4_btn2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 5: Mobile Image",
+        "id": "cl_sl5_img_mobile",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 5: Subtitle",
+        "id": "cl_slide5_subtitle",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Slider 5: Button 2",
+        "id": "cl_sl5_btn2",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Home Custom Text",
+        "reference": "halo_homepage_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "halo_home_custom_text",
+        "reference": "halo_homepage_layout_2",
+        "reference_default": false,
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Home New Products"
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product",
+        "id": "homepage_new_products_count",
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 16,
+            "label": "16"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          }
+        ],
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "View All: Link",
+        "id": "homeProductNew_viewAll_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Home Featured Products"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Featured Products",
+        "id": "enable_featured_products",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product",
+        "id": "homepage_featured_products_count",
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 16,
+            "label": "16"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          }
+        ],
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "View All: Link",
+        "id": "homeProductFeatured_viewAll_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Home Product Tabs"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Product Tabs",
+        "id": "enable_product_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "homeProductTab_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "View All: Link",
+        "id": "homeProductTab_viewAll_link",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product Per Tab",
+        "id": "home_product_tab-limit",
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 16,
+            "label": "16"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          }
+        ],
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Title 1: Featured Products Tab",
+        "id": "home_product_tab-title-1"
+      },
+      {
+        "type": "text",
+        "label": "Title 2: Special Category Tab",
+        "id": "home_product_tab-title-2"
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "id": "home_product_tab-cate-id",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Title 3: Most Popular Products Tab",
+        "id": "home_product_tab-title-3"
+      },
+      {
+        "type": "text",
+        "label": "Title 4: New Products Tab",
+        "id": "home_product_tab-title-4"
+      },
+      {
+        "type": "heading",
+        "content": "Home Newsletter"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Home Newsletter",
+        "id": "enable_newsletter",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image",
+        "id": "newsletter_image",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Sub Heading",
+        "id": "newsletter_subheading",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "newsletter_heading",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "newsletter_txt_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "newsletter_txt_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Link of Text 2",
+        "id": "newsletter_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Home Recent Blog"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Recent Blog",
+        "id": "halo_recent_post",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "halo_recent_post-title"
+      },
+      {
+        "type": "imageDimension",
+        "label": "Recent Blog Images",
+        "id": "recent_blog_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "500x330",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Product Listing Page",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Category / Brand / Search Results Page"
+      },
+      {
+        "type": "heading",
+        "content": "Category Header"
+      },
+      {
+        "type": "select",
+        "id": "category_header_type",
+        "label": "Category Header Image",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "banner",
+            "label": "Use Banner Marketing"
+          },
+          {
+            "value": "image",
+            "label": "Use Category Image"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Product Listing Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sub Categories",
+        "id": "show_halo_subcategories",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show 'View As'",
+        "id": "haloToolbar_viewAs",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show 'Item Per Page'",
+        "id": "haloToolbar_limit",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show 'Sort By'",
+        "id": "haloToolbar_sort",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "id": "product_list_display_mode",
+        "label": "Gallery View",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "grid",
+            "label": "Show Products In A Grid"
+          },
+          {
+            "value": "list",
+            "label": "Show Products In A List"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "product_list_display_col",
+        "label": "Number Of Product Per Row",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "2",
+            "label": "2 Columns"
+          },
+          {
+            "value": "3",
+            "label": "3 Columns"
+          },
+          {
+            "value": "4",
+            "label": "4 Columns"
+          },
+          {
+            "value": "5",
+            "label": "5 Columns"
+          },
+          {
+            "value": "6",
+            "label": "6 Columns"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product Per Category Page",
+        "id": "categorypage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 32,
+            "label": "32"
+          },
+          {
+            "value": 60,
+            "label": "60"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product Per Search Page",
+        "id": "searchpage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 32,
+            "label": "32"
+          },
+          {
+            "value": 60,
+            "label": "60"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product Per Brand Page",
+        "id": "brandpage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 32,
+            "label": "32"
+          },
+          {
+            "value": 60,
+            "label": "60"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Show More Products On Category Page",
+        "id": "halo_category_show_more",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Pagination On Category Page",
+        "id": "halo_category_pagination",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Product Banners"
+      },
+      {
+        "type": "checkbox",
+        "label": "Product Banners Enable",
+        "id": "categoryBannerProduct",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Product Banners: Image 1",
+        "id": "categoryBannerProduct_item1_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Product Banners: Link 1",
+        "id": "categoryBannerProduct_item1_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Product Banners: Image 2",
+        "id": "categoryBannerProduct_item2_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Product Banners: Link 2",
+        "id": "categoryBannerProduct_item2_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Recommended Block"
+      },
+      {
+        "type": "checkbox",
+        "label": "Recommended Block Enable",
+        "id": "haloRecommendedBlock_category",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Recommended Block: Title",
+        "id": "haloRecommendedBlock_category_title",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Recommended Block: Type",
+        "force_reload": true,
+        "id": "haloRecommendedBlock_category_type",
+        "options": [
+          {
+            "value": "new",
+            "label": "New Products"
+          },
+          {
+            "value": "featured",
+            "label": "Featured Products"
+          },
+          {
+            "value": "top",
+            "label": "Top Sellers Products"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "View All: Link",
+        "id": "haloRecommendedBlock_category_vaLink",
+        "force_reload": true
+      }
+    ]
+  },
+  {
+    "name": "Product Detail Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Product Detail Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Product Weight",
+        "id": "show_product_weight",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Product Dimensions",
+        "id": "show_product_dimensions",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Image Dimension"
+      },
+      {
+        "type": "imageDimension",
+        "label": "Main Images",
+        "id": "product_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "660x733",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "imageDimension",
+        "label": "Thumbnail Image",
+        "id": "productview_thumb_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "70x78",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "imageDimension",
+        "label": "Zoomed Image",
+        "id": "zoom_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "1280x1280",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Social Sharing"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Social Sharing",
+        "id": "show_halo_share",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Share Custom Code",
+        "id": "share_custom_code",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Product Reviews"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Product Reviews",
+        "id": "show_product_reviews",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Number Of Product Reviews",
+        "force_reload": true,
+        "id": "productpage_reviews_count",
+        "options": [
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Product Block"
+      },
+      {
+        "type": "select",
+        "label": "Columns",
+        "id": "productpage_product_block_col",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number Of Related Products",
+        "id": "productpage_related_products_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 0,
+            "label": "Disable"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number Of Customers Also Viewed",
+        "id": "productpage_similar_by_views_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 0,
+            "label": "Disable"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Previous / Next Products"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Previous / Next Products",
+        "id": "halo_prev_next_product",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Sold In Last"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sold In Last",
+        "id": "themevale_soldProduct",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Quantity",
+        "id": "themevale_soldProduct_products"
+      },
+      {
+        "type": "text",
+        "label": "Hour",
+        "id": "themevale_soldProduct_hours"
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "themevale_soldProduct_text"
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "themevale_soldProduct_hours_text"
+      },
+      {
+        "type": "color",
+        "label": "Color",
+        "id": "themevale_soldProduct_textColor"
+      },
+      {
+        "type": "heading",
+        "content": "Viewing By Customers"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Viewing By Customers",
+        "id": "halo_viewing_product",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Quantity",
+        "id": "halo_viewing_product_viewer",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "halo_viewing_product_text",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Switch After (s)",
+        "id": "halo_viewing_product_change"
+      },
+      {
+        "type": "heading",
+        "content": "CountDown"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable CountDown",
+        "id": "enable-product-countDown"
+      },
+      {
+        "type": "select",
+        "label": "Type",
+        "id": "product-countDown-type",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "all",
+            "label": "Same For All Products"
+          },
+          {
+            "value": "custom",
+            "label": "Different For Each Product"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "reference": "product-countDown-type",
+        "reference_default": "custom",
+        "id": "countDownText",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Time",
+        "reference": "product-countDown-type",
+        "reference_default": "custom",
+        "id": "product-countDown"
+      },
+      {
+        "type": "heading",
+        "content": "Hot Stock"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Hot Stock",
+        "id": "halo_stock_level",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "The Maximum Level Of Inventory",
+        "id": "halo_stock_level_limit"
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "halo_stock_level_text1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "halo_stock_level_text2",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Sizechart"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sizechart",
+        "id": "halo_sizechart",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Type",
+        "id": "halo_sizechart_type",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "all",
+            "label": "Same For All Products"
+          },
+          {
+            "value": "custom",
+            "label": "Different For Each Product"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Image URL",
+        "reference": "halo_sizechart_type",
+        "reference_default": "custom",
+        "id": "halo_sizechart_image",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Sizechart: Title",
+        "id": "halo_sizechart_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Sizechart: Description 1",
+        "id": "halo_sizechart_des1_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "halo_sizechart_des1_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "halo_sizechart_des1_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Sizechart: Description 2",
+        "id": "halo_sizechart_des2_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "halo_sizechart_des2_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "halo_sizechart_des2_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "halo_sizechart_des2_4",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Compare Colors"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Compare Colors",
+        "id": "halo_compare_colors",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Sticky Add To Cart"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sticky Add To Cart",
+        "id": "halo_sticky_add_to_cart",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Secure Images"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Secure Images",
+        "id": "halo_securityImage",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Description",
+        "id": "halo_securityImage_des",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 1",
+        "id": "halo_securityImage_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 2",
+        "id": "halo_securityImage_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 3",
+        "id": "halo_securityImage_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 4",
+        "id": "halo_securityImage_4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 5",
+        "id": "halo_securityImage_5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 6",
+        "id": "halo_securityImage_6",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Custom Block"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Custom Block",
+        "id": "haloPVServiceCustom",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Image",
+        "id": "haloPVService_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Featured",
+        "id": "haloPVService_featured",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Title",
+        "id": "haloPVService_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Description",
+        "id": "haloPVService_des1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "haloPVService_des2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "id": "haloPVService_des3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Button Text",
+        "id": "haloPVService_textBtn",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom Block: Link",
+        "id": "haloPVService_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Service Block"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Service Block",
+        "id": "haloPVService",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 1: Image",
+        "id": "haloPVService_item1_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 1: Title",
+        "id": "haloPVService_item1_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 1: Description",
+        "id": "haloPVService_item1_des",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 1: Button Text",
+        "id": "haloPVService_item1_textBtn",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 1: Link",
+        "id": "haloPVService_item1_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 2: Image",
+        "id": "haloPVService_item2_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 2: Title",
+        "id": "haloPVService_item2_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 2: Description",
+        "id": "haloPVService_item2_des",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 2: Button Text",
+        "id": "haloPVService_item2_textBtn",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 2: Link",
+        "id": "haloPVService_item2_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 3: Image",
+        "id": "haloPVService_item3_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 3: Title",
+        "id": "haloPVService_item3_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 3: Description",
+        "id": "haloPVService_item3_des",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 3: Button Text",
+        "id": "haloPVService_item3_textBtn",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 3: Link",
+        "id": "haloPVService_item3_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 4: Image",
+        "id": "haloPVService_item4_img",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 4: Title",
+        "id": "haloPVService_item4_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 4: Description",
+        "id": "haloPVService_item4_des",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 4: Button Text",
+        "id": "haloPVService_item4_textBtn",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Item 4: Link",
+        "id": "haloPVService_item4_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Product Tabs"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Product Tabs",
+        "id": "show_product_details_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Custom Fields Tab",
+        "id": "show_custom_fields_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Warranty Tab",
+        "id": "show_warranty_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Reviews Tab",
+        "id": "show_product_reviews",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Shipping & Return Tab",
+        "id": "show_shipping_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Get Content From URL",
+        "id": "show_shipping_tab_link",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Custom Tab",
+        "id": "show_custom_tabs",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Get Content From URL",
+        "id": "show_custom_tab_link",
+        "force_reload": true
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Sidebar Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar On Category Page",
+        "id": "haloSidebar_category",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar On Brand Page",
+        "id": "haloSidebar_brand",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar On Search Page",
+        "id": "haloSidebar_search",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar On Blog / Blog Detail Page",
+        "id": "haloSidebar_blog",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "BLock Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show All Categories",
+        "id": "side_all_categories",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Shop By Price",
+        "id": "shop_by_price_visibility",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Shop By Brand",
+        "id": "shop_by_brand_visibility",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Recent Posts",
+        "id": "halo-sidebar-recent-post"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Popular Tags",
+        "id": "halo_sidebar_popular_tags",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Number Of Top Sellers",
+        "id": "homepage_top_products_count",
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 16,
+            "label": "16"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          }
+        ],
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Custom CMS BLock"
+      },
+      {
+        "type": "text",
+        "label": "Custom CMS BLock: Image",
+        "id": "sidebar_image",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom CMS BLock: Link",
+        "id": "sidebar_image_link",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Custom CMS BLock",
+        "id": "show_sidebar_custom_block",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Custom CMS BLock: Title",
+        "id": "sidebar_custom_block_title",
+        "force_reload": true
+      },
+      {
+        "type": "input",
+        "label": "Custom CMS BLock: Content 1",
+        "id": "sidebar_custom_block_content_1",
+        "force_reload": true
+      },
+      {
+        "type": "input",
+        "label": "Custom CMS BLock: Content 2",
+        "id": "sidebar_custom_block_content_2",
+        "force_reload": true
+      }
+    ]
+  },
+  {
+    "name": "Product Card",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Product Card Settings"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Brand On Card",
+        "id": "halo_card_brand",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Ratings On Card",
+        "id": "halo_card_ratings",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Quickview",
+        "id": "show_product_quick_view",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Image Dimension"
+      },
+      {
+        "type": "imageDimension",
+        "label": "List / Grid Layout",
+        "id": "gallery_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "570x633",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "imageDimension",
+        "label": "List / Grid Layout (AMP)",
+        "id": "productgallery_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "640x711",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Title"
+      },
+      {
+        "type": "select",
+        "id": "halo_card_title",
+        "label": "Card Title",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "full",
+            "label": "Full Text"
+          },
+          {
+            "value": "ellipsis",
+            "label": "Limit (x) line(s)"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "halo_card_title-line",
+        "label": "Card Title: Line(s)",
+        "reference": "halo_card_title",
+        "reference_default": "full",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Title Text Color",
+        "id": "card-title-color"
+      },
+      {
+        "type": "color",
+        "label": "Title Text Hover Color",
+        "id": "card-title-color-hover"
+      },
+      {
+        "type": "heading",
+        "content": "Labels"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Product Labels",
+        "id": "halo_label_product",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show New Label",
+        "id": "show_new_badges",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "New Label: Text Color",
+        "id": "color_text_product_new_badges"
+      },
+      {
+        "type": "color",
+        "label": "New Label: Background Color",
+        "id": "color_bg_product_new_badges"
+      },
+      {
+        "type": "color",
+        "label": "New Label: Border Color",
+        "id": "color_border_product_new_badges"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sale Label",
+        "id": "show_sale_badges",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Sale Label: Text Color",
+        "id": "color_text_product_sale_badges"
+      },
+      {
+        "type": "color",
+        "label": "Sale Label: Background Color",
+        "id": "color_bg_product_sale_badges"
+      },
+      {
+        "type": "color",
+        "label": "Sale Label: Border Color",
+        "id": "color_border_product_sale_badges"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sold Out Label",
+        "id": "show_soldout_badges",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Sold Out Label: Text Color",
+        "id": "color_text_product_soldOut_badges"
+      },
+      {
+        "type": "color",
+        "label": "Sold Out Label: Background Color",
+        "id": "color_bg_product_soldOut_badges"
+      },
+      {
+        "type": "color",
+        "label": "Sold Out Label: Border Color",
+        "id": "color_border_product_soldOut_badges"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Custom Label",
+        "id": "show_custom_badges",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Custom Label 1: Text Color",
+        "id": "color_text_product_custom_badges1"
+      },
+      {
+        "type": "color",
+        "label": "Custom Label 1: Background Color",
+        "id": "color_bg_product_custom_badges1"
+      },
+      {
+        "type": "color",
+        "label": "Custom Label 1: Border Color",
+        "id": "color_border_product_custom_badges1"
+      },
+      {
+        "type": "color",
+        "label": "Custom Label 2: Text Color",
+        "id": "color_text_product_custom_badges2"
+      },
+      {
+        "type": "color",
+        "label": "Custom Label 2: Background Color",
+        "id": "color_bg_product_custom_badges2"
+      },
+      {
+        "type": "color",
+        "label": "Custom Label 2: Border Color",
+        "id": "color_border_product_custom_badges2"
+      },
+      {
+        "type": "heading",
+        "content": "Prices"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Price Ranges",
+        "id": "price_ranges",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Product Price Label Sale",
+        "id": "pdp-sale-price-label"
+      },
+      {
+        "type": "text",
+        "label": "Product Price Label Before Sale",
+        "id": "pdp-non-sale-price-label"
+      },
+      {
+        "type": "text",
+        "label": "Product Price Label Retail",
+        "id": "pdp-retail-price-label"
+      },
+      {
+        "type": "text",
+        "label": "Product Price Label",
+        "id": "pdp-price-label"
+      },
+      {
+        "type": "color",
+        "label": "Sale Price Color",
+        "id": "card-sale-price-color"
+      },
+      {
+        "type": "heading",
+        "content": "Functions"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Product Image Swap",
+        "id": "halo_card_image_swap",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Quick Shop",
+        "id": "halo_quick_shop",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Ajax Add To Cart",
+        "id": "haloAjaxAddToCart",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Add Option For Products",
+        "id": "haloAddOptionForProduct",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Button"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Color",
+        "id": "card-figcaption-button-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Background",
+        "id": "card-figcaption-button-background"
+      },
+      {
+        "type": "color",
+        "label": "Button Border",
+        "id": "card-figcaption-button-border"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Color Hover",
+        "id": "card-figcaption-button-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Background Hover",
+        "id": "card-figcaption-button-backgroundHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Border Hover",
+        "id": "card-figcaption-button-borderHover"
+      }
+    ]
+  },
+  {
+    "name": "Checkout Page",
+    "enable": "ucoEnabled",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Header"
+      },
+      {
+        "type": "checkbox",
+        "label": "Use Background Image",
+        "id": "optimizedCheckout-show-backgroundImage"
+      },
+      {
+        "type": "optimizedCheckout-image",
+        "label": "1000X400px Recommended",
+        "reference": "optimizedCheckout-show-backgroundImage",
+        "reference_default": false,
+        "id": "optimizedCheckout-backgroundImage"
+      },
+      {
+        "type": "imageDimension",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "label": "Header Image Size",
+        "reference": "optimizedCheckout-backgroundImage",
+        "reference_default": "",
+        "id": "optimizedCheckout-backgroundImage-size",
+        "options": [
+          {
+            "value": "1000x400",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Background Color",
+        "id": "optimizedCheckout-header-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Header Text Color",
+        "id": "optimizedCheckout-header-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Header Border",
+        "id": "optimizedCheckout-header-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "Logo"
+      },
+      {
+        "type": "select",
+        "label": "Logo Type",
+        "id": "optimizedCheckout-show-logo",
+        "options": [
+          {
+            "value": "none",
+            "label": "Text"
+          },
+          {
+            "value": "custom",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "optimizedCheckout-image",
+        "label": "250X100px Recommended",
+        "reference": "optimizedCheckout-show-logo",
+        "reference_default": "none",
+        "force_reload": true,
+        "id": "optimizedCheckout-logo"
+      },
+      {
+        "type": "imageDimension",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "label": "",
+        "reference": "optimizedCheckout-logo",
+        "reference_default": "",
+        "id": "optimizedCheckout-logo-size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "250x100",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Logo Position",
+        "id": "optimizedCheckout-logo-position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Order Summary Box"
+      },
+      {
+        "type": "color",
+        "label": "Box Background",
+        "id": "optimizedCheckout-orderSummary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Box Border",
+        "id": "optimizedCheckout-orderSummary-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "Checkout Steps"
+      },
+      {
+        "type": "color",
+        "label": "Icon Background",
+        "id": "optimizedCheckout-step-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Icon Border",
+        "id": "optimizedCheckout-step-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Icon Text Color",
+        "id": "optimizedCheckout-step-textColor"
+      },
+      {
+        "type": "heading",
+        "content": "Headings"
+      },
+      {
+        "type": "color",
+        "label": "Heading 1 Text Color",
+        "id": "optimizedCheckout-headingPrimary-color"
+      },
+      {
+        "type": "color",
+        "label": "Heading 2 Text Color",
+        "id": "optimizedCheckout-headingSecondary-color"
+      },
+      {
+        "type": "heading",
+        "content": "Body"
+      },
+      {
+        "type": "color",
+        "label": "Page Background",
+        "id": "optimizedCheckout-body-backgroundColor"
+      },
+      {
+        "type": "heading",
+        "content": "Body Text And Links"
+      },
+      {
+        "type": "color",
+        "label": "Body Text Color",
+        "id": "optimizedCheckout-contentPrimary-color"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Text Color",
+        "id": "optimizedCheckout-contentSecondary-color"
+      },
+      {
+        "type": "color",
+        "label": "Link Color",
+        "id": "optimizedCheckout-link-color"
+      },
+      {
+        "type": "color",
+        "label": "Link Hover Color",
+        "id": "optimizedCheckout-link-hoverColor"
+      },
+      {
+        "type": "heading",
+        "content": "Primary Action Button"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Color",
+        "id": "optimizedCheckout-buttonPrimary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Hover Color",
+        "id": "optimizedCheckout-buttonPrimary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Active Color",
+        "id": "optimizedCheckout-buttonPrimary-colorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Disabled Color",
+        "id": "optimizedCheckout-buttonPrimary-colorDisabled"
+      },
+      {
+        "type": "color",
+        "label": "Button Background",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Background Hover",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Background Active",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button Background Disabled",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColorDisabled"
+      },
+      {
+        "type": "color",
+        "label": "Button Border",
+        "id": "optimizedCheckout-buttonPrimary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Border Hover",
+        "id": "optimizedCheckout-buttonPrimary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Border Active",
+        "id": "optimizedCheckout-buttonPrimary-borderColorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button Border Disabled",
+        "id": "optimizedCheckout-buttonPrimary-borderColorDisabled"
+      },
+      {
+        "type": "heading",
+        "content": "Secondary Action Button"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Color",
+        "id": "optimizedCheckout-buttonSecondary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Hover Color",
+        "id": "optimizedCheckout-buttonSecondary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Text Active Color",
+        "id": "optimizedCheckout-buttonSecondary-colorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button Background",
+        "id": "optimizedCheckout-buttonSecondary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Background Hover",
+        "id": "optimizedCheckout-buttonSecondary-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Background Active",
+        "id": "optimizedCheckout-buttonSecondary-backgroundColorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button Border",
+        "id": "optimizedCheckout-buttonSecondary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Border Hover",
+        "id": "optimizedCheckout-buttonSecondary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Border Active",
+        "id": "optimizedCheckout-buttonSecondary-borderColorActive"
+      }
+    ]
+  },
+  {
+    "name": "Other Pages",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Brands Page"
+      },
+      {
+        "type": "checkbox",
+        "label": "A To Z Layout",
+        "id": "halothemes_brandlayout",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Cart Page"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Secure Images",
+        "id": "halo-cart-secure-image"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "halo-cart-secure-image-label"
+      },
+      {
+        "type": "text",
+        "label": "Image 1",
+        "id": "haloCart_securityImage_1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 2",
+        "id": "haloCart_securityImage_2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 3",
+        "id": "haloCart_securityImage_3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 4",
+        "id": "haloCart_securityImage_4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 5",
+        "id": "haloCart_securityImage_5",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image 6",
+        "id": "haloCart_securityImage_6",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Cart Notification",
+        "id": "enbale_cart_notification",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "cart-notification-text-1"
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "cart-notification-text-2"
+      },
+      {
+        "type": "select",
+        "label": "CountDown (x) Minutes",
+        "id": "cart-notification-text-3",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "10",
+            "label": "10"
+          },
+          {
+            "value": "15",
+            "label": "15"
+          },
+          {
+            "value": "20",
+            "label": "20"
+          },
+          {
+            "value": "30",
+            "label": "30"
+          },
+          {
+            "value": "40",
+            "label": "40"
+          },
+          {
+            "value": "60",
+            "label": "60"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "Recommended Block Enable",
+        "id": "haloRecommendedBlock_cart",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Recommended Block: Title",
+        "id": "haloRecommendedBlock_cart_title",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Recommended Block: Type",
+        "force_reload": true,
+        "id": "haloRecommendedBlock_cart_type",
+        "options": [
+          {
+            "value": "new",
+            "label": "New Products"
+          },
+          {
+            "value": "featured",
+            "label": "Featured Products"
+          },
+          {
+            "value": "top",
+            "label": "Top Sellers Products"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Blog Page"
+      },
+      {
+        "type": "select",
+        "label": "Number Of Blog Post Per Page",
+        "id": "blog_posts_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          }
+        ]
+      },
+      {
+        "type": "imageDimension",
+        "label": "Blog Images",
+        "id": "blog_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "1030x500",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Contact Us Page"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Google Map",
+        "id": "halo_map",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Title",
+        "id": "location_title",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Email",
+        "id": "store_owner_email",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Hours",
+        "id": "location_open_hour",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Live Chat",
+        "id": "store_location_chat",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_chat",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Send A Messase",
+        "id": "store_location_mess",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_mess_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: FAQs",
+        "id": "store_location_faq",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_faq_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Find A Store",
+        "id": "store_location_find",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_find_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Terms & Conditions",
+        "id": "store_location_terms",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_terms_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Privacy Policy",
+        "id": "store_location_privacy",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_privacy_link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Sitemap",
+        "id": "store_location_sitemap",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Block Info: Link",
+        "id": "store_location_sitemap_link",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "FAQs Page"
+      },
+      {
+        "type": "text",
+        "label": "Image Banner",
+        "id": "faqs_img",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar On FAQs Page",
+        "id": "halo-faqs-sidebar"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "halo-faqs-sidebar-title"
+      },
+      {
+        "type": "text",
+        "label": "Text Icon 1",
+        "id": "halo-faqs-sidebar-icon1"
+      },
+      {
+        "type": "text",
+        "label": "Link Icon 1",
+        "id": "halo-faqs-sidebar-icon1-link"
+      },
+      {
+        "type": "text",
+        "label": "Text Icon 2",
+        "id": "halo-faqs-sidebar-icon2"
+      },
+      {
+        "type": "text",
+        "label": "Link Icon 2",
+        "id": "halo-faqs-sidebar-icon2-link"
+      }
+    ]
+  },
+  {
+    "name": "Other Settings",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Newsletter Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Newsletter Popup",
+        "id": "halo_newsletter_popup",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "halo_newsletter_popup_heading",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image",
+        "id": "halo_newsletter_popup_image",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "halo_newsletter_popup_no_thanks",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Ask An Expert"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Ask An Expert",
+        "id": "halo_ask_an_expert",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Logo",
+        "id": "halo-ask-an-expert-logo"
+      },
+      {
+        "type": "text",
+        "label": "Image",
+        "id": "halo-ask-an-expert-image"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "halo-ask-an-expert-title"
+      },
+      {
+        "type": "text",
+        "label": "Subtitle",
+        "id": "halo-ask-an-expert-subtitle"
+      },
+      {
+        "type": "text",
+        "label": "Text 1",
+        "id": "halo-ask-an-expert-text1"
+      },
+      {
+        "type": "text",
+        "label": "Text 2",
+        "id": "halo-ask-an-expert-text2"
+      },
+      {
+        "type": "text",
+        "label": "Mail",
+        "id": "halo_ask_an_expert_mailto"
+      },
+      {
+        "type": "text",
+        "label": "Mail Subject",
+        "id": "halo_ask_an_expert_subject"
+      },
+      {
+        "type": "heading",
+        "content": "Recently Bought Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Recently Bought Popup",
+        "id": "haloRecentlyBought",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Recently Bought Popup (Mobile)",
+        "id": "haloRecentlyBought_mobile"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "recently_bought_text_name"
+      },
+      {
+        "type": "text",
+        "label": "Info",
+        "id": "recently_bought_text_info"
+      },
+      {
+        "type": "text",
+        "label": "Hours",
+        "id": "recently_bought_hours"
+      },
+      {
+        "type": "text",
+        "label": "Product IDs",
+        "id": "recently_bought_productID"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 1",
+        "id": "recently_bought_location1"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 2",
+        "id": "recently_bought_location2"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 3",
+        "id": "recently_bought_location3"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 4",
+        "id": "recently_bought_location4"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 5",
+        "id": "recently_bought_location5"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 6",
+        "id": "recently_bought_location6"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 7",
+        "id": "recently_bought_location7"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 8",
+        "id": "recently_bought_location8"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 9",
+        "id": "recently_bought_location9"
+      },
+      {
+        "type": "text",
+        "label": "City - Country 10",
+        "id": "recently_bought_location10"
+      },
+      {
+        "type": "select",
+        "label": "Switch After (s)",
+        "id": "recently_bought_changeSlides",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          },
+          {
+            "value": 60,
+            "label": "60"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Recently Viewed Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Recently Viewed Popup",
+        "id": "enable_recently_viewed_products",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Cart",
+        "id": "recently_viewed_products_cart",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Back To Top",
+        "id": "halo_recently_viewed_products_top",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Layout",
+        "force_reload": true,
+        "id": "recently_viewed_products_layout",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "icon",
+            "label": "Icon"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number Of Products",
+        "id": "recently_viewed_products_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "recently_viewed_products_title",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Expires Date",
+        "id": "recently_viewed_products_expires_date",
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 25,
+            "label": "25"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Before You Leave Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Before You Leave Popup",
+        "force_reload": true,
+        "id": "enable_before_you_leave"
+      },
+      {
+        "type": "text",
+        "label": "Time Minutes",
+        "id": "before-you-leave-time"
+      },
+      {
+        "type": "text",
+        "label": "Banner Image",
+        "id": "before-you-leave-img"
+      },
+      {
+        "type": "text",
+        "label": "Banner Link",
+        "id": "before-you-leave-link"
+      },
+      {
+        "type": "color",
+        "label": "Banner Text Color",
+        "id": "before-you-leave-color"
+      },
+      {
+        "type": "text",
+        "label": "Banner Title",
+        "id": "before-you-leave-title"
+      },
+      {
+        "type": "text",
+        "label": "Text Under Title",
+        "id": "before-you-leave-text-1"
+      },
+      {
+        "type": "text",
+        "label": "Heading 1",
+        "id": "before-you-leave-heading-1"
+      },
+      {
+        "type": "text",
+        "label": "Text Under Heading 1",
+        "id": "before-you-leave-text-2"
+      },
+      {
+        "type": "text",
+        "label": "Heading 2",
+        "id": "before-you-leave-heading-2"
+      },
+      {
+        "type": "text",
+        "label": "Button",
+        "id": "before-you-leave-btn-text"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Recommended Tab",
+        "force_reload": true,
+        "id": "enable-before-you-leave-recommended"
+      },
+      {
+        "type": "text",
+        "label": "List Product IDs",
+        "id": "before_you_leave_recommended_id",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Show History Tab",
+        "force_reload": true,
+        "id": "enable-before-you-leave-history"
+      },
+      {
+        "type": "select",
+        "label": "Number Of History Products",
+        "id": "before_you_leave_history_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Expires Date",
+        "id": "before_you_leave_history_expires_date",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 25,
+            "label": "25"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Quick Edit Cart"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Quick Edit Cart",
+        "id": "halo_QuickEditCart",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Calculate Free Shipping"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Calculate Free Shipping",
+        "id": "halo_CalculateFreeShipping",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Layout",
+        "id": "halo_CalculateFreeShipping_type",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "all",
+            "label": "All Shipping Zones"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Country"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Specify Country",
+        "reference": "halo_CalculateFreeShipping_type",
+        "reference_default": "all",
+        "id": "halo_CalculateFreeShipping_list"
+      },
+      {
+        "type": "text",
+        "label": "'Required' Message",
+        "id": "halo_CalculateFreeShipping_required"
+      },
+      {
+        "type": "text",
+        "label": "'Matched' Message",
+        "id": "halo_CalculateFreeShipping_matched"
+      },
+      {
+        "type": "text",
+        "label": "'Remaining' Message",
+        "id": "halo_CalculateFreeShipping_remaining"
+      }
+    ]
+  },
+  {
+    "name": "Payment Buttons",
+    "enable": "smartButtons",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Payment Buttons Container"
+      },
+      {
+        "type": "select",
+        "label": "Button Container",
+        "force_reload": true,
+        "id": "paymentbuttons-container",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Quick Payment Buttons"
+      },
+      {
+        "type": "select",
+        "label": "NumberOfButtonsAlwaysVisible",
+        "force_reload": true,
+        "id": "paymentbuttons-number-of-buttons",
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          }
+        ]
+      },
+      {
+        "type": "sort",
+        "label": "Provider Sorting Order Label",
+        "id": "paymentbuttons-provider-sorting",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "paypal",
+            "label": "PayPal Provider Sorting Label",
+            "enabledBy": "paypal"
+          },
+          {
+            "value": "paypal-credit",
+            "label": "PayPal Credit Provider Sorting Label",
+            "enabledBy": "paypal-credit"
+          },
+          {
+            "value": "paypal-venmo",
+            "label": "PayPal Venmo Provider Sorting Label",
+            "enabledBy": "paypal-venmo"
+          },
+          {
+            "value": "sepa",
+            "label": "PayPal Sepa Provider Sorting Label",
+            "enabledBy": "sepa"
+          },
+          {
+            "value": "googlepay",
+            "label": "Googlepay Provider Sorting Label",
+            "enabledBy": "googlepay"
+          },
+          {
+            "value": "applepay",
+            "label": "Applepay Provider Sorting Label",
+            "enabledBy": "applepay"
+          },
+          {
+            "value": "afterpay",
+            "label": "Afterpay Provider Sorting Label",
+            "enabledBy": "afterpay"
+          },
+          {
+            "value": "amazonpay",
+            "label": "Amazon Provider Sorting Label",
+            "enabledBy": "amazonpay"
+          },
+          {
+            "value": "masterpass",
+            "label": "Masterpass Provider Sorting Label",
+            "enabledBy": "masterpass"
+          },
+          {
+            "value": "bolt",
+            "label": "Bolt Provider Sorting Label",
+            "enabledBy": "bolt"
+          }
+        ]
+      }
+    ]
+  }
+]

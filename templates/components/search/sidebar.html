@@ -1,0 +1,17 @@
+<nav>
+    {{> components/halothemes/sidebar/halo-side-all-categories}}
+
+    {{#if product_results.faceted_search_enabled}}
+        {{> components/faceted-search/index product_results}}
+    {{else}}
+        {{#if shop_by_brand}}
+            {{> components/halothemes/sidebar/halo-side-shop-by-brand}}
+        {{/if}}
+    {{/if}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count productsnew=products.new}}
+    {{/if}}
+
+    {{> components/halothemes/sidebar/halo-side-custom-cms-block}}
+</nav>

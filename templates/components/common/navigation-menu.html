@@ -1,0 +1,127 @@
+<nav class="navPages">
+    <ul class="navPages-list{{#if theme_settings.haloMegamenu}} navPages-list-megamenu{{/if}}{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+        {{#if theme_settings.menu_brands}}
+            <li class="navPages-item navPages-item-page">
+                <a class="navPages-action{{#if page_type '==' 'brands'}} activePage{{/if}}"
+                    href="/brands"
+                    aria-label="Brands"
+                >
+                    <span>{{lang 'brand.label'}}</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#each categories}}
+            <li class="navPages-item{{#if children}} has-dropdown{{/if}}">
+                {{#if ../theme_settings.navigation_design '===' 'simple'}}
+                    {{> components/common/navigation-list theme_settings = ../theme_settings}}
+                {{/if}}
+                {{#if ../theme_settings.navigation_design '===' 'alternate'}}
+                    {{> components/common/navigation-list-alternate theme_settings = ../theme_settings}}
+                {{/if}}
+            </li>
+        {{/each}}
+        {{#if theme_settings.hide_content_navigation}}
+            {{#each pages}}
+                {{#if name '==' 'Pages'}}
+                    <li class="navPages-item navPages-item-page{{#if children}} has-dropdown{{/if}}">
+                        {{> components/common/navigation-list-alternate}}
+                    </li>
+                {{/if}}
+                {{#if name '==' 'Documentation'}}
+                    <li class="navPages-item navPages-item-page a{{#if children}} has-dropdown{{/if}}">
+                        {{> components/common/navigation-list-alternate}}
+                    </li>
+                {{/if}}
+            {{/each}}
+        {{else}}
+            {{#each pages}}
+                <li class="navPages-item navPages-item-page{{#if children}} has-dropdown{{/if}}">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
+            {{/each}}
+        {{/if}}
+    </ul>
+    <ul class="navPages-list navPages-list--user">
+        <li class="navPages-item">
+            <a class="navPages-action" href="{{urls.account.wishlists.all}}">
+                <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+                <span class="text">{{lang 'account.mobile_nav.wishlists'}}</span>
+            </a>
+        </li>
+        <li class="navPages-item">
+            <a class="navPages-action" href="/contact-us/">
+                <svg class="icon icon-location"><use xlink:href="#icon-location"/></svg>
+                <span class="text">Store Locator</span>
+            </a>
+        </li>
+        <li class="navPages-item">
+            <a class="navPages-action" href="tel:{{settings.phone_number}}">
+                <svg class="icon icon-telephone"><use xlink:href="#icon-phone"/></svg>
+                <span class="text">Contact us: {{settings.phone_number}}</span>
+            </a>
+        </li>
+        {{#if customer.store_credit.value '>' 0}}
+            <li class="navPages-item">
+                <a class="navPages-action navPages-action--storeCredit">
+                    <span>{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#if settings.gift_certificates_enabled}}
+            <li class="navPages-item">
+                <a class="navPages-action"
+                   href="{{urls.gift_certificate.purchase}}"
+                   aria-label="{{lang 'common.gift_cert'}}"
+                >
+                    <svg class="icon"><use xlink:href="#icon-gift-mobile"/></svg>
+                    <span>{{lang 'common.gift_cert'}}</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#if currency_selector.currencies.length '>' 1}}
+            <li class="navPages-item">
+                <a class="navPages-action navPages-actionCurrency has-subMenu"
+                   href="#"
+                   data-collapsible="navPages-currency"
+                   aria-controls="navPages-currency"
+                   aria-expanded="false"
+                   aria-label="{{lang 'common.currency' code=currency_selector.active_currency_code}}"
+                >
+                    {{{currency_selector.active_currency_flag}}}
+                    <span class="cur-code">{{currency_selector.active_currency_code}}</span>
+                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use>
+                        </svg>
+                    </i>
+                </a>
+                <div class="navPage-subMenu" id="navPages-currency" aria-hidden="true" tabindex="-1">
+                    <ul class="navPage-subMenu-list">
+                        {{#each currency_selector.currencies}}
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action"
+                               href="{{{switch_url}}}"
+                               aria-label="{{name}}"
+                               data-currency-code="{{{code}}}"
+                               {{#if cart_currency_switch_url.length '>' 0 }}
+                               data-cart-currency-switch-url="{{{cart_currency_switch_url}}}"
+                               {{/if}}
+                               data-warning="{{lang 'common.currency_switch_promotion'}}"
+                            >
+                                {{#if is_active}}
+                                    <strong>{{name}}</strong>
+                                {{else}}
+                                    {{name}}
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+        {{/if}}
+        <li class="navPages-item">
+            {{> components/common/social-links}}
+        </li>
+    </ul>
+</nav>

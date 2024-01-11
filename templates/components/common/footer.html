@@ -1,0 +1,181 @@
+{{> components/halothemes/banners/halo-topBottom-banner position = "bottom"}}
+
+<footer class="footer{{#if theme_settings.footer_style '==' 'style_2'}} footer--style2{{else}} footer--style1{{/if}}" role="contentinfo">
+    {{> components/halothemes/footer/halo-brands-slider}}
+
+    <div class="container{{#if theme_settings.halo_homepage_layout_2}} container-custom{{/if}}">
+        <section class="footer-info">
+            {{#if settings.address}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                {{#if theme_settings.footer_style '==' 'style_2'}}
+                    <div class="footer-info__logo_txt">
+                        {{settings.store_name}}
+                    </div>
+                {{/if}}
+                {{#unless theme_settings.footer_style '==' 'style_2'}}
+                    {{#if theme_settings.footer_info_logo}}
+                        <div class="footer-info__logo">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.footer_info_logo}}" alt="Logo">
+                        </div>
+                    {{/if}}
+                {{/unless}}
+                <address>{{nl2br settings.address}}</address>
+
+                {{#if settings.phone_number}}
+                    <p class="footer-info__phone">
+                        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-phone-2"></use></svg>
+                        <a href="tel:{{settings.phone_number}}">{{lang 'footer.call_us2' phone_number=settings.phone_number}}</a>
+                    </p>
+                {{/if}}
+
+                {{#if theme_settings.info_email_support}}
+                    <p class="footer-info__mail">
+                        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail"></use></svg>
+                        <a href="mailto:{{theme_settings.info_email_support}}">{{lang 'footer.email'}} {{theme_settings.info_email_support}}</a>
+                    </p>
+                {{/if}}
+                {{#unless theme_settings.footer_style '==' 'style_2'}}
+                    {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                        {{#if theme_settings.show_social-links}}
+                            <div class="footer-info-col--social">
+                                {{> components/common/social-links}}
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{/unless}}
+            </article>
+            {{/if}}
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <h3 class="footer-info-heading footer-info-heading--toggle">{{theme_settings.footer-info-1-heading}}</h3>
+                <ul class="footer-info-list">
+                    {{#each categories}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading footer-info-heading--toggle">{{theme_settings.footer-info-2-heading}}</h3>
+                <ul class="footer-info-list">
+                    {{#if settings.gift_certificates_enabled}}
+                        <li>
+                            <a href="{{urls.gift_certificate.purchase}}"
+                               aria-label="{{lang 'common.gift_cert'}}"
+                            >
+                                {{lang 'common.gift_cert'}}
+                            </a>
+                        </li>
+                    {{/if}}
+                    {{#each pages}}
+                        {{#if name '!=' 'Custom Tab'}}
+                            <li>
+                                <a href="{{url}}" aria-label="{{name}}">{{name}}</a>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading footer-info-heading--toggle">{{theme_settings.footer-info-3-heading}}</h3>
+                <ul class="footer-info-list">
+                    {{#if theme_settings.footer-info-3-text1}}
+                        <li><a href="{{theme_settings.footer-info-3-link1}}">{{theme_settings.footer-info-3-text1}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text2}}
+                        <li><a href="{{theme_settings.footer-info-3-link2}}">{{theme_settings.footer-info-3-text2}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text3}}
+                        <li><a href="{{theme_settings.footer-info-3-link3}}">{{theme_settings.footer-info-3-text3}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text4}}
+                        <li><a href="{{theme_settings.footer-info-3-link4}}">{{theme_settings.footer-info-3-text4}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text5}}
+                        <li><a href="{{theme_settings.footer-info-3-link5}}">{{theme_settings.footer-info-3-text5}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text6}}
+                        <li><a href="{{theme_settings.footer-info-3-link6}}">{{theme_settings.footer-info-3-text6}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text7}}
+                        <li><a href="{{theme_settings.footer-info-3-link7}}">{{theme_settings.footer-info-3-text7}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col" data-section-type="newsletterSubscription">
+                {{#if settings.show_newsletter_box}}
+                    {{#if theme_settings.halo_subscription_form}}
+                        {{> components/common/subscription-form}}
+                    {{/if}}
+                {{/if}}
+                {{#if theme_settings.footer_style '==' 'style_2'}}
+                    {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                        {{#if theme_settings.show_social-links}}
+                            <div class="footer-info-col--social">
+                                {{> components/common/social-links}}
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </article>
+
+            {{#if theme_settings.footer_style '==' 'style_2'}}
+                <article class="footer-info-col" data-section-type="footer-logoRight">
+                    {{#if theme_settings.footer_info_logo}}
+                        <div class="footer-info__logo">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.footer_info_logo}}" alt="Logo">
+                        </div>
+                    {{/if}}
+                </article>
+            {{/if}}
+        </section>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom__container{{#if theme_settings.halo_homepage_layout_2}} container-custom{{/if}}{{#if theme_settings.show_copyright_footer_2}} has-item-center{{/if}}">
+            <div class="footer-bottom__left">
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}}{{lang 'footer.dot'}}</p>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.show_powered_by}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">{{theme_settings.powered_by-text1}} <a href="{{theme_settings.powered_by-link}}" rel="nofollow">{{theme_settings.powered_by-text2}}{{lang 'footer.dot'}}</a><a href="{{theme_settings.site_info-link}}">{{theme_settings.site_info-text}}</a></p>
+                    </div>
+                {{/if}}
+            </div>
+            {{#if theme_settings.show_copyright_footer_2}}
+                <div class="footer-bottom__center">
+                    <div class="footer-copyright">
+                        <p class="powered-by">{{theme_settings.site_info-text-2}} <a href="{{theme_settings.site_info-link-2}}">{{theme_settings.site_info-text-3}}</a></p>
+                    </div>
+                </div>
+            {{/if}}
+            <div class="footer-bottom__right">
+                {{#if settings.paypal_commerce_credit_message}}
+                <div class="footer-copyright">
+                    <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
+                </div>
+                {{/if}}
+                {{#if theme_settings.show_payments_footer}}
+                    {{> components/common/payment-icons}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+</footer>
+{{#unless theme_settings.enable_recently_viewed_products }}
+    {{#if theme_settings.halo-back-to-top}}
+        <div id="haloBackToTop" class="halo-back-to-top">
+            <a href="#">
+                <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"></use></svg>
+            </a>
+        </div>
+    {{/if }}
+{{/unless}}

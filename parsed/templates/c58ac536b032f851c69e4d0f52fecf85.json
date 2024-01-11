@@ -1,0 +1,3 @@
+{
+  "components/halothemes/home/halo-home-custom-text": "{{#if theme_settings.halo_home_custom_text}}\n\t<div class=\"home-custom-text\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"customText-item\">\n\t\t\t\t<span>{{theme_settings.halo_home_custom_text}}</span>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n{{/if}}\n{{{region name=\"home_below_custom_text\"}}}\n"
+}

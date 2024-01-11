@@ -1,0 +1,129 @@
+// =============================================================================
+// BODY (CSS)
+//
+// 1. Header is fixed on small screens, use the content body to create the whitespace
+//    between it and the header on all situations. If you change the spacing here,
+//    please update .heroCarousel too.
+//
+// =============================================================================
+
+
+.body {
+    margin-bottom: spacing("double") * 2;
+    margin-top: spacing("single"); // 1
+
+    @include breakpoint("medium") {
+        margin-top: spacing("single") + spacing("base"); // 1
+    }
+
+    .home-layout-2[data-page-type="default"] & {
+        margin-bottom: 0;
+    }
+
+    .home-layout-3[data-page-type="default"] & {
+        margin-bottom: 0;
+    }
+    .home-layout-4[data-page-type="default"] & {
+        margin-bottom: 0;
+    }
+}
+
+
+.page {
+    @include grid-row($behavior: nest);
+    margin: 0;
+}
+
+.page-content,
+.page-content--full {
+    @include grid-column(12);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.page-content--centered {
+
+    @include breakpoint("medium") {
+        @include grid-column($columns: 8,
+            $center: true);
+    }
+}
+
+.page-content--textCenter {
+    text-align: center;
+}
+
+.page-sidebar {
+    @include grid-column(12);
+    position: relative;
+
+    @include breakpoint("medium") {
+        @include grid-column(3);
+
+        +.page-content {
+            @include grid-column(9);
+        }
+    }
+}
+
+.modal-background {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f6f6f6;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #464646;
+    }
+
+    &.is-side-block,
+    &.quickSearch-open,
+    &.has-activeNavPages,
+    &.halo-open-before-you-leave {
+        overflow: hidden;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            -webkit-transition: opacity 0.5s ease 0s, width 0.1s ease 0.5s, height 0.1s ease 0.5s;
+            -moz-transition: opacity 0.5s ease 0s, width 0.1s ease 0.5s, height 0.1s ease 0.5s;
+            -ms-transition: opacity 0.5s ease 0s, width 0.1s ease 0.5s, height 0.1s ease 0.5s;
+            transition: opacity 0.5s ease 0s, width 0.1s ease 0.5s, height 0.1s ease 0.5s;
+        }
+
+        @media(min-width: 1280px) {
+            padding-right: 10px;
+        }
+    }
+
+    &.is-side-block:after {
+        z-index: 100;
+    }
+
+    &.halo-open-before-you-leave:after {
+        z-index: 200;
+    }
+
+    &.has-activeNavPages #sideBlock_menu {
+        left: 0;
+    }
+}
+
+@media(min-width: 1280px) {
+    body.has-activeModal {
+        padding-right: 10px;
+    }
+}

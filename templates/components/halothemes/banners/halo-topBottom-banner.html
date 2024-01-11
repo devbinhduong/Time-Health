@@ -1,0 +1,105 @@
+{{#if position '==' 'top'}}
+    {{#if banners.top}}
+        {{#each banners.top_metadata}}
+            {{#unless (occurrences this.content 'homeService') '>' 0}}
+            {{#unless (occurrences this.content 'haloHomeService') '>' 0}}
+            {{#unless (occurrences this.content 'homeService3') '>' 0}}
+            {{#unless (occurrences this.content 'homeTopBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeTopBanner2') '>' 0}}
+            {{#unless (occurrences this.content 'homeTopBanner3') '>' 0}}
+            {{#unless (occurrences this.content 'homeFiveBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeBottomBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeBottomBanner2') '>' 0}}
+            {{#unless (occurrences this.content 'homeBottomBanner3') '>' 0}}
+            {{#unless (occurrences this.content 'homeFeaturedCollections') '>' 0}}
+            {{#unless (occurrences this.content 'homeBookingTours') '>' 0}}
+            {{#unless (occurrences this.content 'homeReviewsBlock') '>' 0}}
+            {{#unless (occurrences this.content 'homeThreeBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeTestimonial') '>' 0}}
+            {{#unless (occurrences this.content 'homeInstagram') '>' 0}}
+            {{#unless (occurrences this.content 'homeInstagram2') '>' 0}}
+            {{#unless (occurrences this.content 'categoryTopBanner') '>' 0}}
+            {{#unless (occurrences this.content 'categoryBottomBanner') '>' 0}}
+            {{#unless (occurrences this.content 'categoryReviewsBlock') '>' 0}}
+                <div class="banners" data-banner-location="top">
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                </div>
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+        {{/each}}
+    {{/if}}
+{{else if position '==' 'bottom'}}
+    {{#if banners.bottom}}
+        {{#each banners.bottom_metadata}}
+            {{#unless (occurrences this.content 'homeService') '>' 0}}
+            {{#unless (occurrences this.content 'haloHomeService') '>' 0}}
+            {{#unless (occurrences this.content 'homeService3') '>' 0}}
+            {{#unless (occurrences this.content 'homeTopBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeTopBanner2') '>' 0}}
+            {{#unless (occurrences this.content 'homeTopBanner3') '>' 0}}
+            {{#unless (occurrences this.content 'homeFiveBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeBottomBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeBottomBanner2') '>' 0}}
+            {{#unless (occurrences this.content 'homeBottomBanner3') '>' 0}}
+            {{#unless (occurrences this.content 'homeFeaturedCollections') '>' 0}}
+            {{#unless (occurrences this.content 'homeBookingTours') '>' 0}}
+            {{#unless (occurrences this.content 'homeReviewsBlock') '>' 0}}
+            {{#unless (occurrences this.content 'homeThreeBanner') '>' 0}}
+            {{#unless (occurrences this.content 'homeTestimonial') '>' 0}}
+            {{#unless (occurrences this.content 'homeInstagram') '>' 0}}
+            {{#unless (occurrences this.content 'homeInstagram2') '>' 0}}
+            {{#unless (occurrences this.content 'categoryTopBanner') '>' 0}}
+            {{#unless (occurrences this.content 'categoryBottomBanner') '>' 0}}
+            {{#unless (occurrences this.content 'categoryReviewsBlock') '>' 0}}
+                <div class="banners" data-banner-location="bottom">
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                </div>
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+            {{/unless}}
+        {{/each}}
+    {{/if}}
+{{/if}}

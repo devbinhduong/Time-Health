@@ -1,0 +1,46 @@
+// =============================================================================
+// THEME FOCUS (global)
+// =============================================================================
+
+$outline-width:  2px;
+$outline-style:  solid;
+$outline-color:  #0F7FFF;
+$outline-offset: 1px;
+
+// input,
+// button,
+// textarea,
+// select,
+// details,
+// [href],
+// [tabindex]:not([tabindex="-1"]),
+// [contenteditable="true"] {        
+//     &:focus {
+//         outline: $outline-width $outline-style $outline-color !important;
+//         outline-offset: $outline-offset !important;        
+//     }
+//     &:focus-visible {
+//    	   outline-offset: $outline-offset;
+// 	}
+// }
+
+input,
+button,
+textarea,
+select,
+details,
+[href],
+[tabindex]:not([tabindex="-1"]),
+[contenteditable="true"] { 
+    &:focus-visible {
+   	   outline: $outline-width $outline-style -webkit-focus-ring-color !important;
+       outline-offset: $outline-offset !important; 
+	}
+}
+
+label {
+    input:focus-visible + & {
+        outline: $outline-width $outline-style -webkit-focus-ring-color !important;
+        outline-offset: $outline-offset !important;        
+    }
+}

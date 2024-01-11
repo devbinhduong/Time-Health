@@ -1,0 +1,3 @@
+{
+  "components/halothemes/sidebar/halo-button-close": "<button class=\"btn-close{{#if class_modal}} {{class_modal}}{{/if}}\" type=\"button\" title=\"{{lang 'common.close'}}\"{{#if data_close}} {{data_close}}{{/if}}>\n    <span>{{lang 'common.close'}}</span>\n</button>\n"
+}

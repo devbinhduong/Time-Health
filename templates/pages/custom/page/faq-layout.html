@@ -1,0 +1,26 @@
+{{#partial "page"}}
+<div class="haloFaqs-header">
+    <div class="breadcrumb-wrapper">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+    <h1 class="page-heading">{{page.title}}</h1>
+    <div class="haloFaqs-header__content">
+        <div class="haloFaqs-header__des"></div>
+        <div class="haloFaqs-header__img"{{#if theme_settings.faqs_img }} data-image-bg="/product_images/uploaded_images/{{theme_settings.faqs_img}}"{{/if}}></div>
+    </div>
+</div>
+<div class="container--medium">
+    <div class="page page-normal page--faqs">
+        {{#if theme_settings.halo-faqs-sidebar}}
+            <div class="page-sidebar halo-faqs-sidebar">
+                {{> components/halothemes/pages/halo-faqs-sidebar}}
+            </div>
+        {{/if}}
+        <main class="page-content halo-faqs-content">
+            {{{page.content}}}
+            {{{region name="page_builder_content"}}}
+        </main>
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

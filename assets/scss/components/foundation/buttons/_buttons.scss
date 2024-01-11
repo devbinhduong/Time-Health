@@ -1,0 +1,192 @@
+// =============================================================================
+// BUTTONS (CSS)
+// =============================================================================
+
+.button {
+    line-height: 1rem;
+    transition: all 0.15s ease;
+    font-family: $body-font-family;
+
+    +.button {
+        margin-left: 0;
+
+        @include breakpoint("medium") {
+            margin-left: spacing("half");
+        }
+    }
+
+    .home-layout-2 & {
+        border-radius: 0;
+        transition: all 0.3s ease;
+    }
+
+    .home-layout-3 & {
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    .home-layout-4 & {
+        border-radius: 0px;
+        letter-spacing: .05em;
+    }
+}
+
+.button[disabled] {
+    cursor: not-allowed;
+}
+
+.button--icon {
+
+    svg {
+        fill: stencilColor("button--icon-svg-color");
+    }
+}
+
+.button {
+    font-size: stencilNumber("fontSize-root");
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 17px 20px 16px;
+}
+
+.button--tertiary {
+    font-size: stencilNumber("fontSize-root");
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 17px 20px 16px;
+    color: $buttonStyle-tertiary-color;
+    background-color: $buttonStyle-tertiary-backgroundColor;
+    border: 1px solid $buttonStyle-tertiary-borderColor;
+
+    &:hover,
+    &:active {
+        color: $buttonStyle-tertiary-colorHover;
+        background-color: $buttonStyle-tertiary-backgroundColorHover;
+        border-color: $buttonStyle-tertiary-borderColorHover;
+    }
+
+    .home-layout-2 & {
+        box-shadow: 5px 5px 0 0 $buttonStyle-tertiary-backgroundColorHover, inset 0 0 0 0 $buttonStyle-tertiary-backgroundColorHover;
+        border: none;
+        height: 50px;
+
+        @media(min-width: 1025px) {
+
+            &:hover,
+            &:active,
+            &:focus {
+                box-shadow: 0 0 0 0 $buttonStyle-tertiary-backgroundColorHover, inset 0 0 0 0 $buttonStyle-tertiary-backgroundColorHover;
+            }
+        }
+    }
+
+    .home-layout-3 & {
+        font-size: stencilNumber("fontSize-root") + 1;
+        padding: 16px 20px 17px;
+        border-radius: 8px;
+    }
+    .home-layout-4 & {
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            width: 1px;
+            height: calc(100% - 2px);
+            background: $buttonStyle-tertiary-color;
+            opacity: 0.8;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 1px;
+            bottom: 1px;
+            width: calc(100% - 2px);
+            height: 1px;
+            background: $buttonStyle-tertiary-color;
+            opacity: 0.8;
+        }
+        @media(min-width: 1025px) {
+
+            &:hover,
+            &:active,
+            &:focus {
+                &:after,
+                &:before {
+                    background: $buttonStyle-tertiary-colorHover;
+                }
+            }
+        }
+    }
+}
+
+.button--primary {
+    font-size: stencilNumber("fontSize-root");
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 17px 20px 16px;
+
+    .home-layout-2 & {
+        box-shadow: 5px 5px 0 0 $buttonStyle-primary-backgroundColorHover, inset 0 0 0 0 $buttonStyle-primary-backgroundColorHover;
+        height: 50px;
+
+        @media(min-width: 1025px) {
+
+            &:hover,
+            &:active,
+            &:focus {
+                box-shadow: 0 0 0 0 $buttonStyle-primary-backgroundColorHover, inset 0 0 0 0 $buttonStyle-primary-backgroundColorHover;
+            }
+        }
+    }
+
+    .home-layout-3 & {
+        font-size: stencilNumber("fontSize-root") + 1;
+        padding: 16px 20px 17px;
+        border-radius: 8px;
+    }
+    .home-layout-4 & {
+        position: relative;
+        padding: 16px 20px;
+        &:before {
+            content: "";
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            width: 1px;
+            height: calc(100% - 2px);
+            background: $buttonStyle-primary-color;
+            opacity: 0.8;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 1px;
+            bottom: 1px;
+            width: calc(100% - 2px);
+            height: 1px;
+            background: $buttonStyle-primary-color;
+            opacity: 0.8;
+        }
+        @media(min-width: 1025px) {
+
+            &:hover,
+            &:active,
+            &:focus {
+                &:after,
+                &:before {
+                    background: $buttonStyle-primary-colorHover;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+
+    .button,
+    .button--tertiary,
+    .button--primary {
+        padding: 15px 15px 13px;
+    }
+}

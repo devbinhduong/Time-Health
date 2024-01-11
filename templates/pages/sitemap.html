@@ -1,0 +1,33 @@
+{{#partial "page"}}
+<div class="container--medium">
+    <h1 class="page-heading">{{lang 'sitemap.page_title'}}</h1>
+
+    <ul class="siteMap-lv1">
+    {{#each sitemap}}
+        <li>
+            <h2>{{label}}</h2>
+            <ul class="siteMap-lv2">
+                {{#each body}}
+                <li>
+                    <a href="{{url}}"><span>{{label}}</span></a>
+                    {{#if children}}
+                        <ul class="siteMap-lv3">
+                        {{#each children}}
+                            {{> components/sitemap/links}}
+                        {{/each}}
+                        </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+                {{#if show_all_link}}
+                <li>
+                    <a href="{{subsection_url}}"><span>{{lang 'sitemap.show_all_link'}}</span></a>
+                </li>
+                {{/if}}
+            </ul>
+        </li>
+    {{/each}}
+    </ul>
+</div>
+{{/partial}}
+{{> layout/base}}

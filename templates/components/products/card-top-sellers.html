@@ -1,0 +1,89 @@
+<article
+    class="card card-top-sellers
+    {{#if alternate}} card--alternate{{/if}}"
+    data-test="card-{{id}}"
+    data-event-type="{{event}}"
+    data-entity-id="{{id}}"
+    data-position="{{position}}"
+    data-name="{{name}}"
+    data-product-category="
+    {{#each category}}
+        {{#if @last}}
+            {{this}}
+        {{else}}
+            {{this}},
+        {{/if}}
+    {{/each}}"
+    data-product-brand="{{brand.name}}"
+    data-product-price="
+    {{#if price.with_tax}}
+        {{price.with_tax.value}}
+    {{else}}
+        {{price.without_tax.value}}
+    {{/if}}"
+>
+    <figure class="card-figure">
+        {{#if stock_level '===' 0}}
+            {{> components/products/product-badge
+                badge-type='sold-out'
+                badge_view=theme_settings.product_sold_out_badges
+                badge_label=theme_settings.pdp_sold_out_label
+            }}
+        {{else}}
+            {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
+                {{> components/products/product-badge
+                    badge-type='sale'
+                    badge_view=theme_settings.product_sale_badges
+                    badge_label=theme_settings.pdp_sale_badge_label
+                }}
+            {{/or}}
+        {{/if}}
+        <a href="{{url}}"
+           class="card-figure__link"
+           aria-label="{{name}},{{> components/products/product-aria-label}}"
+           data-event-type="product-click"
+        >
+            <div class="card-img-container">
+                {{> components/common/responsive-img
+                    image=image
+                    class="card-image"
+                    fallback_size=theme_settings.productgallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+            </div>
+        </a>
+    </figure>
+    <div class="card-body">
+        {{#if brand.name}}
+            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+        {{/if}}
+
+        <h3 class="card-title">
+            <a aria-label="{{name}},{{> components/products/product-aria-label}}"
+               href="{{url}}"
+               data-event-type="product-click">{{name}}</a>
+        </h3>
+        
+        {{#if show_rating}}
+            <p class="card-text" data-test-info-type="productRating">
+                <span class="rating--small">
+                    {{> components/products/ratings rating_target=name rating=rating}}
+                </span>
+            </p>
+        {{/if}}
+
+        <div class="card-text" data-test-info-type="price">
+            {{#or customer (unless settings.hide_price_from_guests)}}
+                {{> components/products/price price=price}}
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+        {{> components/products/bulk-discount-rates}}
+
+        <a href="{{url}}" data-event-type="product-click" class="card-figcaption-button" data-product-id="{{id}}">
+            <span>{{lang 'products.details'}}</span>
+        </a>
+    </div>
+</article>

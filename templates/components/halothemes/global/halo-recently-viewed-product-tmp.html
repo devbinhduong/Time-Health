@@ -1,0 +1,44 @@
+<div class="item" data-target="img-1" data-id="product-{{product.id}}" aria-label="{{product.title}}">
+  <a href="{{product.url}}" class="recent_item_url" aria-label="{{product.title}}">
+      <img src="{{getImage product.main_image 'thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" />
+  </a>
+  <div class="second-info">
+    <div class="first product-item" data-product-id="product-{{product.id}}">
+      <h4 class="card-title">
+          <a href="{{product.url}}">{{product.title}}</a>
+      </h4>
+      <div class="card-price" data-test-info-type="price">
+          {{#or customer (unless settings.hide_price_from_guests)}}                    
+              {{#if price_range}}
+                  {{> components/products/price-range}}
+              {{else}}
+                  {{> components/products/price price=product.price customer=customer}}
+              {{/if}}
+          {{else}}
+              {{> components/common/login-for-pricing}}
+          {{/or}}
+      </div>
+
+      {{#or customer (unless settings.hide_price_from_guests)}}
+        {{#if product.out_of_stock_message }}
+            <a href="{{product.url}}" class="card_out_of_stock" disabled data-product-id="{{product.id}}">{{product.out_of_stock_message}}</a>
+        {{else}}
+            {{#if product.options}}
+                <a href="{{product.url}}" data-event-type="product-click" class="card-figcaption-link" data-product-id="{{product.id}}">{{lang 'products.choose_options'}}</a>
+            {{else}}
+                {{#if product.pre_order}}
+                    <a href="{{product.url}}" class="card-figcaption-link">{{lang 'products.pre_order'}}</a>
+                {{else}}
+                    {{#if product.can_purchase }}
+                        <a href="{{product.cart_url}}?action=add&product_id={{product.id}}" class="card-figcaption-link themevale_btnATC" data-product-id="{{product.id}}">{{lang 'products.add_to_cart'}}</a>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    {{/or}}
+    </div>
+    <a class="text-no-underline second" href="{{product.url}}" aria-label="{{product.title}}">
+      <img src="{{getImage product.main_image 'thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" />
+    </a>
+  </div>
+</div>

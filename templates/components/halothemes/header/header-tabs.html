@@ -1,0 +1,54 @@
+<div class="header-top">
+	<div class="container-full">
+		<div class="header-tabs">
+			<ul class="header-tabs--list" data-menu-tab>
+				{{#if theme_settings.tab_name_1}}
+				<li class="tab-item tab--item--active" data-page="/"><a href="{{urls.home}}">{{theme_settings.tab_name_1}}</a></li>
+				{{/if}}
+				{{#if theme_settings.tab_name_2}}
+				<li class="tab-item" data-page="{{theme_settings.tab_lk_2}}"><a href="{{theme_settings.tab_lk_2}}">{{theme_settings.tab_name_2}}</a></li>
+				{{/if}}
+				{{#if theme_settings.tab_name_3}}
+				<li class="tab-item" data-page="{{theme_settings.tab_lk_3}}"><a href="{{theme_settings.tab_lk_3}}">{{theme_settings.tab_name_3}}</a></li>
+				{{/if}}
+			</ul>
+			{{#if theme_settings.help_title}}
+			<div class="need-help">
+				<button class="need-help--btn" type="button"><span class="icon-help">?</span><span class="text">{{theme_settings.help_title}}</span></button>
+				<div class="need-help--dropdown">
+					<h3 class="need-help-title">{{theme_settings.help_title}}</h3>
+					<button class="close" type="button" aria-label="Close" tabindex="0">
+                      <svg class="icon" role="img" aria-hidden="true"><use xlink:href="#icon-close"></use></svg>
+                    </button>
+					<ul class="need-help--list" />
+						{{#if settings.phone_number}}
+							{{#if theme_settings.help_phone}}
+								<li class="help-item"><a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a></li>
+							{{/if}}
+						{{/if}}
+						{{#if theme_settings.help_txt_1}}
+						<li class="help-item"><a href="{{theme_settings.help_lk_1}}">{{theme_settings.help_txt_1}}</a></li>
+						{{/if}}
+						{{#if theme_settings.help_txt_2}}
+						<li class="help-item"><a href="{{theme_settings.help_lk_2}}">{{theme_settings.help_txt_2}}</a></li>
+						{{/if}}
+						{{#if theme_settings.help_txt_3}}
+						<li class="help-item"><a href="{{theme_settings.help_lk_3}}">{{theme_settings.help_txt_3}}</a></li>
+						{{/if}}
+						{{#if theme_settings.help_txt_4}}
+						<li class="help-item"><a href="{{theme_settings.help_lk_4}}">{{theme_settings.help_txt_4}}</a></li>
+						{{/if}}
+						{{#if theme_settings.help_txt_5}}
+						<li class="help-item"><a href="{{theme_settings.help_lk_5}}">{{theme_settings.help_txt_5}}</a></li>
+						{{/if}}
+						{{#if theme_settings.help_txt_6}}
+						<li class="help-item"><a href="{{theme_settings.help_lk_6}}">{{theme_settings.help_txt_6}}</a></li>
+						{{/if}}
+					</ul>
+				</div>
+				<div class="background-overlay"></div>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

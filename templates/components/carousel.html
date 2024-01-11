@@ -1,0 +1,163 @@
+<div class="{{#if theme_settings.halo_homepage_layout_4}}container-full{{else}}container{{/if}} container--heroCarousel">
+    <section class="heroCarousel"
+        data-slick='{
+            "arrows": {{arrows}},
+            "mobileFirst": true,
+            "adaptiveHeight": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "fade": true,
+            "autoplay": true,
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "slide": "[data-hero-slide]"
+        }'
+    >
+        {{#each carousel.slides}}
+        {{#if button_text}}
+        <div data-hero-slide="{{@index}}">
+        {{else}}
+        <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}">
+        {{/if}}
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                {{#if @first}}
+                    <div class="heroCarousel-image-wrapper{{#unless ../theme_settings.cl_sl1_img_mobile}} no-image-mobile{{/unless}}">
+                        {{#if ../theme_settings.cl_sl1_img_mobile}}
+                            <img class="heroCarousel-image-mobile" src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{../theme_settings.cl_sl1_img_mobile}}" alt="{{stencil_image.alt}}" />
+                        {{/if}}
+                        {{> components/common/responsive-img
+                            image=stencil_image
+                            class="heroCarousel-image"
+                            fallback_size='1280w'
+                            lazyload='disabled'
+                        }}
+                    </div>
+                {{else}}
+                    {{#if @index '==' 1}}
+                        <div class="heroCarousel-image-wrapper{{#unless ../theme_settings.cl_sl2_img_mobile}} no-image-mobile{{/unless}}">
+                        {{#if ../theme_settings.cl_sl2_img_mobile}}
+                            <img class="lazyload heroCarousel-image-mobile" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{../theme_settings.cl_sl2_img_mobile}}" alt="{{stencil_image.alt}}" />
+                        {{/if}}
+                    {{/if}}
+                    {{#if @index '==' 2}}
+                        <div class="heroCarousel-image-wrapper{{#unless ../theme_settings.cl_sl3_img_mobile}} no-image-mobile{{/unless}}">
+                        {{#if ../theme_settings.cl_sl3_img_mobile}}
+                            <img class="lazyload heroCarousel-image-mobile" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{../theme_settings.cl_sl3_img_mobile}}" alt="{{stencil_image.alt}}" />
+                        {{/if}}
+                    {{/if}}
+                    {{#if @index '==' 3}}
+                        <div class="heroCarousel-image-wrapper{{#unless ../theme_settings.cl_sl4_img_mobile}} no-image-mobile{{/unless}}">
+                        {{#if ../theme_settings.cl_sl4_img_mobile}}
+                            <img class="lazyload heroCarousel-image-mobile" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{../theme_settings.cl_sl4_img_mobile}}" alt="{{stencil_image.alt}}" />
+                        {{/if}}
+                    {{/if}}
+                    {{#if @index '==' 4}}
+                        <div class="heroCarousel-image-wrapper{{#unless ../theme_settings.cl_sl5_img_mobile}} no-image-mobile{{/unless}}">
+                        {{#if ../theme_settings.cl_sl5_img_mobile}}
+                            <img class="lazyload heroCarousel-image-mobile" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{../theme_settings.cl_sl5_img_mobile}}" alt="{{stencil_image.alt}}" />
+                        {{/if}}
+                    {{/if}}
+                    {{> components/common/responsive-img
+                        image=stencil_image
+                        class="heroCarousel-image"
+                        fallback_size='1280w'
+                        lazyload='lazyload'
+                    }}
+                    {{#if @index '==' 1}}
+                        </div>
+                    {{/if}}
+                    {{#if @index '==' 2}}
+                        </div>
+                    {{/if}}
+                    {{#if @index '==' 3}}
+                        </div>
+                    {{/if}}
+                    {{#if @index '==' 4}}
+                        </div>
+                    {{/if}}
+                {{/if}}
+
+                {{#if @first}}
+                    {{#if heading}}
+                        {{> components/carousel-content subtitle=../theme_settings.cl_slide1_subtitle btn_2=../theme_settings.cl_sl1_btn2 btn_2_lk=../theme_settings.cl_sl1_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                    {{else}}
+                        {{#if text}}
+                            {{> components/carousel-content subtitle=../theme_settings.cl_slide1_subtitle btn_2=../theme_settings.cl_sl1_btn2 btn_2_lk=../theme_settings.cl_sl1_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                        {{else}}
+                            {{#if button_text}}
+                                {{> components/carousel-content subtitle=../theme_settings.cl_slide1_subtitle btn_2=../theme_settings.cl_sl1_btn2 btn_2_lk=../theme_settings.cl_sl1_btn2_lk show_background=false home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+
+                {{#if @index '==' 1}}
+                    {{#if heading}}
+                        {{> components/carousel-content subtitle=../theme_settings.cl_slide2_subtitle btn_2=../theme_settings.cl_sl2_btn2 btn_2_lk=../theme_settings.cl_sl2_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                    {{else}}
+                        {{#if text}}
+                            {{> components/carousel-content subtitle=../theme_settings.cl_slide2_subtitle btn_2=../theme_settings.cl_sl2_btn2 btn_2_lk=../theme_settings.cl_sl2_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                        {{else}}
+                            {{#if button_text}}
+                                {{> components/carousel-content subtitle=../theme_settings.cl_slide2_subtitle btn_2=../theme_settings.cl_sl2_btn2 btn_2_lk=../theme_settings.cl_sl2_btn2_lk show_background=false home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+
+                {{#if @index '==' 2}}
+                    {{#if heading}}
+                        {{> components/carousel-content subtitle=../theme_settings.cl_slide3_subtitle btn_2=../theme_settings.cl_sl3_btn2 btn_2_lk=../theme_settings.cl_sl3_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                    {{else}}
+                        {{#if text}}
+                            {{> components/carousel-content subtitle=../theme_settings.cl_slide3_subtitle btn_2=../theme_settings.cl_sl3_btn2 btn_2_lk=../theme_settings.cl_sl3_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                        {{else}}
+                            {{#if button_text}}
+                                {{> components/carousel-content subtitle=../theme_settings.cl_slide3_subtitle btn_2=../theme_settings.cl_sl3_btn2 btn_2_lk=../theme_settings.cl_sl3_btn2_lk show_background=false home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+
+                {{#if @index '==' 3}}
+                    {{#if heading}}
+                        {{> components/carousel-content subtitle=../theme_settings.cl_slide4_subtitle btn_2=../theme_settings.cl_sl4_btn2 btn_2_lk=../theme_settings.cl_sl4_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                    {{else}}
+                        {{#if text}}
+                            {{> components/carousel-content subtitle=../theme_settings.cl_slide4_subtitle btn_2=../theme_settings.cl_sl4_btn2 btn_2_lk=../theme_settings.cl_sl4_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                        {{else}}
+                            {{#if button_text}}
+                                {{> components/carousel-content subtitle=../theme_settings.cl_slide4_subtitle btn_2=../theme_settings.cl_sl4_btn2 btn_2_lk=../theme_settings.cl_sl4_btn2_lk show_background=false home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+
+                {{#if @index '==' 4}}
+                    {{#if heading}}
+                        {{> components/carousel-content subtitle=../theme_settings.cl_slide5_subtitle btn_2=../theme_settings.cl_sl5_btn2 btn_2_lk=../theme_settings.cl_sl4_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                    {{else}}
+                        {{#if text}}
+                            {{> components/carousel-content subtitle=../theme_settings.cl_slide5_subtitle btn_2=../theme_settings.cl_sl5_btn2 btn_2_lk=../theme_settings.cl_sl4_btn2_lk show_background=true home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                        {{else}}
+                            {{#if button_text}}
+                                {{> components/carousel-content subtitle=../theme_settings.cl_slide5_subtitle btn_2=../theme_settings.cl_sl5_btn2 btn_2_lk=../theme_settings.cl_sl4_btn2_lk show_background=false home_layout_1=../theme_settings.halo_homepage_layout_1}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                
+            </div>
+        {{#if button_text}}
+        </div>
+        {{else}}
+        </a>
+        {{/if}}
+        {{/each}}
+        {{#if carousel.slides.length '>' 1}}
+            {{> components/carousel-content-announcement}}
+            {{#if play_pause_button}}
+                {{> components/carousel-play-pause-button}}
+            {{/if}}
+        {{/if}}
+    </section>
+</div>

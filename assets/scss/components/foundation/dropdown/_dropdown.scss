@@ -1,0 +1,124 @@
+// =============================================================================
+// DROPDOWN (CSS)
+// =============================================================================
+
+
+.dropdown {
+    left: -9999px;
+    outline: none;
+    position: absolute;
+}
+
+.dropdown-menu {
+    z-index: $zIndex-lowest;
+
+    &.is-loading .loadingOverlay {
+        background: none;
+        padding: (spacing("double") + spacing("single")) 0;
+        position: relative;
+    }
+
+    &.is-open {
+        display: block;
+    }
+
+    .button {
+        &:focus {
+            z-index: $zIndex-lowest;
+        }
+    }
+}
+
+.dropdown-menu-item {
+    text-align: left;
+
+    &:first-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-top: spacing("half");
+        }
+    }
+
+    &:last-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-bottom: spacing("base");
+        }
+    }
+
+    > a {
+        margin: 0;
+        padding: spacing("sixth") (spacing("half") + spacing("quarter"));
+        text-decoration: none;
+    }
+}
+
+.form-wishlist {
+    position: relative;
+}
+
+.dropdown-menu-button {
+    width: 100%;
+
+    .icon {
+        float: right;
+        margin-left: 10px;
+    }
+
+    &:focus {
+        z-index: $zIndex-lower;
+    }
+}
+
+#wishlist-dropdown.is-open,
+#wishlist-dropdown2.is-open {
+    background: transparent;
+    left: auto !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin-top: 10px;
+    -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    [data-wishlist] {
+        border-top: none;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+
+    .button {
+        background-color: stencilColor("dropdown--wishList-backgroundColor");
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        width: 100%;
+        text-transform: initial;
+        font-size: stencilNumber("fontSize-root");
+        font-weight: fontWeight("normal");
+        color: stencilColor("color-textLink");
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: stencilColor("color-textLink--hover");
+        }
+    }
+
+    .button--has-items {
+        font-weight: 700;
+    }
+
+    li:not(:last-child) .button {
+        border-radius: 0px;
+        margin-bottom: 0px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+}

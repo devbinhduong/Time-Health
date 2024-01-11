@@ -1,0 +1,97 @@
+<div class="quickSearch-form">
+  <div class="container">
+    {{> components/common/modal/modal-close-btn additional_attr='data-drop-down-close'}}
+    
+    <form class="form" onsubmit="return false" data-url="{{urls.search}}" data-quick-search-form>
+        <fieldset class="form-fieldset">
+            <div class="form-field">
+                <label class="is-srOnly" for="{{name}}">{{lang "search.quick_search.input_label"}}</label>
+                <input class="form-input"
+                       data-search-quick
+                       name="{{name}}"
+                       id="{{name}}"
+                       data-error-message="{{lang 'search.error.empty_field'}}"
+                       placeholder="{{lang 'search.quick_search.input_placeholder'}}"
+                       autocomplete="off"
+                >
+                <button class="quickSearch-btn" type="submit" aria-label="Submit Quick Search">
+                  <svg aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </button>
+            </div>
+        </fieldset>
+    </form>
+  </div>
+</div>
+<div class="container">
+    <section class="quickSearchResults" data-bind="html: results"></section>
+
+    <p role="status"
+       aria-live="polite"
+       class="aria-description--hidden"
+       data-search-aria-message-predefined-text="{{{lang 'search.results.quick_count_live'}}}"
+    ></p>
+
+    {{#or (if theme_settings.quickSearch_Recommended_Products) (if theme_settings.quickSearch_topSearches)}}
+      <div class="quickSearch-recommended">
+        {{#if theme_settings.quickSearch_Recommended_Products}}
+          <div class="qsRecommended-products">
+            <h3 class="topSearches-title">{{lang 'search.recommended_products_title'}}</h3>
+            <section class="productCarousel">
+              {{> components/halothemes/products/halo-sample-product}}
+              {{> components/halothemes/products/halo-sample-product}}
+              {{> components/halothemes/products/halo-sample-product}}
+            </section>
+          </div>
+        {{/if}}
+        {{#if theme_settings.quickSearch_topSearches}}
+          <div class="qsRecommended-topSearches">
+            <h3 class="topSearches-title">{{lang 'search.top_searches'}}</h3>
+            <ul class="topSearches-list">
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text1}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text2}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text3}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text4}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text5}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text6}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a class="topSearches-btn">
+                  <span>{{theme_settings.quickSearch_topSearches_text7}}</span>
+                  <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        {{/if}}
+      </div>
+    {{/or}}
+</div>

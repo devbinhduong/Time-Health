@@ -1,0 +1,864 @@
+// =============================================================================
+// FOOTER (CSS)
+// =============================================================================
+
+
+// Layout and columns
+// -----------------------------------------------------------------------------
+//
+// 1. To enable the grid's display: inline-block; to work properly, we need to
+//    remove the white-space that it creates between columns with font-size: 0;
+// 2. Re-set the font-size that was reduced to 0 in point 1 for children.
+//
+// -----------------------------------------------------------------------------
+
+.footer {
+    background-color: $footer-background;
+    border-top: container("border");
+    position: relative;
+
+    .home-layout-2[data-page-type="default"] & {
+        .container.container-custom {
+            padding: 0 15px;
+
+            @media (min-width: 1025px) {
+                padding: 0 75px;
+            }
+        }
+    }
+
+    .home-layout-3[data-page-type="default"] & {
+        .container.container-custom {
+            padding: 0 15px;
+
+            @media (min-width: 1025px) {
+                padding: 0 75px;
+            }
+        }
+    }
+}
+
+.footer-title-sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.footer-info {
+    margin: 0 -15px;
+    max-width: none;
+    width: auto;
+    font-size: 0; // 1
+    padding: 60px 0;
+    .footer--style2 &{
+        padding: 60px 0 40px 0;
+    }
+    .home-layout-2 & {
+        padding: 68px 0 40px;
+    }
+
+    .home-layout-3 & {
+        padding: 58px 0 40px;
+    }
+}
+
+.footer-info-col {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: stencilColor("color-textSecondary");
+    display: inline-block;
+    float: none;
+    font-size: fontSize("base"); // 2
+    margin-bottom: spacing("double");
+    text-align: left;
+    vertical-align: top;
+    // TODO: specifically use vendor only for IE11 since overflow-wrap is not supported here 
+    -ms-word-break: break-all;
+    overflow-wrap: break-word;
+
+    @include breakpoint("small") {
+        width: width("6/12");
+    }
+
+    @include breakpoint("medium") {
+        width: width("4/12");
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.footer-info-col--small {
+    @include breakpoint("medium") {
+        width: width("2/12");
+    }
+}
+
+.footer-info-col--social {
+    width: 100%;
+}
+
+.footer-info-col--left {
+    @include breakpoint("small") {
+        padding: 0;
+    }
+}
+
+.footer-info-col--right {
+    @include breakpoint("small") {
+        left: 50%;
+        position: inherit;
+        width: 50%;
+    }
+
+    @include breakpoint("medium") {
+        left: 0;
+        padding: 0;
+        text-align: right;
+        width: 100%;
+    }
+}
+
+.footer-info-col {
+    &[data-section-type="newsletterSubscription"] {
+        .footer--style2 & {
+            @media (min-width: 1200px) {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            @media (min-width: 1650px) {
+                padding-left: 85px;
+                padding-right: 85px;
+            }
+            .form-prefixPostfix {
+                display: flex;
+                margin: 0;
+                border: 1px solid stencilColor("footer_text_color");
+                .form-input {
+                    width: 100%;
+                    height: 44px;
+                    line-height: 44px;
+                    text-align: left;
+                    margin: 0;
+                    padding: 0 15px;
+                    border-radius: 0;
+                    border-color: transparent;
+                    background: transparent;
+                    color: stencilColor("footer_text_color");
+                    @include breakpoint("medium") {
+                        height: 55px;
+                        line-height: 55px;
+                    }
+                    &::placeholder {
+                        color: stencilColor("footer_text_color");
+                        text-transform: capitalize;
+                    }
+                    &:-ms-input-placeholder {
+                        color: stencilColor("footer_text_color");
+                        text-transform: capitalize;
+                    }
+                    &::-webkit-input-placeholde {
+                        color: stencilColor("footer_text_color");
+                        text-transform: capitalize;
+                    }
+                }
+
+                .button {
+                    width: 44px;
+                    height: 44px;
+                    margin-bottom: 0;
+                    font-size: 0;
+                    position: relative;
+                    margin-left: 0;
+                    border: none;
+                    margin-top: 0;
+                    background: stencilColor("footer_text_color");
+                    &::before, &::after {
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        width: 10px;
+                        height: 2px;
+                        margin-left: -4px;
+                        background: stencilColor("footer-backgroundColor");
+                    }
+                    &::before {
+                        top: 50%;
+                        transform: rotate(45deg);
+                        margin-top: -4px;
+                    }
+                    &::after {
+                        bottom: 50%;
+                        transform: rotate(-45deg);
+                        margin-bottom: -4px;
+                    }
+                    &:hover, &:active {
+                        background: stencilColor("footer_text_color");
+                        &::before, &::after {
+                            background: stencilColor("footer-backgroundColor");
+                        }
+                    }
+                    @include breakpoint("medium") {
+                        width: 55px;
+                        height: 55px;
+                    }
+                }
+            }
+        }
+    }
+    &[data-section-type="footer-logoRight"] {
+        .footer-info__logo {
+            @media(min-width: 1200px) {
+                text-align: right;
+            }
+        }
+        @media(max-width: 767px) {
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media(min-width: 1261px) {
+        &[data-section-type="newsletterSubscription"] {
+            .form-prefixPostfix.wrap {
+                -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+    @media(min-width: 1200px) {
+        margin-bottom: 20px;
+
+        &[data-section-type="storeInfo"] {
+            width: 22.22222222222222%;
+            .footer--style2 & {
+                width: 19%;
+            }
+        }
+
+        &[data-section-type="footer-categories"],
+        &[data-section-type="footer-webPages"],
+        &[data-section-type="footer-brands"] {
+            width: 16.66666666666667%;
+            .footer--style2 & {
+                width: 13%;
+            }
+        }
+
+        &[data-section-type="newsletterSubscription"] {
+            width: 27.77777777777778%;
+            .footer--style2 & {
+                width: 28%;
+            }
+        }
+        &[data-section-type="footer-logoRight"] {
+             width: 14%;
+            .footer-info__logo {
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    @media(min-width: 768px) {
+
+        &[data-section-type="footer-categories"],
+        &[data-section-type="footer-webPages"],
+        &[data-section-type="footer-brands"] {
+            .footer-info-list {
+                display: block !important;
+            }
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        width: 33.33333333333333%;
+        .footer--style2 &{
+            width: 24%;          
+        }
+        &[data-section-type="storeInfo"] {
+            .footer--style2 &{
+                width: 28%;          
+            }
+        } 
+        &[data-section-type="newsletterSubscription"] {
+            width: 66.66666666666667%;
+            max-width: 450px;
+            .footer--style2 &{
+                width: 76%;
+                max-width: 100%;
+                > * {
+                    max-width: 66.6666%;
+                }
+            }
+        }
+        &[data-section-type="footer-logoRight"] {
+            width: 24%;       
+        }
+    }
+
+    @media(max-width: 767px) {
+        width: 100%;
+
+        &[data-section-type="newsletterSubscription"] {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 4rem;
+            .footer--style2 &{
+                width: 100%;
+            }
+        }
+
+        &[data-section-type="footer-categories"],
+        &[data-section-type="footer-webPages"],
+        &[data-section-type="footer-brands"] {
+            margin-bottom: 0;
+
+            .footer-info-heading {
+                border-bottom: 1px solid #ffffff;
+                margin-bottom: 0;
+                padding: 15px 0;
+                position: relative;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:before {
+                    top: 50%;
+                    right: 5px;
+                    z-index: 2;
+                    content: "";
+                    width: 2px;
+                    height: 12px;
+                    position: absolute;
+                    transition: all .4s ease;
+                    transform: translateY(-50%);
+                    background-color: #ffffff;
+                }
+
+                &:after {
+                    top: 50%;
+                    right: 0;
+                    z-index: 2;
+                    content: "";
+                    width: 12px;
+                    height: 2px;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    background-color: #ffffff;
+                }
+            }
+
+            &.open-dropdown .footer-info-heading:before {
+                transform: translateY(-50%) rotate(90deg);
+            }
+
+            .footer-info-list {
+                display: none;
+                margin-bottom: 30px;
+                margin-top: 12px;
+            }
+        }
+    }
+}
+
+.footer-bottom {
+    background-color: stencilColor("footer-bgBottom-color");
+    padding: 35px 0 30px;
+
+    .home-layout-2 & {
+        padding: 35px 0 18px;
+    }
+
+    .home-layout-3 & {
+        padding: 35px 0 13px;
+    }
+    .home-layout-4 & {
+        border-top: 1px solid rgba(stencilColor("footer_text_color"), .3);
+    }
+    .footer-copyright {
+        display: inline-block;
+    }
+
+    .footer-bottom__container {
+        font-size: 0;
+    }
+
+    .footer-bottom__left {
+        font-size: stencilNumber("fontSize-root");
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 15px;
+        text-align: left;
+        margin-bottom: 15px;
+
+        .home-layout-3 & {
+            font-size: stencilNumber("fontSize-root") - 3;
+        }
+    }
+
+    .footer-bottom__center {
+        font-size: stencilNumber("fontSize-root");
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 15px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .footer-bottom__right {
+        font-size: stencilNumber("fontSize-root");
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 15px;
+        text-align: right;
+
+        .footer-payment-icons {
+            margin-top: 0;
+        }
+    }
+
+    .has-item-center {
+
+        .footer-bottom__left,
+        .footer-bottom__center,
+        .footer-bottom__right {
+            width: 33.33334%;
+        }
+    }
+
+    @media(max-width: 1199px) {
+
+        .footer-bottom__left,
+        .footer-bottom__center,
+        .footer-bottom__right {
+            width: 100%;
+            text-align: left;
+            padding: 0;
+        }
+    }
+
+    .home-layout-2 & {
+        @media(max-width: 1279px) {
+
+            .footer-bottom__left,
+            .footer-bottom__center,
+            .footer-bottom__right {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            .footer-bottom__center {
+                .footer-copyright {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .home-layout-3 & {
+        @media(max-width: 1279px) {
+
+            .footer-bottom__left,
+            .footer-bottom__center,
+            .footer-bottom__right {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            .footer-bottom__center {
+                .footer-copyright {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.footer-info {
+    [data-section-type="storeInfo"] {
+
+        address {
+            font-style: normal;
+            line-height: 26px;
+            margin-bottom: 15px;
+            letter-spacing: 0.02em;
+
+            .home-layout-2 & {
+                font-size: stencilNumber("fontSize-root");
+            }
+
+            .home-layout-3 & {
+                font-size: stencilNumber("fontSize-root");
+            }
+        }
+
+        .footer-info__phone {
+            display: block;
+            margin-bottom: 0;
+
+            a {
+                display: inline-block;
+                line-height: 26px;
+                text-decoration: none;
+                letter-spacing: 0.02em;
+
+                .home-layout-2 & {
+                    font-size: stencilNumber("fontSize-root");
+                }
+
+                .home-layout-3 & {
+                    font-size: stencilNumber("fontSize-root");
+                }
+            }
+        }
+
+        .footer-info-col--social {
+            margin-top: 30px;
+
+            .socialLinks {
+                line-height: 1;
+            }
+        }
+    }
+
+    .footer-info-list {
+
+        >li>a {
+            padding: 7px 0;
+            display: inline-block;
+        }
+    }
+
+    [data-section-type="newsletterSubscription"] {
+
+        .footer-info-heading {
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 22px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            .form-field {
+                margin-bottom: 0;
+            }
+
+            .home-layout-2 & {
+                .form-input {
+                    color: #000000;
+
+                    &::placeholder {
+                        color: #646464;
+                    }
+
+                    &:-ms-input-placeholder {
+                        color: #646464;
+                    }
+
+                    &::-ms-input-placeholder {
+                        color: #646464;
+                    }
+                }
+
+                .button {
+                    box-shadow: none;
+                    background-color: $buttonStyle-tertiary-backgroundColorHover;
+                    border: 1px solid $buttonStyle-tertiary-backgroundColorHover;
+                    min-width: 132px;
+
+                    @media(min-width: 1025px) {
+                        &:hover {
+                            color: $buttonStyle-tertiary-backgroundColor;
+                            background-color: $buttonStyle-tertiary-color;
+                            border: 1px solid $buttonStyle-tertiary-backgroundColor;
+                        }
+                    }
+                }
+            }
+
+            .home-layout-3 & {
+                .form-input {
+                    color: #000000;
+
+                    &::placeholder {
+                        color: #646464;
+                    }
+
+                    &:-ms-input-placeholder {
+                        color: #646464;
+                    }
+
+                    &::-ms-input-placeholder {
+                        color: #646464;
+                    }
+                }
+
+                .button {
+                    box-shadow: none;
+                    background-color: $buttonStyle-tertiary-backgroundColor;
+                    border: 1px solid $buttonStyle-tertiary-backgroundColor;
+                    color: $buttonStyle-tertiary-color;
+                    min-width: 126px;
+                    font-size: $fontSize-root;
+                    border-radius: 8px;
+
+                    @media(min-width: 1025px) {
+                        &:hover {
+                            color: $buttonStyle-tertiary-backgroundColor;
+                            background-color: $buttonStyle-tertiary-backgroundColorActive;
+                        }
+                    }
+                }
+            }
+
+            @media(min-width: 1261px) {
+                .form-prefixPostfix-button--postfix {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}
+
+// Content
+// -----------------------------------------------------------------------------
+
+.footer-info-heading {
+    color: stencilColor("footer_heading_color");
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: inherit;
+    margin-bottom: 12px;
+    font-family: $body-font-family;
+
+    .home-layout-2 & {
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-bottom: 17px;
+    }
+
+    .home-layout-3 & {
+        font-size: 19px;
+        text-transform: capitalize;
+        margin-bottom: 17px;
+        font-weight: $fontWeight-black;
+        font-family: $fontFamily-headings;
+    }
+    .footer--style2 & {
+        text-transform: uppercase;
+        font-size: $fontSize-root;
+        margin-bottom: 25px;
+        @media (min-width: 768px) {
+            text-decoration: solid underline 2px;
+            text-underline-offset: 9px;
+            font-size: $fontSize-root + 1;
+        }
+    }
+}
+
+.footer-info-col {
+    .footer-info__logo_txt {
+        color: stencilColor("footer_text_color");
+        text-transform: uppercase;
+        margin-bottom: 28px;
+        font-size: $fontSize-root;
+        font-weight: 700;
+        @media (min-width: 768px) {
+            text-decoration: solid underline 2px;
+            text-underline-offset: 9px;
+            font-size: $fontSize-root + 1;
+        }
+    }
+    a {
+        text-underline-offset: 3px;
+    }
+    a,
+    p,
+    address {
+        color: stencilColor("footer_text_color");
+
+        &:hover {
+            color: stencilColor("footer_text_colorHover");
+        }
+    }
+    .footer-info__phone,.footer-info__mail {
+         svg {
+            margin-top: -3px;
+            margin-right: 6px;
+        }
+    }
+
+    .socialLinks .icon svg {
+        fill: stencilColor("footer_text_color");
+    }
+}
+
+.footer-info-list {
+    list-style: none;
+    margin-left: 0;
+
+    a {
+        color: stencilColor("footer_text_color");
+        text-decoration: none;
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: stencilColor("footer_text_colorHover");
+            .home-layout-4 &{
+                text-decoration: underline;
+                text-underline-offset: 5px;
+            }
+        }
+
+        // scss-lint:enable NestingDepth
+    }
+}
+
+.footer-copyright {
+    text-align: left;
+
+    >.powered-by {
+        color: stencilColor("footer_text_color");
+        margin: 0;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+
+        .home-layout-2 & {
+            color: #707070;
+        }
+
+        .home-layout-3 & {
+            color: #010101;
+            text-align: center;
+        }
+    }
+
+    >.paypal-credit {
+        color: stencilColor("color-textSecondary");
+        font-size: fontSize("tiny");
+        margin: 1em 0 2em;
+    }
+
+    a {
+        color: stencilColor("footer_text_color");
+        text-decoration: none;
+         &:hover {
+            color: stencilColor("color-textSecondary");
+        }
+        .home-layout-2 & {
+            color: #707070;
+
+            &:hover {
+                color: stencilColor("color-textSecondary");
+            }
+        }
+
+        .home-layout-3 & {
+            color: #010101;
+
+            &:hover {
+                color: stencilColor("color-textSecondary");
+            }
+        }
+
+        .home-layout-4 & {
+            &:hover {
+                color: stencilColor("footer_text_color");
+                text-decoration: underline;
+                text-underline-offset: 5px;
+            }
+        }
+    }
+}
+
+.footer-payment-icons {
+    height: remCalc(40);
+    margin-top: spacing("single");
+    font-size: 0;
+    height: auto;
+
+    @include breakpoint("medium") {
+        margin-top: spacing("double");
+    }
+
+    .footer-payment-icon {
+        height: 24px;
+        vertical-align: middle;
+        width: 38px;
+        border-radius: 2px;
+        background-color: #ffffff;
+        margin-bottom: 15px;
+        margin-right: 15px;
+
+        &.footer-payment-icon--visa {
+            background: #0e4595;
+        }
+
+        &.footer-payment-icon--americanExpress {
+            background: #2478bc;
+        }
+
+        &.footer-payment-icon--cirrus {
+            background: #013474;
+        }
+
+        &.footer-payment-icon--westernUnion {
+            background: #f7de4b;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    svg {
+        fill: stencilColor("icon-color");
+    }
+}
+
+.footer-geotrust-ssl-seal {
+    @include breakpoint("small") {
+        bottom: 0;
+        position: absolute;
+        right: 16px;
+    }
+
+    table {
+        margin: auto;
+    }
+}
+
+.footer-newsletter-summary {
+    text-align: left;
+}
+
+@media(max-width: 767px) {
+    .footer-info {
+        padding: 30px 0;
+    }
+
+    .footer-info-col[data-section-type="newsletterSubscription"] {
+        margin-bottom: 20px;
+    }
+}

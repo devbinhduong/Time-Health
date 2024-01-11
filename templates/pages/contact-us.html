@@ -1,0 +1,108 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page contact-us">
+    {{#unless theme_settings.hide_contact_us_page_heading }}
+        <div class="halo-heading">
+            <h1 class="page-heading">{{page.title}}</h1>
+        </div>
+    {{/unless}}
+
+    <div class="halo_map">
+        {{#if theme_settings.halo_map}}
+            <div id="google-map">
+                {{> components/halothemes/pages/contact-us-map}}
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="container--medium">
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+        <div class="page-content halo_contact-us">
+            <div id="contact-us-page">
+                <div class="halo_form">
+                    {{#if forms.contact.success}}
+                        <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+                    {{else}}
+                        {{{page.content}}}
+                        {{> components/page/contact-us-form}}
+                    {{/if}}
+
+                </div>
+
+                <!-- start halo_location -->
+                <div class="halo_location">
+                    <div class="halo_location__container">
+                        {{#if theme_settings.location_title}}
+                            <h4 class="title">{{theme_settings.location_title}}</h4>
+                        {{/if}}    
+                        <div class="content">
+                            {{#if settings.phone_number}}
+                                <div class="store-info">
+                                    <svg class="icon" aria-label="Icon Email"><use xlink:href="#icon-phone"></svg>
+                                    <p>
+                                        <span>{{settings.phone_number}}</span>
+                                        {{#if theme_settings.location_open_hour}}
+                                            <span>{{theme_settings.location_open_hour}}</span>
+                                        {{/if}}
+                                    </p>
+                                </div>
+                            {{/if}}
+                            {{#if theme_settings.store_owner_email}}
+                                <div class="store-info">
+                                    <svg class="icon" aria-label="Icon Email"><use xlink:href="#icon-mail"></svg>
+                                    <a href="mailto:{{theme_settings.store_owner_email}}"><span>{{theme_settings.store_owner_email}}</span></a>
+                                </div>
+                            {{/if}}
+                            {{#if theme_settings.store_location_chat}}
+                                <div class="store-info">
+                                    <svg class="icon" aria-label="Icon Email"><use xlink:href="#icon-live-chat"></svg>
+                                    <a href="{{theme_settings.store_location_chat_link}}"><span>{{theme_settings.store_location_chat}}</span></a>
+                                </div>
+                            {{/if}}
+                            {{#if theme_settings.store_location_mess}}
+                                <div class="store-info">
+                                    <svg class="icon icon-pen" aria-label="Icon Email"><use xlink:href="#icon-pen"></svg>
+                                    <a href="{{theme_settings.store_location_mess_link}}"><span>{{theme_settings.store_location_mess}}</span></a>
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="content">
+                            {{#if theme_settings.store_location_faq}}
+                                <a class="store-link" href="{{theme_settings.store_location_faq_link}}"><span>{{theme_settings.store_location_faq}}</span></a>
+                            {{/if}}
+                            {{#if theme_settings.store_location_find}}
+                                <a class="store-link" href="{{theme_settings.store_location_find_link}}"><span>{{theme_settings.store_location_find}}</span></a>
+                            {{/if}}
+                        </div>
+                        <div class="content">
+                            {{#if theme_settings.store_location_terms}}
+                                <a class="store-link" href="{{theme_settings.store_location_terms_link}}"><span>{{theme_settings.store_location_terms}}</span></a>
+                            {{/if}}
+                            {{#if theme_settings.store_location_privacy}}
+                                <a class="store-link" href="{{theme_settings.store_location_privacy_link}}"><span>{{theme_settings.store_location_privacy}}</span></a>
+                            {{/if}}
+                            {{#if theme_settings.store_location_sitemap}}
+                                <a class="store-link" href="{{theme_settings.store_location_sitemap_link}}"><span>{{theme_settings.store_location_sitemap}}</span></a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div> 
+                <!-- end halo_location -->
+            </div>   
+        </div> 
+    </div>
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

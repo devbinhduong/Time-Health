@@ -1,0 +1,40 @@
+// Slick Carousel Tools
+// -----------------------------------------------------------------------------
+//
+// Purpose: Tools used to style the slick carousel
+//
+// 1. Plugin SASS assumes you want an icon font, to override this and not output
+// that CSS, setting the url value to null
+//
+// 2. Setting opaque background in old browsers
+//
+// 3. Setting color for carousel arrow buttons
+//
+// -----------------------------------------------------------------------------
+
+@function image-url($url) { // 1
+    @return null;
+}
+
+// scss-lint:disable DuplicateProperty
+@mixin carouselOpaqueBackgrounds($color: rgba($carousel-bgColor, 0.9)) { // 2
+    background-color: rgba($color, 1);
+    background-color: $color;
+}
+// scss-lint:enable DuplicateProperty
+
+@mixin carousel-arrow-color($arrow-color, $arrow-direction) {
+    @if $arrow-direction == 'prev' {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$arrow-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+    } 
+    @if $arrow-direction == 'next' {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$arrow-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+    }
+    @if $arrow-direction == 'prev2' {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15'%3E%3Cpath d='M8.81809 4.18179C8.99383 4.35753 8.99383 4.64245 8.81809 4.81819L6.13629 7.49999L8.81809 10.1818C8.99383 10.3575 8.99383 10.6424 8.81809 10.8182C8.64236 10.9939 8.35743 10.9939 8.1817 10.8182L5.1817 7.81819C5.09731 7.73379 5.0499 7.61933 5.0499 7.49999C5.0499 7.38064 5.09731 7.26618 5.1817 7.18179L8.1817 4.18179C8.35743 4.00605 8.64236 4.00605 8.81809 4.18179Z' clip-rule='evenodd' fill-rule='evenodd' /%3E%3C/svg%3E");
+    } 
+    @if $arrow-direction == 'next2' {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 3.9 6.9'%3E%3Cpath d='M.77.13l3,3a.46.46,0,0,1,0,.64l-3,3a.47.47,0,0,1-.64,0,.47.47,0,0,1,0-.64L2.81,3.45.13.77a.47.47,0,0,1,0-.64A.47.47,0,0,1,.77.13Z' clip-rule='evenodd' fill-rule='evenodd' /%3E%3C/svg%3E");
+    }
+}
+

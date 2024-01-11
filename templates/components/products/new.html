@@ -1,0 +1,23 @@
+<div id="homeProductNew">
+	<div class="container">
+		<h2 class="page-heading halo-heading">
+			{{lang 'products.new' }}
+			{{#if theme_settings.homeProductNew_viewAll_link}}
+				<a class="btnViewAll" href="{{theme_settings.homeProductNew_viewAll_link}}">{{lang 'common.view_all'}}</a>
+			{{/if}}
+		</h2>
+
+		<ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="newest" data-columns="{{ columns }}" data-list-name="New Products">
+		    {{#each products}}
+		        <li class="product">
+		                {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating event="list" position=(add @index 1) productsnew=../productsnew}}
+		        </li>
+		    {{/each}}
+		</ul>
+		{{#if products.length '>' 1}}
+			<div class="homePGF_btn">
+				<a href="#" class="button">{{lang 'common.show_more'}}</a>
+			</div>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,142 @@
+// =============================================================================
+// SWATCH SIZES (CSS)
+// =============================================================================
+
+
+// Swatch Size Changes
+// -----------------------------------------------------------------------------
+
+// do some math
+$value_of_swatch_size : stencilString("swatch_option_size");
+$position_of_x : str-index($value_of_swatch_size, "x");
+$first_value : str-slice($value_of_swatch_size, 0, $position_of_x - 1);
+$second_value : str-slice($value_of_swatch_size, $position_of_x + 1);
+
+[data-product-attribute] .form-option.form-option-swatch {
+    overflow: visible;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 3px;
+    .home-layout-4 & {
+        width: 32px;
+        height: 32px;
+    }
+    .form-option-variant {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: inline-block;
+        .home-layout-4 & {
+            background-size: 100%;
+        }
+    }
+
+    &.two-colors,
+    &.three-colors {
+        .form-option-variant {
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+
+            &:nth-child(n+2) {
+                display: none;
+            }
+        }
+    }
+}
+
+.form-option-variant--none {
+    height: 22px;
+    overflow: hidden;
+}
+
+[data-product-attribute="swatch"] {
+    .form-option-swatch{
+        &[for="attribute_swatch__none"] {
+            padding: 3px 0;
+        }
+
+        .form-option-variant--none {
+            font-size: 12px;
+            padding: 0;
+            line-height: 32px;
+        }
+    }
+}
+
+.form-option-variant--color,
+.form-option-variant--pattern {
+    height: $second_value +"px";
+    width: $first_value +"px";
+}
+
+.form-option-expanded {
+    background-color: stencilColor("body-bg");
+    border: 1px solid stencilColor("input-border-color-active");
+    left: calc(100% + 55px);
+    opacity: 0;
+    padding: 3px;
+    position: absolute;
+    top: calc(100% + 5px);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    visibility: hidden;
+}
+
+.form-option:hover {
+    .form-option-expanded {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        visibility: visible;
+        z-index: 5000;
+    }
+}
+
+.form-option-image {
+    background: {
+        position: 50%;
+        repeat: no-repeat;
+        size: cover;
+    }
+    display: block;
+    height: 100px;
+    width: 100px;
+}
+
+[data-product-attribute="set-rectangle"] {
+    .form-option {
+        min-width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        .home-layout-4 & {
+            border-radius: 0;
+            padding: 0 15px;
+            border-color: #d1d2d3;
+        }
+        .form-option-variant {
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            line-height: 34px;
+            padding: 1px 10px;
+        }
+    }
+    .form-radio:checked + .form-option {
+        .home-layout-4 & {
+            border-color: #d1d2d3;
+            font-weight: 400;
+            position: relative;
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background: #000;
+            }
+        }
+    }
+}

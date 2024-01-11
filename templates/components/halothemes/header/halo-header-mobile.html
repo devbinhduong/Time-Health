@@ -1,0 +1,58 @@
+<div class="haloHeaderMobile">
+	<div class="haloHeaderMobile__item haloHeaderMobile__item--left">
+		<a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+	        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+	    </a>
+	    <button class="navUser-action navUser-action--quickSearch quick-search-expand"
+           type="button"
+           id="quick-search-expand-mobile"
+           data-search="quickSearch"
+           aria-controls="quickSearch"
+           aria-label="{{lang 'common.search'}}"
+        >   
+            <svg aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+            <span>{{lang 'common.search'}}</span>
+        </button>
+	</div>
+	<div class="haloHeaderMobile__item haloHeaderMobile__item--center">
+		{{#if page_type '===' 'default'}}
+            <h2 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h2>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}
+	</div>
+	<div class="haloHeaderMobile__item haloHeaderMobile__item--right">
+		{{#if customer}}
+            <a class="navUser-action navUserAction-login"
+               href="{{urls.account.index}}"
+               aria-label="{{lang 'common.account'}}"
+            >
+                <svg aria-hidden="true"><use xlink:href="#icon-user"></use></svg>
+            </a>
+        {{else}}
+            <a class="navUser-action navUserAction-login"
+               href="{{urls.auth.login}}"
+               aria-label="{{lang 'common.login'}}"
+            >
+                <svg aria-hidden="true"><use xlink:href="#icon-user"></use></svg>
+            </a>
+        {{/if}}
+		<a class="navUser-action navUser-actionCart"
+           data-cart-preview
+           data-options="align:right"
+           href="{{urls.cart}}"
+           aria-label="{{lang 'cart.nav_aria_label'}}"
+        > 
+          {{#if theme_settings.halo_homepage_layout_4 }}
+                <svg aria-hidden="true"><use xlink:href="#icon-cart-2"></use></svg>
+            {{ else }}
+                <svg aria-hidden="true"><use xlink:href="#icon-cart"></use></svg>
+            {{/if}}
+            <span class="countPill cart-quantity"></span>
+        </a>
+	</div>
+</div>

@@ -1,0 +1,57 @@
+<div data-product-slide class="productCarousel-slide productCarousel-sample">
+	<article class="card card-sample">
+	    <figure class="card-figure">
+	        <a href="javascript:void(0)"
+	           class="card-figure__link"
+	           aria-label="Sample Card">
+	            <div class="card-img-container animated-loading"></div>
+	        </a>
+	    </figure>
+	    <div class="card-body">
+	    	{{#if theme_settings.halo_card_brand}}
+	        	<p class="card-text animated-loading" data-test-info-type="brandName"><span>Brands</span></p>
+	        {{/if}}
+
+	        <h3 class="card-title animated-loading">
+	            <a aria-label="Sample Card Title" href="#"><span>Sample Card</span></a>
+	        </h3>
+	        
+	        {{#if theme_settings.halo_card_ratings}}
+	            <p class="card-text animated-loading" data-test-info-type="productRating">
+	                <span class="rating--small">
+	                    {{> components/products/ratings rating_target=name rating=rating}}
+	                </span>
+	            </p>
+            {{/if}}
+
+	        <div class="card-text animated-loading" data-test-info-type="price">
+	            <div class="price-section">
+			        <span class="price">$000.00</span>
+			    </div>
+	        </div>
+
+	        {{#if theme_settings.haloAddOptionForProduct}}
+	            {{#unless add_to_cart_url}}
+	                {{#or (if pre_order) (if has_options) }}
+	                    <div class="card-option">
+		                    <div class="form-field" data-product-attribute="swatch">
+		                    	<label class="form-option form-option-swatch">
+						            <span class="form-option-variant form-option-variant--color" title="Color Sample" style="background-color: #f6f6f6"></span>
+						        </label>
+		                    </div>
+		                </div>
+	                {{/or}}
+	                {{#and (if out_of_stock_message) (if has_options) }}
+	                    <div class="card-option">
+		                    <div class="form-field" data-product-attribute="swatch">
+		                    	<label class="form-option form-option-swatch">
+						            <span class="form-option-variant form-option-variant--color" title="Color Sample" style="background-color: #f6f6f6"></span>
+						        </label>
+		                    </div>
+		                </div>
+	                {{/and}}
+	            {{/unless}}
+	        {{/if}}
+	    </div>
+	</article>
+</div>

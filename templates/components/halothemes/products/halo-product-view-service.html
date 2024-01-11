@@ -1,0 +1,132 @@
+{{#or (if theme_settings.haloPVService) (if theme_settings.haloPVServiceCustom)}}
+	<div class="haloPVService">
+		<div class="container">
+			{{#if theme_settings.haloPVServiceCustom}}
+				<div class="haloPVService__top">
+					{{#if theme_settings.haloPVService_img}}
+						<div class="haloPVService__img">
+							<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.haloPVService_img}}" alt="{{theme_settings.haloPVService_title}}">
+						</div>
+					{{else}}
+                        <div class="haloPVService__img noImage">
+                            <span class="halo-comingSoon">&nbsp;</span>
+                        </div>
+                    {{/if}}
+					<div class="haloPVService__content">
+						<p class="haloPVService__featured">{{theme_settings.haloPVService_featured}}</p>
+						<h5>{{theme_settings.haloPVService_title}}</h5>
+						<p>
+							{{theme_settings.haloPVService_des1}}
+							{{theme_settings.haloPVService_des2}}
+							{{theme_settings.haloPVService_des3}}
+						</p>
+						<a href="{{theme_settings.haloPVService_link}}" class="button button--tertiary">{{theme_settings.haloPVService_textBtn}}</a>
+					</div>
+				</div>
+			{{/if}}
+			{{#if theme_settings.haloPVService}}
+				<div class="haloPVService__service">
+					<div class="haloPVService__container">
+						<div class="haloPVService__carousel"
+							data-slick='{
+					        "dots": true,
+				            "arrows": false,
+				            "infinite": false,
+				            "mobileFirst": true,
+				            "slidesToShow": 1,
+				            "slidesToScroll": 1,
+				            "responsive": [
+				              	{
+				                  	"breakpoint": 551,
+				                  	"settings": {
+				                    	"slidesToShow": 2,
+				                    	"slidesToScroll": 2
+				                  	}
+				              	},
+				              	{
+				                  	"breakpoint": 801,
+				                  	"settings": {
+				                    	"slidesToShow": 3,
+				                    	"slidesToScroll": 3
+				                  	}
+				              	},
+				              	{
+				                  	"breakpoint": 1200,
+				                  	"settings": {
+				                    	"slidesToShow": 4,
+				                    	"slidesToScroll": 4
+				                  	}
+				              	}
+				            ]
+					    }'>
+							<div class="haloPVService__item">
+								{{#if theme_settings.haloPVService_item1_img}}
+									<div class="haloPVService__itemImg">
+										<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.haloPVService_item1_img}}" alt="{{theme_settings.haloPVService_item1_title}}">
+									</div>
+								{{else}}
+		                            <div class="haloPVService__itemImg">
+		                                <span class="halo-comingSoon">{{theme_settings.halo_coming_soon_text}}</span>
+		                            </div>
+		                        {{/if}}
+								<div class="haloPVService__itemContent">
+									<p class="haloPVService__itemTitle">{{theme_settings.haloPVService_item1_title}}</p>
+									<p>{{theme_settings.haloPVService_item1_des}}</p>
+									<a href="{{theme_settings.haloPVService_item1_link}}">{{theme_settings.haloPVService_item1_textBtn}}</a>
+								</div>
+							</div>
+							<div class="haloPVService__item">
+								{{#if theme_settings.haloPVService_item2_img}}
+									<div class="haloPVService__itemImg">
+										<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.haloPVService_item2_img}}" alt="{{theme_settings.haloPVService_item2_title}}">
+									</div>
+								{{else}}
+		                            <div class="haloPVService__itemImg">
+		                                <span class="halo-comingSoon">{{theme_settings.halo_coming_soon_text}}</span>
+		                            </div>
+		                        {{/if}}
+								<div class="haloPVService__itemContent">
+									<p class="haloPVService__itemTitle">{{theme_settings.haloPVService_item2_title}}</p>
+									<p>{{theme_settings.haloPVService_item2_des}}</p>
+									<a href="{{theme_settings.haloPVService_item2_link}}">{{theme_settings.haloPVService_item2_textBtn}}</a>
+								</div>
+							</div>
+							<div class="haloPVService__item">
+								{{#if theme_settings.haloPVService_item3_img}}
+									<div class="haloPVService__itemImg">
+										<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.haloPVService_item3_img}}" alt="{{theme_settings.haloPVService_item3_title}}">
+									</div>
+								{{else}}
+		                            <div class="haloPVService__itemImg">
+		                                <span class="halo-comingSoon">{{theme_settings.halo_coming_soon_text}}</span>
+		                            </div>
+		                        {{/if}}
+								<div class="haloPVService__itemContent">
+									<p class="haloPVService__itemTitle">{{theme_settings.haloPVService_item3_title}}</p>
+									<p>{{theme_settings.haloPVService_item3_des}}</p>
+									<a href="{{theme_settings.haloPVService_item3_link}}">{{theme_settings.haloPVService_item3_textBtn}}</a>
+								</div>
+							</div>
+							<div class="haloPVService__item">
+								{{#if theme_settings.haloPVService_item4_img}}
+									<div class="haloPVService__itemImg">
+										<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.haloPVService_item4_img}}" alt="{{theme_settings.haloPVService_item4_title}}">
+									</div>
+								{{else}}
+		                            <div class="haloPVService__itemImg">
+		                                <span class="halo-comingSoon">{{theme_settings.halo_coming_soon_text}}</span>
+		                            </div>
+		                        {{/if}}
+								<div class="haloPVService__itemContent">
+									<p class="haloPVService__itemTitle">{{theme_settings.haloPVService_item4_title}}</p>
+									<p>{{theme_settings.haloPVService_item4_des}}</p>
+									<a href="{{theme_settings.haloPVService_item4_link}}">{{theme_settings.haloPVService_item4_textBtn}}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{{/if}}
+		</div>
+	</div>
+{{/or}}

@@ -1,0 +1,33 @@
+{{#if halo-section '==' 'halo-section-1'}}
+    {{{region name="home_service"}}}
+{{else if halo-section '==' 'halo-section-2'}}
+    {{{region name="home_top_banner"}}}
+{{else if halo-section '==' 'halo-section-3'}}
+    {{#if products.new}}
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count productsnew=products.new}}
+    {{/if}}
+    {{{region name="home_below_new_products"}}}
+{{else if halo-section '==' 'halo-section-4'}}
+    {{{region name="home_bottom_banner"}}}
+{{else if halo-section '==' 'halo-section-5'}}
+    {{#if theme_settings.enable_product_tabs}}
+        {{> components/halothemes/products/halo-product-tab}}
+    {{/if}}
+{{else if halo-section '==' 'halo-section-6'}}
+    {{#if theme_settings.enable_featured_products}}
+        {{#if products.featured}}
+            {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count productsnew=products.new}}
+        {{/if}}
+    {{/if}}
+    {{{region name="home_below_featured_products"}}}
+{{else if halo-section '==' 'halo-section-7'}}
+    {{{region name="home_featured_collections"}}}
+{{else if halo-section '==' 'halo-section-8'}}
+    {{> components/halothemes/home/home-newsletter}}
+{{else if halo-section '==' 'halo-section-9'}}
+    {{> components/halothemes/home/home-recent-posts post=blog.recent_posts}}
+{{else if halo-section '==' 'halo-section-10'}}
+    {{{region name="home_booking_tours"}}}
+{{else if halo-section '==' 'halo-section-11'}}
+    {{{region name="home_reviews_block"}}}
+{{/if}}

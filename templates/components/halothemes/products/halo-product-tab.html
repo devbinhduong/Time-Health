@@ -1,0 +1,92 @@
+<div class="halo-block halo-block-product halo-block-product-tabs padding-top-30 padding-bottom-50">
+    <div class="container{{#if theme_settings.halo_homepage_layout_4}} container-custom{{/if}}">
+        {{#if theme_settings.homeProductTab_title}}
+            <h2 class="page-heading halo-heading">
+                {{theme_settings.homeProductTab_title}}
+                {{#if theme_settings.homeProductTab_viewAll_link}}
+                    <a class="btnViewAll" href="{{theme_settings.homeProductTab_viewAll_link}}">{{lang 'common.view_all'}}</a>
+                {{/if}}
+            </h2>
+        {{/if}}
+        <div class="productCarousel-tabs{{#if theme_settings.halo_homepage_layout_4}} productCarousel{{/if}}">
+            <ul class="tabs disable-srollbar" data-tab role="tablist">
+                {{#if theme_settings.home_product_tab-title-1}}
+                    <li class="tab is-active" role="presentation">
+                        <a class="tab-title" href="#product_tab_1" role="tab" tabindex="0" aria-selected="true" aria-controls="product_tab_1">
+                            <span>{{theme_settings.home_product_tab-title-1}}</span>
+                        </a>
+                    </li>
+                {{/if}}
+                {{#and (if theme_settings.home_product_tab-cate-id '!=' '') (if theme_settings.home_product_tab-title-2)}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#product_tab_2" role="tab" tabindex="0" aria-selected="false" aria-controls="product_tab_2">
+                            <span>{{theme_settings.home_product_tab-title-2}}</span>
+                        </a>
+                    </li>
+                {{/and}}
+                {{#if theme_settings.home_product_tab-title-3}}
+                    <li class="tab" role="presentation">
+                        <a class="tab-title" href="#product_tab_3" role="tab" tabindex="0" aria-selected="false" aria-controls="product_tab_3">
+                            <span>{{theme_settings.home_product_tab-title-3}}</span>
+                        </a>
+                    </li>
+                {{/if}}
+                {{#if theme_settings.home_product_tab-title-4}}
+                <li class="tab" role="presentation">
+                        <a class="tab-title" href="#product_tab_4" role="tab" tabindex="0" aria-selected="false" aria-controls="product_tab_4">
+                            <span>{{theme_settings.home_product_tab-title-4}}</span>
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+            <div class="tabs-contents">
+                {{#if theme_settings.home_product_tab-title-1}}
+                    <div class="tab-content is-active{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}" id="product_tab_1" role="tabpanel" aria-hidden="true">
+                        {{#if products.featured}}
+                            {{> components/products/carousel-2 products=products.featured columns=theme_settings.homepage_featured_products_column_count list="Featured Products" productsnew=products.new id="TabFeaturedProductCarousel" show_dots_bar=show_dots_bar}}
+                            {{#if theme_settings.halo_homepage_layout_4}}
+                                <div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+                                    <div class="bar-thumb"></div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                {{/if}}
+                {{#and (if theme_settings.home_product_tab-cate-id '!=' '') (if theme_settings.home_product_tab-title-2)}}
+                    <div class="tab-content{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}" id="product_tab_2" role="tabpanel" aria-hidden="false">
+                        {{> components/halothemes/home/ajax-products-by-category productsnew=products.new category_id=theme_settings.home_product_tab-cate-id id="TabCateIDCarousel" show_dots_bar=show_dots_bar}}
+                        {{> components/halothemes/products/halo-sample-product}}
+                        {{> components/halothemes/products/halo-sample-product}}
+                        {{> components/halothemes/products/halo-sample-product}}
+                        {{> components/halothemes/products/halo-sample-product}}
+                    </div>
+                {{/and}}
+                {{#if theme_settings.home_product_tab-title-3}}
+                    <div class="tab-content{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}" id="product_tab_3" role="tabpanel" aria-hidden="false">
+                        {{#if products.top_sellers}}
+                            {{> components/products/carousel-2 products=products.top_sellers columns=theme_settings.homepage_top_products_column_count list="Top Sellers" productsnew=products.new id="TabTopProductCarousel" show_dots_bar=show_dots_bar}}
+                            {{#if theme_settings.halo_homepage_layout_4}}
+                                <div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+                                    <div class="bar-thumb"></div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                {{/if}}
+                {{#if theme_settings.home_product_tab-title-4}}
+                    <div class="tab-content{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}" id="product_tab_4" role="tabpanel" aria-hidden="false">
+                        {{#if products.new}}
+                            {{> components/products/carousel-2 products=products.new columns=theme_settings.homepage_new_products_column_count list="New Products" productsnew=products.new id="TabNewProductCarousel" show_dots_bar=show_dots_bar}}
+                            {{#if theme_settings.halo_homepage_layout_4}}
+                                <div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+                                    <div class="bar-thumb"></div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{{region name="home_below_products_tab"}}}

@@ -1,0 +1,51 @@
+{{#if theme_settings.halo_newsletter_popup}}
+    <div id="halo-newsletter-popup" class="hide">
+    	<div class="popup-overlay"></div>
+        <div class="newsletter-popup-container{{#unless theme_settings.halo_newsletter_popup_image}} no-imageNewsletter{{/unless}}">
+            <div class="newsletter-popup-inner">
+            	{{> components/halothemes/sidebar/halo-button-close data_close="data-close-newsletter-popup"}}
+            	{{#if theme_settings.halo_newsletter_popup_image}}
+	                <div class="newsletter-left">
+	                	<img class="lazyload" src="" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.halo_newsletter_popup_image}}" alt="{{theme_settings.halo_newsletter_popup_heading}}">
+	                </div>
+                {{/if}}
+                <div class="newsletter-right">
+                	<div class="newsletter-right-inner">
+                		{{#if theme_settigns.halo_newsletter_popup_heading '!=' ''}}
+	                    	<h2 class="newsletter-heading">{{theme_settings.halo_newsletter_popup_heading}}</h2>
+	                    {{/if}}
+	                    {{#if settings.show_newsletter_summary }}
+	                        <span class="newsletter-message">{{settings.newsletter_summary}}</span>
+	                    {{/if}}
+	                    <div id="popupSubcribeForm">
+	                        <form class="form" action="{{urls.subscribe.action}}" method="post" id="popupSubcribeFormSubmit">
+	                            <fieldset class="form-fieldset">
+	                                <input type="hidden" name="action" value="subscribe">
+	                                <input type="hidden" name="nl_first_name" value="bc">
+	                                <input type="hidden" name="check" value="1">
+	                                <div class="form-field">
+	                                    <label class="form-label is-srOnly" for="nl_email3">Email:</label>
+	                                    <input class="form-input" id="nl_email3" name="nl_email" type="email" placeholder="{{lang 'newsletter.email_placeholder_2'}}">
+	                                    <input class="button button--tertiary" type="submit" value="{{lang 'newsletter.subscribe_submit_2'}}">
+	                                </div>
+	                            </fieldset>
+	                        </form>
+	                    </div>
+	                    <div class="social-links">
+                            {{> components/common/social-links}}
+                        </div>
+	                    {{#if theme_settings.halo_newsletter_popup_no_thanks}}
+	                        <div class="no-thanks">
+	                        	<div class="halo--checkbox">
+	                        		<input class="form-checkbox" type="checkbox" id="halo_checkbox" checked>
+	                        		<label for="halo_checkbox"></label>
+	                        	</div>
+	                            <a href="javascript:void(0)" title="">{{theme_settings.halo_newsletter_popup_no_thanks}}</a>
+	                        </div>
+	                    {{/if}}
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}

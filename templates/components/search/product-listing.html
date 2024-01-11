@@ -1,0 +1,5 @@
+<form action="{{urls.compare}}" method='POST' data-list-name="Search Results" data-product-compare>
+    {{> components/products/grid products=product_results.products show_compare=product_results.show_compare event="list" theme_settings=theme_settings productsnew=products.new}}
+</form>
+
+{{> components/common/paginator pagination.product_results page_type=page_type hide_pagination=true}}

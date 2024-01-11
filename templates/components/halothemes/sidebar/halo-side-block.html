@@ -1,0 +1,173 @@
+<div id="sideBlock_login" class="halo-side-block" style="display: none;">
+	<div class="side-block-container">
+		<div class="side-block-header">
+			{{#if customer}}
+				<h3>{{lang 'common.account'}}</h3>
+			{{else}}
+				<h3>{{lang 'common.login'}}</h3>
+			{{/if}}
+			{{> components/halothemes/sidebar/halo-button-close }}
+		</div>
+
+		<div class="side-block-body">
+			<div class="navPages-accountList{{#if customer}} customer{{/if}}">
+			    {{#if customer}}
+			        <ul class="navPages-list">
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.orders.all}}" aria-label="{{urls.account.orders.all}}"><span class="text">{{lang 'account.nav.orders'}}</span></a>
+			            </li>
+			            {{#if settings.returns_enabled}}
+			                <li class="navPages-item">
+			                    <a class="navPage-subMenu-action navPages-action" href="{{urls.account.returns}}" aria-label="{{urls.account.returns}}"><span class="text">{{lang 'account.nav.returns'}}</span></a>
+			                </li>
+			            {{/if}}
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.inbox}}" aria-label="{{urls.account.inbox}}"><span class="text">{{lang 'account.mobile_nav.messages'}}</span></a>
+			            </li>
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.addresses}}" aria-label="{{urls.account.addresses}}"><span class="text">{{lang 'account.nav.addresses'}}</span></a>
+			            </li>
+			            {{#if settings.show_payment_methods}}
+					        <li class="navPages-item">
+				                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.payment_methods.all}}" aria-label="{{urls.account.payment_methods.all}}"><span class="text">{{lang 'account.nav.payment_methods'}}</span></a>
+				            </li>
+			            {{/if}}
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.wishlists.all}}" aria-label="{{urls.account.wishlists.all}}"><span class="text">{{lang 'account.mobile_nav.wishlists'}}</span></a>
+			            </li>
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.recent_items}}" aria-label="{{urls.account.recent_items}}"><span class="text">{{lang 'account.nav.recently_viewed'}}</span></a>
+			            </li>
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.details}}" aria-label="{{urls.account.details}}"><span class="text">{{lang 'account.nav.settings'}}</span></a>
+			            </li>
+			            <li class="navPages-item">
+			                <a class="navPage-subMenu-action navPages-action" href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">
+			                	<span class="text">{{lang 'common.logout'}}</span>
+			                </a>
+			            </li>
+			        </ul>
+			    {{else}}
+			    	{{#if page_type '!=' 'login'}}
+			            <div class="popup-login-form">
+			                <div class="login-content">
+			                    <form class="login-form-popup form" action="{{settings.secure_base_url}}/login.php?action=check_login" method="post">
+			                        <div class="form-field">
+			                            <label class="form-label" for="login_email">{{lang 'login.field_email2'}}</label>
+			                            <input class="form-input" id="login_email" name="login_email" type="email" placeholder="john.smith@example.com">
+			                        </div>
+			                        <div class="form-field">
+			                            <label class="form-label" for="login_pass">{{lang 'login.field_password2'}}</label>
+			                            <input class="form-input" id="login_pass" name="login_pass" type="password">
+			                        </div>
+			                        <div class="form-actions">
+			                            <input type="submit" class="button button--primary" value="{{lang 'common.login2' }}">
+			                            <a class="forgot-password" href="{{urls.auth.forgot_password}}" aria-label="{{lang 'login.forgot_password' }}">{{lang 'login.forgot_password' }}</a>
+			                        </div>
+			                    </form>
+			                </div>
+			                <div class="new-customer">
+			                    {{#if settings.account_creation_enabled}}
+			                        <a class="button" href="{{urls.auth.create_account}}" aria-label="{{lang 'common.sign_up'}}">{{lang 'common.sign_up' }}</a>
+			                    {{/if}}
+			                </div>
+			            </div>
+		            {{/if}}
+			    {{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="sideBlock_cart" class="halo-side-block" style="display: none;">
+	<div class="side-block-container">
+		<div class="side-block-header">
+			<h3>{{lang 'common.your_cart'}}</h3>
+			{{> components/halothemes/sidebar/halo-button-close }}
+		</div>
+		<div class="side-block-body">
+		    <div id="cart-preview-dropdown"></div>
+		</div>
+	</div>
+</div>
+
+<div id="sideBlock_menu" class="halo-side-block haloSideBlock--left">
+	<div class="side-block-container">
+		<div class="side-block-header">
+			<h3>Menu</h3>
+			{{> components/halothemes/sidebar/halo-button-close }}
+		</div>
+		<div class="side-block-body">
+			<div id="menuMobile"></div>
+		</div>
+	</div>
+</div>
+
+{{#if page_type '==' 'category'}}
+	<div id="sideBlock_category" class="halo-side-block haloSideBlock--left" style="display: none;">
+		<div class="side-block-container">
+			<div class="side-block-header">
+				{{> components/halothemes/sidebar/halo-button-close }}
+			</div>
+			<div class="side-block-body">
+		        {{#if category.faceted_search_enabled}}
+		            <aside id="faceted-search-container">
+		                {{> components/category/sidebar}}
+		            </aside>
+		        {{else if category.subcategories}}
+		            <aside id="faceted-search-container">
+		                {{> components/category/sidebar}}
+		            </aside>
+		        {{else if category.shop_by_price}}
+		            {{#if theme_settings.shop_by_price_visibility}}
+		                 <aside id="faceted-search-container">
+		                    {{> components/category/sidebar}}
+		                </aside>
+		            {{/if}}
+		        {{/if}}
+			</div>
+		</div>
+	</div>
+{{/if}}
+
+{{#if page_type '==' 'search'}}
+	<div id="sideBlock_search" class="halo-side-block haloSideBlock--left" style="display: none;">
+		<div class="side-block-container">
+			<div class="side-block-header">
+				{{> components/halothemes/sidebar/halo-button-close }}
+			</div>
+			<div class="side-block-body">
+		        <aside id="faceted-search-container">
+		            {{> components/search/sidebar}}
+		        </aside>
+			</div>
+		</div>
+	</div>
+{{/if}}
+
+{{#if page_type '==' 'brand'}}
+	<div id="sideBlock_brand" class="halo-side-block haloSideBlock--left" style="display: none;">
+		<div class="side-block-container">
+			<div class="side-block-header">
+				{{> components/halothemes/sidebar/halo-button-close }}
+			</div>
+			<div class="side-block-body">
+			    <aside id="faceted-search-container">
+			        {{> components/brand/sidebar}}
+			    </aside>
+			</div>
+		</div>
+	</div>
+{{/if}}
+
+{{#or (if page_type '==' 'blog') (if page_type '==' 'blog_post')}}
+	<div id="sideBlock_blog" class="halo-side-block haloSideBlock--left" style="display: none;">
+		<div class="side-block-container">
+			<div class="side-block-header">
+				{{> components/halothemes/sidebar/halo-button-close }}
+			</div>
+			<div class="side-block-body">
+			</div>
+		</div>
+	</div>
+{{/or}}

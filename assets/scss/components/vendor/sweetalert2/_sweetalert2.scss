@@ -1,0 +1,94 @@
+// SWEETALERT2
+// -----------------------------------------------------------------------------
+//
+// Purpose: Styles for the vendor popup box replacement, SweetAlert2
+//
+// -----------------------------------------------------------------------------
+//
+// Purpose: Override the plugin to give some Stencil styling
+//
+// -----------------------------------------------------------------------------
+
+.swal2-modal {
+    background-color: $alert-modal-bgColor;
+    border-radius: $alert-modal-borderRadius;
+    font-family: $alert-font-body;
+
+    .swal2-title {
+        color: $alert-font-headingsColor;
+        font-size: $alert-font-headingsSize;
+    }
+
+    .swal2-content {
+        color: $alert-font-bodyColor;
+        font-size: $alert-font-bodySize;
+    }
+
+    .swal2-file,
+    .swal2-input,
+    .swal2-textarea {
+        border: 1px solid $alert-input-borderColor;
+        color: $alert-input-color;
+    }
+
+    .swal2-checkbox,
+    .swal2-select {
+        color: $alert-input-color;
+    }
+
+    .swal2-buttonswrapper {
+        margin: $alert-button-wrapperMargin;
+    }
+
+    .swal2-styled {
+        @include button-base;
+        @include buttonVariant("default");
+        @include buttonSize("default");
+        border-radius: $button-radius;
+        line-height: 1rem;
+        outline: none;
+        transition: all 0.15s ease;
+        vertical-align: $button-vAlign;
+    }
+
+    .swal2-styled:focus {
+        box-shadow: $button-focus-boxShadow;
+        outline: none;
+    }
+
+    .swal2-confirm {
+        background-color: $buttonStyle-primary-backgroundColor;
+        border-color: $buttonStyle-primary-borderColor;
+        color: $buttonStyle-primary-color;
+    }
+
+    .swal2-confirm:focus,
+    .swal2-confirm:hover,
+    .swal2-confirm:active {
+        background-color: $buttonStyle-primary-backgroundColorHover;
+        border-color: $buttonStyle-primary-borderColorHover;
+        color: $buttonStyle-primary-colorHover;
+    }
+
+    .swal2-cancel {
+        color: $buttonStyle-tertiary-color;
+        background-color: $buttonStyle-tertiary-backgroundColor;
+        border-color: $buttonStyle-tertiary-borderColor;
+    }
+
+    .swal2-cancel:focus,
+    .swal2-cancel:hover,
+    .swal2-cancel:active {
+        color: $buttonStyle-tertiary-colorHover;
+        background-color: $buttonStyle-tertiary-backgroundColorHover;
+        border-color: $buttonStyle-tertiary-borderColorHover;
+    }
+
+    .button + .button {
+        margin-left: $button-adjacentButton-marginLeft;
+    }
+}
+
+.swal2-icon {
+	display: flex;
+}

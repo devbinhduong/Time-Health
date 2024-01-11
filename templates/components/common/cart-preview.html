@@ -1,0 +1,181 @@
+<div class="previewCartWrapper">
+    <div class="previewCart">
+        <div class="previewCart__header">
+            <p class="previewCart__qty" data-cart-quantity="{{cart.quantity}}">{{lang 'common.qty_items' quantity=cart.quantity}}</p>
+            {{#and (if theme_settings.halo_CalculateFreeShipping) (if cart.items.length)}}
+                <div class="halo-free-shipping-message animated-loading"></div>
+            {{/and}}
+        </div>
+        {{#if cart.items.length}}
+            <ul class="previewCartList">
+                {{#each cart.items}}
+                    <li class="previewCartItem">
+                        <div class="previewCartItem-image">
+                            {{#if type '==' 'GiftCertificate'}}
+                                <img
+                                    alt="GiftCertificate"
+                                    title="GiftCertificate"
+                                    src="{{cdn ../theme_settings.default_image_gift_certificate}}"
+                                >
+                            {{else}}
+                                {{> components/common/responsive-img
+                                    image=image
+                                    fallback_size=../theme_settings.productthumb_size
+                                    lazyload=../theme_settings.lazyload_mode
+                                    default_image=../theme_settings.default_image_product
+                                }}
+                            {{/if}}
+                        </div>
+                        <div class="previewCartItem-content">
+                            {{#if theme_settings.previewCartItem_brand}}
+                                <span class="previewCartItem-brand">
+                                    {{brand.name}}
+                                </span>
+                            {{/if}}
+
+                            <h6 class="previewCartItem-name{{#if ../theme_settings.halo_card_title '==' 'ellipsis'}} card-ellipsis{{/if}}">
+                                <a href="{{url}}" alt="{{name}}" title="{{name}}"><span>{{name}}</span></a>
+                            </h6>
+
+                            {{#if options}}
+                                <div class="previewCartItem-option">
+                                    {{#each options}}
+                                        {{#unless @first}}
+                                            <span>/</span>
+                                        {{/unless}}
+                                        <span class="option-value">
+                                            {{#if is_file}}
+                                                <a href="/viewfile.php?attributeId={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
+                                            {{else}}
+                                                {{{ sanitize value}}}
+                                            {{/if}}
+                                        </span>
+                                    {{/each}}
+                                    <a class="btn-editPreCart" data-cart-edit-id="{{product_id}}" data-cart-itemid="{{id}}" data-cart-edit-price="{{price.formatted}}" data-cart-edit-quantity="{{quantity}}"><svg class="icon"><use xlink:href="#icon-edit-cart"></use></svg></a>
+                                </div>
+                            {{/if}}
+
+                            <span class="previewCartItem-price">
+                                {{#if quantity '>' 1}}
+                                    {{quantity}} &times;
+                                {{/if}}
+                                {{#or ../customer (unless ../settings.hide_price_from_guests)}}
+                                    <span {{#if price_discounted}} class="price--discounted"{{/if}}>{{price.formatted}}</span>
+                                    {{#if price_discounted}}
+                                        {{price_discounted.formatted}}
+                                    {{/if}}
+                                {{else}}
+                                    {{> components/common/login-for-pricing}}
+                                {{/or}}
+                            </span>
+
+                            <div class="previewCartItem-qty">
+                                <label class="form-label" for="qty-{{id}}">{{lang 'products.quantity'}}</label>
+                                <div class="form-increment">
+                                    <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="dec">
+                                        <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                                    </button>
+                                    <input class="form-input form-input--incrementTotal"
+                                        id="qty-{{id}}"
+                                        name="qty-{{id}}"
+                                        type="number"
+                                        value="{{quantity}}"
+                                        data-quantity-min="{{min_purchase_quantity}}"
+                                        data-quantity-max="{{max_purchase_quantity}}"
+                                        data-quantity-min-error="{{lang 'products.quantity_min' quantity=min_purchase_quantity}}"
+                                        data-quantity-max-error="{{lang 'products.quantity_max' quantity=max_purchase_quantity}}"
+                                        min="1"
+                                        pattern="[0-9]*"
+                                        data-cart-itemid="{{id}}"
+                                        data-action="manualQtyChange"
+                                        aria-live="polite"{{#unless can_modify}} disabled{{/unless}}>
+                                    <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="inc">
+                                        <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            {{#or can_modify (if type '==' 'GiftCertificate')}}
+                                <button class="previewCartItem-remove icon"
+                                    data-cart-itemid="{{id}}"
+                                    data-confirm-delete="{{lang 'cart.confirm_delete'}}"
+                                    aria-label="{{lang 'cart.remove_item' name=name}}"
+                                >
+                                    <svg class="icon"><use xlink:href="#icon-close"></use></svg>
+                                </button>
+                            {{/or}}
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+            <ul class="previewCartTotalsPrice">
+                <li class="previewCartTotals subTotal">
+                    <div class="previewCartTotals-label">
+                        {{lang 'cart.checkout.subtotal'}}:
+                    </div>
+                    <div class="previewCartTotals-value">
+                        {{#or customer (unless settings.hide_price_from_guests)}}
+                            {{cart.sub_total.formatted}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </div>
+                </li>
+                <li class="previewCartTotals grandTotal">
+                    <div class="previewCartTotals-label">
+                        {{lang 'cart.checkout.grand_total'}}:
+                    </div>
+                    <div class="previewCartTotals-value cart-total-grandTotal">
+                        {{#or customer (unless settings.hide_price_from_guests)}}
+                            <span>{{cart.grand_total.formatted}}</span>
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </div>
+                </li>
+            </ul>
+            <div class="previewCartAction">
+                {{#if cart.show_primary_checkout_button}}
+                    <div class="previewCartAction-checkout">
+                        <a href="{{urls.checkout.single_address}}" class="button button--small button--primary">
+                            {{lang 'cart.preview.checkout_now'}}
+                        </a>
+                    </div>
+                {{/if}}
+
+                {{#if theme_settings.halo_homepage_layout_1}}
+                    <div class="previewCartAction-viewCart{{#unless cart.show_primary_checkout_button}} previewCartAction-viewCart--sole{{/unless}}">
+                        <a href="{{urls.cart}}" class="button button--small button--action">
+                            {{lang 'cart.preview.view_cart'}}
+                        </a>
+                    </div>
+                {{else}}
+                    <div class="previewCartAction-viewCart{{#unless cart.show_primary_checkout_button}} previewCartAction-viewCart--sole{{/unless}}">
+                        <a href="{{urls.cart}}" class="button button--tertiary button--small button--action">
+                            {{lang 'cart.preview.view_cart'}}
+                        </a>
+                    </div>
+                {{/if}}
+
+                {{#if cart.show_multiple_address_shipping}}
+                    <div class="previewCartAction-checkoutMultiple">
+                        <a href="{{urls.checkout.multiple_address}}">
+                            {{lang 'cart.preview.checkout_multiple'}}
+                        </a>
+                    </div>
+                {{/if}}
+            </div>
+            {{#if cart.additional_checkout_buttons}}
+                <div class="previewCart-additionalCheckoutButtons">
+                    {{#each cart.additional_checkout_buttons}}
+                        {{{this}}}
+                    {{/each}}
+                </div>
+            {{/if}}
+        {{else}}
+            <div role="alert" aria-live="polite" aria-atomic="false" class="previewCart-emptyBody">
+                {{lang 'cart.checkout.empty_cart'}}
+            </div>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+    var haloMegaMenu = new window.haloMegaMenu();
+
+    function SetItemMegaMenu(){
+        $('.navPages-list-megamenu > li:not(.navPages-item-toggle)').mouseover(event => {
+            var numberItem = $(event.currentTarget).index() + 1;
+
+            if (!$(event.currentTarget).hasClass('has-megamenu')) {
+                LoadMegaMenu(numberItem);
+            }
+        });
+
+        $(document).on('click','#menuMobile .navPages-list:not(.navPages-list--user) > li:not(.navPages-item-toggle) > .navPages-action' , event => {
+            var numberItem = $(event.currentTarget).parent().index() + 1;
+
+            if (!$(event.currentTarget).parent().hasClass('has-megamenu')) {
+                LoadMegaMenu(numberItem);
+            }
+        });
+    }
+        
+    function LoadMegaMenu(numberItem){
+        if (numberItem == 2) {
+            haloMegaMenu.menuItem(2).setMegaMenu({
+                style: 'style 1',
+                imageAreaWidth: '40.7%',
+                cateAreaWidth: '59.3%',
+                cateColumns: 3,
+                images: '<a class="image" href="#">\
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/megamenu-image-1.jpg" alt="Megamenu Image 1" title="Megamenu Image 1"/>\
+                        </a>\
+                        <a class="image" href="#">\
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/megamenu-image-2.jpg" alt="Megamenu Image 2" title="Megamenu Image 2"/>\
+                        </a>'
+            });
+        }
+
+        if (numberItem == 3){
+            haloMegaMenu.menuItem(3).setMegaMenu({
+                style: 'style 2',
+                imageAreaWidth: '40.7%',
+                cateAreaWidth: '59.3%',
+                cateColumns: 3,
+                productId: '117,120,116',
+                products:'<h3 class="megamenu-title">Featured Products</h3>\
+                        <div class="megamenu-slider halo-dots halo-arrows"></div>',
+                images: '<a class="image" href="#">\
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/megamenu-image-3.jpg" alt="Megamenu Image 3" title="Megamenu Image 3"/>\
+                        </a>'
+            });
+        }
+
+        if (numberItem == 4){
+            haloMegaMenu.menuItem(4).setMegaMenu({
+                style: 'style 3',
+                imageAreaWidth: '100%',
+                cateAreaWidth: '100%',
+                cateColumns: 4,
+                content: '<ul class="navPage-subMenu-links navPage-subMenu-list">\
+                            <li class="navPage-subMenu-item-child">\
+                                <a class="navPage-subMenu-action navPages-action" href="/surfboards/?sort=newest"><span class="text">\
+                                What&#44;s New</span></a>\
+                            </li>\
+                            <li class="navPage-subMenu-item-child">\
+                                <a class="navPage-subMenu-action navPages-action" href="/surfboards/?sort=bestselling"><span class="text">Best Selling</span></a>\
+                            </li>\
+                            <li class="navPage-subMenu-item-child">\
+                                <a class="navPage-subMenu-action navPages-action" href="/surfboards/?sort=avgcustomerreview"><span class="text">Top Rated</span></a>\
+                            </li>\
+                            <li class="navPage-subMenu-item-child">\
+                                <a class="navPage-subMenu-action navPages-action" href="/surfboards/?sort=featured"><span class="text">Most Popular</span></a>\
+                            </li>\
+                            <li class="navPage-subMenu-item-child">\
+                                <a class="navPage-subMenu-action navPages-action" href="/surfboards/?sort=priceasc"><span class="text">Editor&#44;s Pick</span></a>\
+                            </li>\
+                            <li class="navPage-subMenu-item-child">\
+                                <a class="navPage-subMenu-action navPages-action navPages-action--sale" href="/sale"><span class="text">On Sale</span></a>\
+                            </li>\
+                        </ul>',
+                products:'<h3 class="megamenu-title">Brand By Alphabet</h3>\
+                        <div class="megamenu-brands">\
+                            <ul>\
+                                <li data-brand-letter="a"><a href="/brands#a"><span>a</span></a></li>\
+                                <li data-brand-letter="b"><a href="/brands#b"><span>b</span></a></li>\
+                                <li data-brand-letter="c"><a href="/brands#c"><span>c</span></a></li>\
+                                <li data-brand-letter="d"><a href="/brands#d"><span>d</span></a></li>\
+                                <li data-brand-letter="e"><a href="/brands#e"><span>e</span></a></li>\
+                                <li data-brand-letter="f"><a href="/brands#f"><span>f</span></a></li>\
+                                <li data-brand-letter="g"><a href="/brands#g"><span>g</span></a></li>\
+                                <li data-brand-letter="h"><a href="/brands#h"><span>h</span></a></li>\
+                                <li data-brand-letter="i"><a href="/brands#i"><span>i</span></a></li>\
+                                <li data-brand-letter="j"><a href="/brands#j"><span>j</span></a></li>\
+                                <li data-brand-letter="k"><a href="/brands#k"><span>k</span></a></li>\
+                                <li data-brand-letter="l"><a href="/brands#l"><span>l</span></a></li>\
+                                <li data-brand-letter="m"><a href="/brands#m"><span>m</span></a></li>\
+                                <li data-brand-letter="n"><a href="/brands#n"><span>n</span></a></li>\
+                                <li data-brand-letter="o"><a href="/brands#o"><span>o</span></a></li>\
+                                <li data-brand-letter="p"><a href="/brands#p"><span>p</span></a></li>\
+                                <li data-brand-letter="q"><a href="/brands#q"><span>q</span></a></li>\
+                                <li data-brand-letter="r"><a href="/brands#r"><span>r</span></a></li>\
+                                <li data-brand-letter="s"><a href="/brands#s"><span>s</span></a></li>\
+                                <li data-brand-letter="t"><a href="/brands#t"><span>t</span></a></li>\
+                                <li data-brand-letter="u"><a href="/brands#u"><span>u</span></a></li>\
+                                <li data-brand-letter="v"><a href="/brands#v"><span>v</span></a></li>\
+                                <li data-brand-letter="w"><a href="/brands#w"><span>w</span></a></li>\
+                                <li data-brand-letter="x"><a href="/brands#x"><span>x</span></a></li>\
+                                <li data-brand-letter="y"><a href="/brands#y"><span>y</span></a></li>\
+                                <li data-brand-letter="z"><a href="/brands#z"><span>z</span></a></li>\
+                                <li data-brand-letter="0"><a href="/brands#0"><span>1-9</span></a></li>\
+                            </ul>\
+                            <a class="view-all" href="/brands">View All Brands</a>\
+                        </div>',
+                images: '<div class="item"><a class="image" href="#">\
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/megamenu-image-4.jpg" alt="Megamenu Image 4" title="Megamenu Image 4"/>\
+                        </a></div>\
+                        <div class="item"><a class="image" href="#">\
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/megamenu-image-5.jpg" alt="Megamenu Image 5" title="Megamenu Image 5"/>\
+                        </a></div>'
+            });
+        }
+        else {
+            return;
+        }
+    }
+
+    function MegaMenuLabel(){
+            haloMegaMenu.menuItem(0).setMegaMenu({
+                label: 'New',
+                labelType: "new",
+                disabled: true
+            });
+
+            haloMegaMenu.menuItem(0).setMegaMenu({
+                label: 'Hot',
+                labelType: "hot",
+                disabled: true
+            });
+
+            haloMegaMenu.menuItem(0).setMegaMenu({
+                label: 'Sale',
+                labelType: "sale",
+                disabled: true
+            });
+    }
+
+    MegaMenuLabel();
+
+    var setItemMegaMenu = SetItemMegaMenu();
+
+    window.onload = setItemMegaMenu;
+</script>

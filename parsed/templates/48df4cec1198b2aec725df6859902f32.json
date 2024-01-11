@@ -1,0 +1,3 @@
+{
+  "components/common/requireness-msg": "<small>\n    {{#if required}}\n    \t{{lang 'common.required_dot'}}\n    {{else}}\n    \t{{lang 'common.optional'}}\n    {{/if}}\n</small>\n"
+}

@@ -1,0 +1,32 @@
+<script type="text/javascript">
+  var arrNew = [0{{#each productsnew}},{{id}}{{/each}}];
+</script>
+<span class="newTextAjax">New</span>
+{{#each categories}}
+    {{#if id '==' ../category_id}}
+        <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../columns}}" data-halo-products-by-category-tabs="{{url}}">
+        </ul>
+    {{else}}
+        {{#each children}}
+            {{#if id '==' ../../../category_id}}
+                <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../../../columns}}" data-halo-products-by-category-tabs="{{url}}">
+                </ul>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../../../category_id}}
+                        <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../../../../../columns}}" data-halo-products-by-category-tabs="{{url}}">
+                        </ul>
+
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../../../category_id}}
+                                <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../../../../../../../columns}}" data-halo-products-by-category-tabs="{{url}}">
+                                </ul>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

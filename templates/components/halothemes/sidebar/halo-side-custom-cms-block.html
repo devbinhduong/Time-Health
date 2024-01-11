@@ -1,0 +1,25 @@
+{{#if theme_settings.sidebar_image}}
+    <div id="sideBannerImage" class="sidebarBlock">
+    	<div class="side-cms-img">
+    		<a class="cms-image" href="{{theme_settings.sidebar_image_link}}">
+                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.sidebar_image}}" alt="{{theme_settings.sidebar_image}}" />
+    		</a>
+    	</div>
+    </div>
+{{/if}}
+
+{{#if theme_settings.show_sidebar_custom_block}}
+	<div id="sideCustomCMS" class="sidebarBlock">
+		{{#if theme_settings.sidebar_custom_block_title '!=' ''}}
+	    	<h5 class="sidebarBlock-heading"><span>{{theme_settings.sidebar_custom_block_title}}</span></h5>
+	    {{/if}}
+	    <div class="side-cms-content">
+	    	{{#if theme_settings.sidebar_custom_block_content_1}}
+	        	<p>{{theme_settings.sidebar_custom_block_content_1}}</p>
+	        {{/if}}
+	        {{#if theme_settings.sidebar_custom_block_content_2}}
+	        	<p>{{theme_settings.sidebar_custom_block_content_2}}</p>
+	        {{/if}}	
+	    </div>
+	</div>
+{{/if}}

@@ -1,0 +1,35 @@
+{{#if halo-section '==' 'halo-section-1'}}
+  {{{region name="home_top_catgory"}}}
+{{else if halo-section '==' 'halo-section-2'}}
+  {{{region name="home_service_4"}}}
+{{else if halo-section '==' 'halo-section-3'}}
+  {{{region name="home_custom_block_banners"}}}
+{{else if halo-section '==' 'halo-section-4'}}
+  {{#if theme_settings.enable_featured_products}}
+    {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count productsnew=products.new id="FeaturedProductCarousel" show_dots_bar=true}}
+    {{/if}}
+  {{/if}}
+  {{{region name="home_below_featured_products"}}}
+{{else if halo-section '==' 'halo-section-5'}}
+    {{#if theme_settings.enable_product_tabs}}
+        {{> components/halothemes/products/halo-product-tab show_dots_bar=true}}
+    {{/if}}
+{{else if halo-section '==' 'halo-section-6'}}
+  {{{region name="home_custom_block_lookbook"}}}
+{{else if halo-section '==' 'halo-section-7'}}
+  {{#if products.new}}
+      {{> components/products/new-2 products=products.new columns=theme_settings.homepage_new_products_column_count productsnew=products.new id="NewProductCarousel" show_dots_bar=true}}
+  {{/if}}
+  {{{region name="home_below_new_products"}}}
+{{else if halo-section '==' 'halo-section-8'}}
+	{{{region name="home_custom_block_testimonial"}}}
+{{else if halo-section '==' 'halo-section-9'}}
+	{{> components/halothemes/home/home-newsletter}}
+{{else if halo-section '==' 'halo-section-10'}}
+    {{> components/halothemes/home/home-recent-posts-2 post=blog.recent_posts}}
+{{else if halo-section '==' 'halo-section-11'}}
+  {{{region name="home_instagram_2"}}}
+{{else if halo-section '==' 'halo-section-12'}}
+  {{{region name="home_custom_block_bottom"}}}
+{{/if}}

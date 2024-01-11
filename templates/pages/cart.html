@@ -1,0 +1,95 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+cart: true
+---
+{{#partial "page"}}
+<div class="page">
+
+    <main class="page-content page-content--cart" data-cart>
+        <div class="container--cart"> 
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+            {{> components/cart/page-title}}
+
+            {{#and (if theme_settings.halo_CalculateFreeShipping) (if cart.items.length)}}
+                <div class="halo-free-shipping-message animated-loading"></div>
+            {{/and}}
+
+            <div data-cart-status>
+                {{> components/cart/status-messages}}
+            </div>
+
+            {{#and (if theme_settings.enbale_cart_notification) (if cart.items.length)}}
+                {{> components/halothemes/cart/halo-cart-notification}}
+            {{/and}}
+
+            {{#if cart.items.length}}
+                <div class="loadingOverlay"></div>
+
+                <div class="cartContent">
+                    <div class="cartContent--left">
+                        <div data-cart-content class="cart-content-padding-right">
+                            {{> components/cart/content}}
+                        </div>
+                        {{#if theme_settings.halo-cart-secure-image}}
+                            {{> components/halothemes/products/halo-security-image 
+                                security_des=theme_settings.halo-cart-secure-image-label
+                                security_image_1=theme_settings.haloCart_securityImage_1
+                                security_image_2=theme_settings.haloCart_securityImage_2
+                                security_image_3=theme_settings.haloCart_securityImage_3
+                                security_image_4=theme_settings.haloCart_securityImage_4
+                                security_image_5=theme_settings.haloCart_securityImage_5
+                                security_image_6=theme_settings.haloCart_securityImage_6
+                            }}
+                        {{/if}}
+                    </div>
+
+                    <div class="cartContent--right">
+                        <div data-cart-totals class="cart-content-padding-right">
+                            {{> components/cart/totals}}
+                        </div>
+
+                        {{{region name="cart_below_totals"}}}
+
+                        {{#if cart.show_primary_checkout_button}}
+                            <div class="cart-actions cart-content-padding-right">
+                                <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                                {{#if cart.show_multiple_address_shipping}}
+                                    <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
+                                        {{lang 'cart.preview.checkout_multiple'}}
+                                    </a>
+                                {{/if}}
+                            </div>
+                        {{else}}
+                            <div class="cart-actions cart-content-padding-right">
+                                <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
+                            </div>
+                        {{/if}}
+
+                        {{#if cart.additional_checkout_buttons}}
+                            <div data-cart-additional-checkout-buttons class="cart-additionalCheckoutButtons cart-content-padding-right">
+                                {{> components/cart/additional-checkout-buttons}}
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{else}}
+                <h3 tabindex="0">{{lang 'cart.checkout.empty_cart'}}</h3>
+            {{/if}}
+        </div>
+        {{> components/halothemes/products/halo-product-recommended-block 
+            enable=theme_settings.haloRecommendedBlock_cart 
+            title_recommended=theme_settings.haloRecommendedBlock_cart_title 
+            list_id=theme_settings.list_productRecommended_cart type=theme_settings.haloRecommendedBlock_cart_type
+        }}
+        {{{region name="cart_below_recommended_block"}}}
+    </main>
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,49 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.blog_posts_per_page}}
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+---
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="container--blog">
+    {{#unless theme_settings.hide_blog_page_heading }}
+        <h1 class="page-heading">{{ blog.name }}</h1>
+    {{/unless}}
+
+    <div class="page blog-page">
+        {{#if theme_settings.haloSidebar_blog}}
+            <aside class="page-sidebar">
+                {{> components/halothemes/blogs/halo-blog-sidebar post=blog.recent_posts limit_post=theme_settings.blog_posts_per_page}}
+            </aside>
+        {{/if}}
+
+        <main class="page-content" id="blog-listing-container">
+            {{#if theme_settings.haloSidebar_blog}}
+                <div class="sidebar__btn">
+                    <a href="javascript:void(0)" class="categorySidebar-btn" data-page-type="{{page_type}}">
+                        <span class="icon-filter">
+                            <svg class="icon" aria-label="Button Show Sidebar"><use xlink:href="#icon-filter"></use></svg>
+                        </span>
+                        <span class="sidebar_more">{{lang 'common.show_sidebar'}}</span>
+                    </a>
+                </div>
+            {{/if}}
+
+            {{> components/blog/post post=blog.post show_tags=true}}
+        </main>
+    </div>
+</div>
+
+
+
+{{/partial}}
+{{> layout/base}}

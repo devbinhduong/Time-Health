@@ -1,0 +1,36 @@
+<section class="productCarousel productCarousel-custom{{#if theme_settings.halo_homepage_layout_4}} showDotsBar{{/if}}" id="{{id}}"
+    data-list-name="{{list}}"
+    data-dots-bar="{{ show_dots_bar }}"
+    data-slick='{
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "slide": "[data-product-slide]",
+        "responsive": [
+            {
+                "breakpoint": 1261,
+                "settings": {
+                    "slidesToShow": {{ columns }},
+                    "slidesToScroll": {{ columns }}
+                }
+            },
+            {
+                "breakpoint": 768,
+                "settings": {
+                    "slidesToShow": 3,
+                    "slidesToScroll": 3
+                }
+            }
+        ]
+    }'
+>
+    {{#each (limit products theme_settings.home_product_tab-limit)}}
+    <div data-product-slide class="productCarousel-slide">
+        {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating event="list" position=(add @index 1) productsnew=../productsnew}}
+    </div>
+    {{/each}}
+    {{#if products.length '>' 1}}
+        {{> components/carousel-content-announcement}}
+    {{/if}}
+</section>

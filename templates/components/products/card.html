@@ -1,0 +1,287 @@
+<article
+    class="card
+    {{#if alternate}} card--alternate{{/if}}"
+    data-product-id="{{id}}"
+    data-test="card-{{id}}"
+    data-event-type="{{event}}"
+    data-entity-id="{{id}}"
+    data-position="{{position}}"
+    data-name="{{name}}"
+    data-product-category="
+    {{#each category}}
+        {{#if @last}}
+            {{this}}
+        {{else}}
+            {{this}},
+        {{/if}}
+    {{/each}}"
+    data-product-brand="{{brand.name}}"
+    data-product-price="
+    {{#if price.with_tax}}
+        {{price.with_tax.value}}
+    {{else}}
+        {{price.without_tax.value}}
+    {{/if}}"
+>
+    <figure class="card-figure">
+        {{#if theme_settings.halo_label_product}}
+            <div class="halo-product-badge">
+                {{#if theme_settings.show_new_badges}}
+                    {{#each productsnew}}
+                        {{#if id '==' ../id}}
+                            <div class="product-badge new-badge">
+                                <span class="text">{{lang 'common.badge_new'}}</span>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+                {{#if theme_settings.show_sale_badges}}
+                    {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+                        <div class="product-badge sale-badge">
+                            {{#if theme_settings.sale_badges_type '==' 'percent'}}
+                                {{#if price.non_sale_price_with_tax}}
+                                    <span class="text">-{{round (subtract 100 (multiply (divide price.with_tax.value price.non_sale_price_with_tax.value) 100)) 0}}% {{lang 'common.badge_sale_1'}}</span>
+                                {{/if}}
+                                {{#if price.non_sale_price_without_tax}}
+                                    <span class="text">-{{round (subtract 100 (multiply (divide price.without_tax.value price.non_sale_price_without_tax.value) 100)) 0}}% {{lang 'common.badge_sale_1'}}</span>
+                                {{/if}}
+                            {{else}}
+                                <span class="text">{{lang 'common.badge_sale'}}</span>
+                            {{/if}}
+                        </div>
+                    {{/or}}
+                {{/if}}
+                {{#if theme_settings.show_custom_badges}}
+                    {{#each custom_fields}}
+                         {{#if name '===' '__customLabel'}}
+                            <div class="product-badge custom-badge">
+                                <span class="text">{{{value}}}</span>
+                            </div>
+                        {{/if}}
+                        {{#if name '===' '__bundle'}}
+                            <div class="product-badge bundle-badge"><span class="text">{{lang 'common.badge_bundle'}}</span></div>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+                {{#if theme_settings.show_soldout_badges}}
+                    {{#if out_of_stock_message}}
+                        <div class="product-badge soldout-badge">
+                            <span class="text">{{lang 'common.badge_sold_out'}}</span>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+        {{/if}}
+
+        <a href="{{url}}"
+           class="card-figure__link"
+           aria-label="{{name}},{{> components/products/product-aria-label}}"
+           data-event-type="product-click"
+        >
+            <div class="card-img-container{{#and (if images.length '>=' 2) (if theme_settings.halo_card_image_swap)}} card-img-hover{{/and}}">
+                {{> components/common/responsive-img
+                    image=image
+                    class="card-image"
+                    fallback_size=theme_settings.gallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+                {{#and (if images.length '>=' 2) (if theme_settings.halo_card_image_swap)}}
+                    {{#each images}}
+                        {{#if @index '==' 1}}
+                            <span class="product-additional">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    class="card-image img-responsive"
+                                    fallback_size=theme_settings.gallery_size
+                                    lazyload=theme_settings.lazyload_mode
+                                    default_image=theme_settings.default_image_product
+                                }}
+                            </span>
+                        {{/if}}
+                    {{/each}}
+                {{/and}}
+            </div>
+        </a>
+
+        <figcaption class="card-figcaption">
+            {{#if theme_settings.halo_homepage_layout_1}}
+                <div class="card-figcaption-top">
+                    {{#if settings.show_wishlist}}
+                        <button href="/wishlist.php?action=add&product_id={{id}}" class="wishlist button{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}">
+                            <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+                            <span class="text">{{lang 'account.wishlists.add'}}</span>
+                        </button>
+                    {{/if}}
+                    {{#unless hide_product_quick_view}}
+                        {{#if theme_settings.show_product_quick_view}}
+                            <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
+                                <svg><use xlink:href="#icon-quick-view"/></svg>
+                                <span>{{lang 'products.quick_view'}}</span>
+                            </button>
+                        {{/if}}
+                    {{/unless}}
+                </div>
+            {{else}}
+                <div class="card-figcaption-top">
+                    {{#if settings.show_wishlist}}
+                        <button href="/wishlist.php?action=add&product_id={{id}}" class="wishlist button{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}">
+                            <span class="icon-action">
+                                {{#if theme_settings.halo_homepage_layout_3}}
+                                    <svg class="icon"><use xlink:href="#icon-wishlist-2"/></svg>
+                                {{else}}
+                                    <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+                                {{/if}}
+                            </span>
+                            <span class="text">{{lang 'account.wishlists.add'}}</span>
+                        </button>
+                    {{/if}}
+                    {{#unless hide_product_quick_view}}
+                        {{#if theme_settings.show_product_quick_view}}
+                            <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
+                                <span>
+                                    {{#if theme_settings.halo_homepage_layout_3}}
+                                        <svg><use xlink:href="#icon-quick-view-2"/></svg>
+                                    {{else if theme_settings.halo_homepage_layout_4}}
+                                        <svg><use xlink:href="#icon-quick-view-3"/></svg>
+                                    {{else}}
+                                        <svg><use xlink:href="#icon-quick-view"/></svg>
+                                    {{/if}}
+                                </span>
+                                <span>{{lang 'products.quick_view'}}</span>
+                            </button>
+                        {{/if}}
+                    {{/unless}}
+                </div>
+            {{/if}}
+            {{#or customer (unless settings.hide_price_from_guests)}}
+                {{#if show_cart_action}}
+                    <div class="card-figcaption-bottom">
+                        {{#if has_options}}
+                            {{#if theme_settings.halo_quick_shop}}
+                                <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">
+                                    {{#if theme_settings.halo_homepage_layout_4}}<span class="text">{{/if}}{{#if theme_settings.halo_homepage_layout_3}}{{lang 'products.quick_shop'}}{{else}}{{lang 'products.quick_shop_2'}}{{/if}}{{#if theme_settings.halo_homepage_layout_4}}</span>{{/if}}
+                                </a>
+                            {{else}}
+                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                            {{/if}}
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{#if theme_settings.halo_homepage_layout_2}}{{lang 'products.add_to_cart_2'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}</a>
+                            <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button button--outOfStock" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            {{/or}}
+        </figcaption>
+        {{#or customer (unless settings.hide_price_from_guests)}}
+            {{#if show_cart_action}}
+                {{#if has_options}}
+                    {{#if theme_settings.halo_quick_shop}}    
+                        <div class="quickShopPopup scrollbar"></div>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/or}}
+    </figure>
+    <div class="card-body">
+        {{#and (if brand.name) (if theme_settings.halo_card_brand)}}
+            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+        {{/and}}
+
+        <h3 class="card-title{{#if theme_settings.halo_card_title '==' 'ellipsis'}} card-ellipsis{{/if}}{{#if theme_settings.halo_homepage_layout_1}}{{#or customer (unless settings.hide_price_from_guests)}}{{#if show_cart_action}}{{#if has_options}}{{#if theme_settings.haloAddOptionForProduct}} has-options{{/if}}{{/if}}{{/if}}{{/or}}{{/if}}">
+            <a aria-label="{{name}},{{> components/products/product-aria-label}}"
+                href="{{url}}"
+                data-event-type="product-click">
+                <span>{{name}}</span>
+            </a>
+
+            {{#if theme_settings.halo_homepage_layout_1}}
+                {{#or customer (unless settings.hide_price_from_guests)}}
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            {{#if theme_settings.haloAddOptionForProduct}}    
+                                <span class="card-subTitle-color"></span>
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/or}}
+            {{/if}}
+        </h3>
+        
+        {{#and (if show_rating) (if theme_settings.halo_card_ratings)}}
+            <p class="card-text" data-test-info-type="productRating">
+                <span class="rating--small">
+                    {{> components/products/ratings rating_target=name rating=rating}}
+                </span>
+            </p>
+        {{/and}}
+
+        {{#if summary}}
+            <div class="card-desc">
+                <p style="-webkit-box-orient: vertical;">{{{ ellipsis summary 250}}}</p>
+            </div>
+        {{/if}}
+
+        <div class="card-text" data-test-info-type="price">
+            {{#or customer (unless settings.hide_price_from_guests)}}
+                {{> components/products/price price=price}}
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+        {{> components/products/bulk-discount-rates}}
+
+        {{#if theme_settings.haloAddOptionForProduct}}
+            {{#unless add_to_cart_url}}
+                {{#or (if pre_order) (if has_options) }}
+                    <div class="card-option card-option-{{id}}">
+                        <div class="form-field" data-product-attribute="swatch"></div>
+                    </div>
+                {{/or}}
+                {{#and (if out_of_stock_message) (if has_options) }}
+                    <div class="card-option card-option-{{id}}">
+                        <div class="form-field" data-product-attribute="swatch"></div>
+                    </div>
+                {{/and}}
+            {{/unless}}
+        {{/if}}
+
+        {{#or customer (unless settings.hide_price_from_guests)}}
+            {{#if show_cart_action}}
+                <div class="card-figcaption-bottom">
+                    {{#if has_options}}
+                        {{#if theme_settings.halo_quick_shop}}
+                            <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">{{#if theme_settings.halo_homepage_layout_4}}<span class="text">{{/if}}{{#if theme_settings.halo_homepage_layout_3}}{{lang 'products.quick_shop'}}{{else}}{{lang 'products.quick_shop_2'}}{{/if}}{{#if theme_settings.halo_homepage_layout_4}}</span>{{/if}}</a>
+                        {{else}}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                    {{/if}}
+                    {{#if pre_order}}
+                        <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                    {{/if}}
+                    {{#if add_to_cart_url }}
+                        <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{#if theme_settings.halo_homepage_layout_2}}{{lang 'products.add_to_cart_2'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}</a>
+                        <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                    {{/if}}
+                    {{#if out_of_stock_message }}
+                        <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button button--outOfStock" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                    {{/if}}
+                </div>
+            {{/if}}
+        {{/or}}
+
+        {{#if show_compare}}
+            <label class="button--compare" for="compare-{{id}}">
+                <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
+                <span>{{lang 'products.compare'}}</span>
+            </label>
+        {{/if}}
+    </div>
+</article>

@@ -1,0 +1,186 @@
+// =============================================================================
+// PAGINATION (CSS)
+// =============================================================================
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Centred list via inline-block. Font-size: 0; to remove white-space.
+// 2. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination {
+    clear: both;
+}
+
+.pagination-list {
+    @include clearfix;
+    margin-top: 55px;
+
+    font-size: 0; // 1
+    margin-bottom: spacing("single");
+    text-align: right;
+    padding-top: 30px;
+    border-top: 1px solid #E6E6E6;
+
+    .pagination-item { // 2
+        display: inline-block;
+    }
+}
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-item {
+    border: $pagination-item-border;
+    line-height: 1;
+    border-radius: $pagination-link-current-borderRadius;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    .pagination-link {
+        text-decoration: none;
+        transition: $pagination-link-transition;
+        width: 44px;
+        height: 44px;
+        line-height: 24px;
+        padding: 10px;
+        text-align: center;
+        font-weight: fontWeight("normal");
+        color: stencilColor("icon-color");
+        font-size: stencilNumber("fontSize-root");
+
+        // scss-lint:disable NestingDepth
+        &:hover {
+            color: $pagination-link-color-hover;
+        }
+    }
+
+    &.pagination-item--current { // 1
+        border-color: #F5F5F5 !important;
+        background-color: #F5F5F5 !important;
+        margin: 0 5px;
+
+        .pagination-link {
+            font-weight: fontWeight("medium");
+        }
+    }
+
+    &.pagination-item--previous, // 1
+    &.pagination-item--next { // 1
+        border: 1px solid #CCCCCC;
+        background-color: #ffffff;
+        text-align: center;
+
+        .pagination-link {
+            font-size: 0;
+            color: $pagination-item-previousNext-color;
+            padding: 9px;
+
+            .icon {
+                display: inline-block;
+                margin: 0;
+                width: 26px;
+                height: 26px;
+
+                > svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &:hover, &:focus, &:active {
+                color: $pagination-item-previousNext-color;
+
+                .icon {
+                    color: $pagination-item-previousNext-color;
+
+                    > svg {
+                        fill: $pagination-item-previousNext-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover, &:focus, &:active {
+        background-color: stencilColor("button--primary-backgroundColor");
+        border-color: stencilColor("button--primary-backgroundColor");
+    }
+}
+
+.pagination-item--previous,
+.pagination-item--next {
+
+    .icon {
+        height: remCalc(20px);
+        margin-top: -(remCalc(2px));
+        width: remCalc(20px);
+    }
+}
+
+.pagination-item--previous {
+
+    .icon {
+        margin-left: -(remCalc(12px));
+    }
+}
+
+.pagination-item--next {
+
+    .icon {
+        margin-right: -(remCalc(12px));
+    }
+}
+
+
+// Simple/small pagination (Next/Previous arrows are the only way to navigate)
+// -----------------------------------------------------------------------------
+
+.pagination-list--small {
+    position: relative;
+
+    .pagination-item {
+        color: $pagination-list--small-color;
+        cursor: inherit;
+        line-height: $pagination-list--small-lineHeight;
+    }
+
+    .pagination-link {
+        padding: $pagination-list--small-link-padding;
+    }
+
+    .pagination-item--previous,
+    .pagination-item--next {
+        position: absolute;
+        top: 0;
+    }
+
+    .pagination-item--previous {
+        left: 0;
+    }
+
+    .pagination-item--next {
+        right: 0;
+    }
+}
+
+.pagination-info {
+    text-align: center;
+    color: #787878;
+    font-size: stencilNumber("fontSize-root");
+    font-weight: fontWeight("normal");
+    margin-bottom: 25px;
+}

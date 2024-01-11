@@ -1,0 +1,3 @@
+{
+  "components/halothemes/products/halo-prev-next-product": "{{#if theme_settings.halo_prev_next_product}}\n    <div class=\"productView-nextProducts\" data-product-id=\"{{product.id}}\">\n        <div class=\"next-prev-icons\">\n            <a class=\"prev-icon disable\" href=\"#\" data-target=\"#prev-product-modal\" aria-label=\"Button Prev Product\"></a>\n            <a class=\"next-icon disable\" href=\"#\" data-next-prev-icon=\"\" data-target=\"#next-product-modal\" aria-label=\"Button Next Product\"></a>\n        </div>\n        <div class=\"next-prev-modal\">\n            <div id=\"prev-product-modal\" class=\"next-prev-content\"></div>\n            <div id=\"next-product-modal\" class=\"next-prev-content\"></div>\n        </div>\n    </div>\n{{/if}}\n"
+}

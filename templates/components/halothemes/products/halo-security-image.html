@@ -1,0 +1,39 @@
+{{#or (if theme_settings.halo_securityImage) (if theme_settings.halo-cart-secure-image)}}
+    <div class="halo_securityImage">
+        {{#if security_des}}
+            <p class="halo_securityDes">{{security_des}}</p>
+        {{/if}}
+        <ul>
+            {{#if security_image_1}}
+                <li>
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{security_image_1}}" alt="Security Image 1">
+                </li>
+            {{/if}}
+            {{#if security_image_2}}
+                <li>
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{security_image_2}}" alt="Security Image 2">
+                </li>
+            {{/if}}
+            {{#if security_image_3}}
+                <li>
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{security_image_3}}" alt="Security Image 3">
+                </li>
+            {{/if}}
+            {{#if security_image_4}}
+                <li>
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{security_image_4}}" alt="Security Image 4">
+                </li>
+            {{/if}}
+            {{#if security_image_5}}
+                <li>
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{security_image_5}}" alt="Security Image 5">
+                </li>
+            {{/if}}
+            {{#if security_image_6}}
+                <li>
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{security_image_6}}" alt="Security Image 6">
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+{{/or}}

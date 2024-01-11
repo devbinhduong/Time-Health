@@ -1,0 +1,11 @@
+<nav>
+	{{> components/halothemes/blogs/halo-recent-post post=post}}
+
+	{{> components/halothemes/blogs/halo-tags post=post}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count productsnew=products.new}}
+    {{/if}}
+
+    {{> components/halothemes/sidebar/halo-side-custom-cms-block}}
+</nav>

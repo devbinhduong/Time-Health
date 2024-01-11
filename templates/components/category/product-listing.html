@@ -1,0 +1,47 @@
+{{#if category.products}}
+    <form action="{{urls.compare}}" method='POST' data-list-name="Category: {{category.name}}" data-product-compare>
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" productsnew=products.new}}
+    </form>
+
+    {{#if theme_settings.categoryBannerProduct}}
+        <li class="product product--banner u-hidden">
+            {{> components/halothemes/category/halo-category-banner-product 
+                image1=theme_settings.categoryBannerProduct_item1_img
+                image2=theme_settings.categoryBannerProduct_item2_img
+                link1=theme_settings.categoryBannerProduct_item1_link
+                link2=theme_settings.categoryBannerProduct_item2_link
+            }}
+        </li>
+    {{/if}}
+
+    {{#if theme_settings.halo_category_show_more}}
+        <div class="category__showMoreBtn">
+            <a href="javascript:void(0)" class="button">{{lang 'common.show_more'}}</a>
+        </div>
+    {{/if}}
+
+    <div class="category__pagination">
+        {{> components/common/paginator pagination.category number_products=theme_settings.page_products_per_page total=category.total_products theme_settings=theme_settings page_type=page_type hide_pagination=theme_settings.halo_category_pagination}}
+    </div>
+{{else}}
+    {{#if category.search_error}}
+        <p>{{lang 'search.errorMessage'}}</p>
+    {{else}}
+        <p data-no-products-notification
+           role="alert"
+           aria-live="assertive"
+           tabindex="-1"
+        >
+            {{lang 'categories.no_products'}}
+        </p>
+    {{/if}}
+
+    {{#if theme_settings.categoryBannerProduct}}
+        {{> components/halothemes/category/halo-category-banner-product 
+            image1=theme_settings.categoryBannerProduct_item1_img
+            image2=theme_settings.categoryBannerProduct_item2_img
+            link1=theme_settings.categoryBannerProduct_item1_link
+            link2=theme_settings.categoryBannerProduct_item2_link
+        }}
+    {{/if}}
+{{/if}}

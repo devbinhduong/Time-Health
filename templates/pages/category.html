@@ -1,0 +1,92 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+<div class="container categoryHeader__container"> 
+    <div class="categoryHeader{{#if theme_settings.category_header_type '==' 'banner'}} categoryHeader--img{{else}}{{#if category.image}} categoryHeader--img{{/if}}{{/if}}">
+        {{#if theme_settings.category_header_type '==' 'banner'}}
+            {{{region name="category_top_banner"}}}
+            {{{region name="category_top_banner--global"}}}
+        {{ else }}
+            {{#if category.image}}
+                <div class="categoryHeader__img">
+                    {{> components/common/responsive-img
+                        image=category.image
+                        fallback_size=theme_settings.zoom_size
+                        lazyload=theme_settings.lazyload_mode
+                        class="category-header-image"
+                    }}
+                </div>
+            {{/if}}
+        {{/if}}
+        <div class="categoryHeader__content">
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+            {{#unless theme_settings.hide_category_page_heading }}
+                <h1 class="page-heading">{{category.name}}</h1>
+            {{/unless}}
+
+            {{#if category.description}}
+                <div class="categoryHeader__des">
+                    {{{category.description}}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    {{{region name="category_below_header"}}}
+
+    {{#if theme_settings.show_halo_subcategories}}
+        {{> components/halothemes/category/halo-subcategories}}
+    {{/if}}
+</div>
+
+<div class="container">
+    <div class="page">
+        {{> components/halothemes/category/halo-category-toolbar show_sidebar=theme_settings.haloSidebar_category}}
+        <main class="page-content" id="product-listing-container">
+            {{> components/category/product-listing}}
+            {{{region name="category_below_content"}}}
+        </main>
+    </div>
+</div>
+
+{{{region name="category_bottom_banner"}}}
+{{{region name="category_bottom_banner--global"}}}
+
+{{{region name="category_reviews_banner"}}}
+{{{region name="category_reviews_banner--global"}}}
+
+{{> components/halothemes/products/halo-product-recommended-block 
+    enable=theme_settings.haloRecommendedBlock_category 
+    title_recommended=theme_settings.haloRecommendedBlock_category_title 
+    list_id=theme_settings.list_productRecommended_category 
+    view_all_link=theme_settings.haloRecommendedBlock_category_vaLink 
+    show_view_all=true type=theme_settings.haloRecommendedBlock_category_type
+}}
+{{{region name="category_below_recommended_block"}}}
+
+{{/partial}}
+{{> layout/base}}

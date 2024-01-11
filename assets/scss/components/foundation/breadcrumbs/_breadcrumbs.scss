@@ -1,0 +1,64 @@
+// =============================================================================
+// BREADCRUMBS (CSS)
+// =============================================================================
+//
+//
+// 1. Hide breadcrumbs on mobile-sized screens to improve screen real estate.
+//
+// 2. Since our breadcrumbs are centred with a variable width, we need to use
+//    display: inline-block; on the breadcrumbs. Hence needing to remove the
+//    white-space with font-size: 0;
+//    The font-size is reset in the breadcrumb settings file.
+//
+// -----------------------------------------------------------------------------
+
+ol.breadcrumbs {
+    font-size: 0; // 2
+    text-align: center;
+    overflow: visible;
+}
+
+.breadcrumb {
+    display: inline-block;
+    float: none;
+    margin-right: 10px;
+    font-size: stencilNumber("fontSize-root");
+
+    > .breadcrumb-label {
+        color: #787878;
+        font-size: stencilNumber("fontSize-root");
+        font-weight: fontWeight("normal");
+        text-decoration: none;
+
+        span {
+            background-image: linear-gradient(transparent 96%, rgba(#787878,.6) 4%);
+            background-repeat: repeat-x;
+            background-position-y: 0px;
+            display: inline-block;
+            line-height: 1;
+        }
+    }
+
+    &.is-active {
+
+        // scss-lint:disable NestingDepth
+        > .breadcrumb-label {
+            cursor: pointer;
+        }
+
+        > .breadcrumb-label {
+            color: #787878;
+        }
+    }
+
+    // needs to override common bigcommerce styles for accessibility improvements
+    &:not(:first-child):before {
+        display: inline-block;
+        margin: 0 0.25rem;
+        transform: rotate(15deg);
+        border-right: 0.1em solid $primary-color;
+        height: 0.8em;
+        content: '';
+        left: -3px;
+    }
+}

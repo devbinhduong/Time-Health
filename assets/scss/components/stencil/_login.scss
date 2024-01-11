@@ -1,0 +1,176 @@
+// =============================================================================
+// LOGIN (CSS)
+// =============================================================================
+
+.login {
+    margin: spacing("double") auto spacing("double")*2;
+    max-width: remCalc(1370px);
+
+    .form-label {
+        color: stencilColor('color-textHeading');
+        font-weight: fontWeight("medium");
+    }
+
+    .form-input {
+        height: 50px;
+        border-color: #CCCCCC;
+    }
+
+    .form-actions {
+        text-align: left;
+
+        .button {
+            min-width: 170px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .forgot-password {
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            color: stencilColor("color-textLink--hover");
+            background-image: linear-gradient(transparent 96%, rgba(stencilColor("color-textLink--hover"),.6) 4%);
+            background-repeat: repeat-x;
+            background-position-y: 0px;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+    }
+}
+
+.login-row {
+    @include grid-row();
+    @include breakpoint("medium") {
+        margin-top: spacing("double")*1.5;
+    }
+
+    max-width: 100%;
+    font-size: 0;
+}
+
+.login-form {
+    @include grid-column(12);
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 50px;
+    font-size: stencilNumber("fontSize-root");
+
+    @media(min-width: 768px) {
+        width: 50%;
+        padding-left: 0;
+        padding-right: 70px;
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+        margin-bottom: 0;
+    }
+
+    @media(max-width: 1199px) and (min-width: 768px) {
+        padding-right: 15px;
+    }
+}
+
+.new-customer {
+    @include grid-column(12);
+    padding-left: 0;
+    padding-right: 0;
+    font-size: stencilNumber("fontSize-root");
+
+    @media(min-width: 768px) {
+        width: 50%;
+        padding-left: 70px;
+        padding-right: 0;
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    .panel {
+        background-color: #ffffff;
+        -webkit-box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
+        box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+
+        .panel-header {
+            background-color: transparent;
+            padding: 95px 100px 0 100px;
+
+            .panel-title {
+                color: stencilColor('color-textHeading');
+                font-size: 20px;
+                font-weight: fontWeight("bold");
+                margin-bottom: 25px;
+            }
+        }
+
+        .panel-body {
+            background-color: transparent;
+            padding: 0 100px 100px 100px;
+            margin-bottom: 0;
+
+            .new-customer-intro {
+                color: stencilColor("color-textSecondary");
+                font-size: stencilNumber("fontSize-root");
+                font-weight: fontWeight("normal");
+                margin-bottom: 25px;
+            }
+
+            .new-customer-fact-list {
+                margin-left: 17px;
+                margin-bottom: 35px;
+
+                .new-customer-fact {
+                    padding: 9px 0 9px 3px;
+                    color: stencilColor("color-textSecondary");
+                    font-size: stencilNumber("fontSize-root");
+                    font-weight: fontWeight("normal");
+                }
+            }
+
+            .button {
+                width: 100%;
+                max-width: 271px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media(max-width: 1199px) and (min-width: 768px) {
+        padding-left: 15px;
+
+        .panel {
+            .panel-header {
+                padding: 30px 30px 0 30px;
+            }
+
+            .panel-body {
+                padding: 0 30px 30px 30px;
+            }
+        }
+    }
+
+    @media(max-width: 767px) {
+        .panel {
+            .panel-header {
+                padding: 20px 20px 0 20px;
+            }
+
+            .panel-body {
+                padding: 0 20px 20px 20px;
+            }
+        }
+    }
+}
+
+.new-customer-intro {
+    margin-bottom: 0;
+}
+
+.new-customer-fact-list {
+    margin-left: spacing("double");
+}
+
+.new-customer-fact {
+    padding-left: spacing("half");
+}

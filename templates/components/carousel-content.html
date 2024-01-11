@@ -1,0 +1,17 @@
+<div class="heroCarousel-content{{#unless show_background}} heroCarousel-content--empty{{/unless}}">
+    <span class="heroCarousel-title animated">{{heading}}</span>
+	{{#if subtitle}}
+		<p class="heroCarousel-subTitle animated">{{subtitle}}</p>
+	{{/if}}
+    <p class="heroCarousel-description animated">{{{text}}}</p>
+    {{#or button_text or btn_2}}
+    <div class="button-group">
+        {{#if button_text}}
+            <a href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}" class="heroCarousel-action animated button{{#unless home_layout_1}} button--tertiary{{/unless}} button--large">{{button_text}}</a>
+        {{/if}}
+        {{#if btn_2}}
+            <a href="{{btn_2_lk}}" aria-label="{{lang 'carousel.slide_number' slide_number=(add @index 1)}}, {{btn_2}}" class="heroCarousel-action animated button{{#unless home_layout_1}} button--tertiary{{/unless}} button--large btn-custom">{{btn_2}}</a>
+        {{/if}}
+    </div>
+    {{/or}}
+</div>

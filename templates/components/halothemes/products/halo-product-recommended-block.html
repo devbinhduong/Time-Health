@@ -1,0 +1,39 @@
+{{#if enable}}
+	<div id="haloRecommendedBlock" class="haloRecommendedBlock{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}" data-list-id="{{list_id}}">
+		<div class="container{{#if theme_settings.halo_homepage_layout_4}} container-custom{{/if}}">
+			<div class="row">
+				<h2 class="page-heading halo-heading">
+					{{title_recommended}}
+					{{#if show_view_all}}
+						<a class="btnViewAll" href="{{view_all_link}}">{{lang 'common.view_all'}}</a>
+					{{/if}}
+				</h2>
+
+				{{#if type '==' 'new'}}
+			        {{#if products.new}}
+			            {{> components/products/new-3 products=products.new columns=theme_settings.homepage_new_products_column_count productsnew=products.new show_dots_bar="true" id="NewProductsCarousel"}}
+			        {{/if}}
+			    {{else}}
+			        {{#if type '==' 'featured'}}
+			            {{#if products.featured}}
+			                {{> components/products/featured-2 products=products.featured columns=theme_settings.homepage_featured_products_column_count productsnew=products.new show_dots_bar="true" id="FeaturedProductsCarousel"}}
+			            {{/if}}
+
+			        {{else}}
+			            {{#if type '==' 'top'}}
+			                {{#if products.top_sellers}}
+			                    {{> components/products/top-2 products=products.top_sellers columns=theme_settings.homepage_top_products_column_count productsnew=products.new show_dots_bar="true" id="TopSellerCarousel"}}
+			                {{/if}}
+			            {{/if}}
+			        {{/if}}        
+			    {{/if}}
+
+			    {{#if theme_settings.halo_homepage_layout_4}}
+					<div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+			            <div class="bar-thumb"></div>
+			        </div>
+		        {{/if}}
+			</div>
+		</div>
+	</div>
+{{/if}}

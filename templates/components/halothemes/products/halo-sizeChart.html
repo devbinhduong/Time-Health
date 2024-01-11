@@ -1,0 +1,65 @@
+{{#if theme_settings.halo_sizechart}}
+    {{#if theme_settings.halo_sizechart_type '==' 'all'}}
+        <a href="javascript:void(0);" data-reveal-id="modal-size-chart-form" aria-label="Open Modal Size Chart">
+            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-size-chart"></use></svg>
+            <span>{{lang 'products.size_chart'}}</span>
+        </a>
+        <div id="modal-size-chart-form" class="modal" data-reveal>
+            <div class="modal-header">
+                <h5 class="sizeChart__header">{{theme_settings.halo_sizechart_title}}</h5>
+                {{> components/halothemes/sidebar/halo-button-close class_modal="modal-close"}}
+            </div>
+            <div class="modal-body">
+                <div class="sizeChart__des">
+                    <p>
+                        {{theme_settings.halo_sizechart_des1_1}}
+                        {{theme_settings.halo_sizechart_des1_2}}
+                        {{theme_settings.halo_sizechart_des1_3}}
+                    </p>
+                    <p>
+                        {{theme_settings.halo_sizechart_des2_1}}
+                        {{theme_settings.halo_sizechart_des2_2}}
+                        {{theme_settings.halo_sizechart_des2_3}}
+                        {{theme_settings.halo_sizechart_des2_4}}
+                    </p>
+                </div>
+                <div class="sizeChart__img">
+                    <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.halo_sizechart_image}}" alt="{{lang 'products.size_chart'}}">
+                </div>
+            </div>
+        </div>
+    {{else if theme_settings.halo_sizechart_type '==' 'custom'}}
+        {{#each product.custom_fields}}
+            {{#if name '===' '__sizechart'}}
+                <a href="javascript:void(0);" data-reveal-id="modal-size-chart-form" aria-label="Open Modal Size Chart">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-size-chart"></use></svg>
+                    <span>{{lang 'products.size_chart'}}</span>
+                </a>
+                <div id="modal-size-chart-form" class="modal" data-reveal>
+                    <div class="modal-header">
+                        <h5 class="sizeChart__header">{{../theme_settings.halo_sizechart_title}}</h5>
+                        {{> components/halothemes/sidebar/halo-button-close class_modal="modal-close"}}
+                    </div>
+                    <div class="modal-body">
+                        <div class="sizeChart__des">
+                            <p>
+                                {{../theme_settings.halo_sizechart_des1_1}}
+                                {{../theme_settings.halo_sizechart_des1_2}}
+                                {{../theme_settings.halo_sizechart_des1_3}}
+                            </p>
+                            <p>
+                                {{../theme_settings.halo_sizechart_des2_1}}
+                                {{../theme_settings.halo_sizechart_des2_2}}
+                                {{../theme_settings.halo_sizechart_des2_3}}
+                                {{../theme_settings.halo_sizechart_des2_4}}
+                            </p>
+                        </div>
+                        <div class="sizeChart__img">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{value}}" alt="{{lang 'products.size_chart'}}">
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}

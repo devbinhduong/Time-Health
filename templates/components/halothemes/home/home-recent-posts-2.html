@@ -1,0 +1,50 @@
+{{#if theme_settings.halo_recent_post}}
+	<div class="halo-block halo-block-post home_below_recent_posts">
+		<div class="container">
+			{{#if theme_settings.halo_recent_post-title}}
+				<div class="halo-block-header">
+		            <h2 class="title txt-trans-up">{{theme_settings.halo_recent_post-title}}</h2>
+		             <a class="btnViewAll" href="/blog/">{{lang 'blog.read_more_story'}}</a>
+		        </div>
+		    {{/if}}
+	        <div class="halo-recent-post halo-row disable-srollbar">
+        		{{#each post}}
+	        		<div class="halo-row-slider">
+	        			<div class="halo-row-item">
+			        		<div class="item">
+					            <div class="item-image">
+					                <a class="image-with-overlay" href="{{url}}">
+					                    {{> components/common/responsive-img
+						                    image=thumbnail
+						                    class=""
+						                    fallback_size=../theme_settings.recent_blog_size
+						                    lazyload=../theme_settings.lazyload_mode
+						                    default_image=../theme_settings.default_image_product
+						                }}
+					                </a>
+					            </div>
+						        <div class="item-content appearUp">
+						        	<div class="date-author">
+						        		<span class="date">{{date_published}}</span>
+						        		{{#if author}}<span class="author">{{lang 'blog.posted_by_2' name=author}}</span>{{/if}}
+						        	</div>
+						            <h3 class="title">
+						                {{#if ../theme_settings.halo_card_title '==' 'ellipsis'}}
+							                <a class="link-effect" href="{{url}}" style="-webkit-box-orient: vertical;"><span class="text">{{title}}</span></a>
+							            {{else}}
+							                <a class="link-effect" href="{{url}}">{{title}}</a>
+							            {{/if}}
+						            </h3>
+						            
+						            <a class="button button--tertiary" href="{{url}}">{{lang 'blog.read_more'}}</a>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				{{/each}}
+	        </div>
+	        
+		</div>
+	</div>
+	{{{region name="home_below_recent_posts"}}}
+{{/if}}

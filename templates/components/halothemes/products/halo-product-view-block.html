@@ -1,0 +1,28 @@
+{{#if product.related_products}}
+    <div id="related-product" class="productViewBlock{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}">
+        <div class="container{{#if theme_settings.halo_homepage_layout_4}} container-custom{{/if}}">
+            <h5 class="halo-heading">{{lang 'products.related_products'}}</h5>
+            {{> components/products/carousel products=product.related_products columns=theme_settings.productpage_product_block_col list="Related Products" show_dots_bar="true" id="RelatedProductCarousel"}}
+            {{#if theme_settings.halo_homepage_layout_4}}
+                <div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+                    <div class="bar-thumb"></div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+{{/if}}
+
+{{#if product.similar_by_views}}
+    <div id="similar-product" class="productViewBlock{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}">
+        <div class="container{{#if theme_settings.halo_homepage_layout_4}} container-custom{{/if}}">
+            <h5 class="halo-heading">{{lang 'products.similar_by_views'}}</h5>
+            {{> components/products/carousel products=product.similar_by_views columns=theme_settings.productpage_product_block_col list="Customers Also Viewed" show_dots_bar="true" id="SimilarProductCarousel"}}
+
+            {{#if theme_settings.halo_homepage_layout_4}}
+                <div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+                    <div class="bar-thumb"></div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+{{/if}}

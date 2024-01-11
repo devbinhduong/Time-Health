@@ -1,0 +1,147 @@
+<div class="halo-category-toolbar">
+    <div class="column-left">
+        <div class="sidebar-label">
+            {{#if show_sidebar}}
+                <a href="javascript:void(0)" class="categorySidebar-btn" data-page-type="{{page_type}}">
+                    <span class="icon-filter">
+                        <svg class="icon" aria-label="Button Show Sidebar"><use xlink:href="#icon-filter"></use></svg>
+                    </span>
+                    <span class="sidebar_more">{{lang 'common.show_sidebar'}}</span>
+                </a>
+            {{/if}}
+        </div>
+    </div>
+    <div class="column-right">
+        {{#or (if category.products) (if product_results.products.length) (if page_type '==' 'brand')}}
+            {{#if theme_settings.haloToolbar_viewAs}}
+                <div class="view-as-btn">
+                    <label class="form-label">{{lang 'products.view_as'}}</label>
+                    <div class="btn-group">
+                        <div class="btn-select">
+                            <a href="javascript:void(0);" id="grid-view" title="Grid View" class="btn-view grid-view{{#if theme_settings.product_list_display_mode '===' 'grid'}} current-view{{/if}}">
+                                <div class="icon-view icon-view-3">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-3">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-3">
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" id="list-view" title="List View" class="btn-view list-view{{#if theme_settings.product_list_display_mode '===' 'list'}} current-view{{/if}}">
+                                <div class="icon-view">
+                                    <div class="icon-bar"></div>
+                                    <div class="icon-bar"></div>
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="btn-dropdown{{#if theme_settings.show_sidebar '==' 'show'}} sidebar-show{{else}} sidebar-hide{{/if}}">
+                            <a href="javascript:void(0);" id="grid-view2" data-grid="2" title="Grid View" class="btn-view grid-view grid-view2{{#if theme_settings.product_list_display_mode '===' 'grid'}}{{#if theme_settings.product_grid_view_column '==' 2}} current-view{{/if}}{{/if}}">
+                                <div class="icon-view icon-view-2">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-2">
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" id="grid-view3" data-grid="3" title="Grid View" class="btn-view grid-view grid-view3{{#if theme_settings.product_list_display_mode '===' 'grid'}}{{#if theme_settings.product_grid_view_column '==' 3}} current-view{{/if}}{{/if}}">
+                                <div class="icon-view icon-view-3">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-3">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-3">
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" id="grid-view4" data-grid="4" title="Grid View" class="btn-view grid-view grid-view4{{#if theme_settings.product_list_display_mode '===' 'grid'}}{{#if theme_settings.product_grid_view_column '==' 4}} current-view{{/if}}{{/if}}">
+                                <div class="icon-view icon-view-4">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-4">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-4">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-4">
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" id="grid-view5" data-grid="5" title="Grid View" class="btn-view grid-view grid-view5{{#if theme_settings.product_list_display_mode '===' 'grid'}}{{#if theme_settings.product_grid_view_column '==' 5}} current-view{{/if}}{{/if}}">
+                                <div class="icon-view icon-view-5">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-5">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-5">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-5">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-5">
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" id="grid-view6" data-grid="6" title="Grid View" class="btn-view grid-view grid-view6{{#if theme_settings.product_list_display_mode '===' 'grid'}}{{#if theme_settings.product_grid_view_column '==' 6}} current-view{{/if}}{{/if}}">
+                                <div class="icon-view icon-view-6">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-6">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-6">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-6">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-6">
+                                    <div class="icon-bar"></div>
+                                </div>
+                                <div class="icon-view icon-view-6">
+                                    <div class="icon-bar"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        {{/or}}
+        {{#if category.products}}
+            {{#if theme_settings.haloToolbar_limit}}
+                <form class="actionBar show-product" method="get" data-sort-by data-show-products>
+                    {{> components/halothemes/category/halo-show-product limit=limit products_per_page=theme_settings.categorypage_products_per_page}}
+                </form>
+            {{/if}}
+            {{#if theme_settings.haloToolbar_sort}}
+                {{> components/products/filter sort=pagination.category.sort}}
+            {{/if}}
+        {{/if}}
+        {{#if product_results.products.length}}
+            {{#if theme_settings.haloToolbar_limit}}
+                <form class="actionBar show-product" method="get" data-sort-by data-show-products>
+                    {{> components/halothemes/category/halo-show-product limit=limit products_per_page=theme_settings.searchpage_products_per_page}}
+                </form>
+            {{/if}}
+            {{#if theme_settings.haloToolbar_sort}}
+                {{> components/products/filter sort=pagination.product_results.sort}}
+            {{/if}}
+        {{/if}}
+        {{#if page_type '==' 'brand'}}
+            {{#if theme_settings.haloToolbar_limit}}
+                <form class="actionBar show-product" method="get" data-sort-by data-show-products>
+                    {{> components/halothemes/category/halo-show-product limit=limit products_per_page=theme_settings.brandpage_products_per_page}}
+                </form>
+            {{/if}}
+            {{#if theme_settings.haloToolbar_sort}}
+                {{> components/products/filter sort=pagination.brand.sort}}
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

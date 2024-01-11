@@ -1,0 +1,33 @@
+<div class="halo-quickShop">
+    <div class="halo-quickShop-header">
+        <span class="halo-quickShop-title">{{lang 'products.choose_options'}}</span>
+    </div>
+    <div class="halo-quickShop-content">
+        <div class="productView-details product-options">
+            <div class="productView-options halo-productOptions">
+                <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="product_id" value="{{product.id}}"/>
+                    <div data-product-option-change>
+                        {{#each product.options}}
+                            {{{dynamicComponent 'components/products/options'}}}
+                        {{/each}}
+                    </div>
+                    {{#if theme_settings.halo_stock_level}}
+                        <div class="productView-optionsStock u-hiddenVisually">
+                            <span>{{theme_settings.halo_stock_level_text1}}</span>
+                            <span data-stock-left></span>
+                            <span>{{theme_settings.halo_stock_level_text2}}</span>
+                        </div>
+                    {{/if}}
+                    {{> components/products/add-to-cart quick_shop="quick-shop"}}
+                    <div class="halo-quickShop-action">
+                        <a href="javascript:void(0)" class="button halo-quickShop-close" aria-label="Close" role="button">
+                            <span>{{lang 'common.cancel'}}</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

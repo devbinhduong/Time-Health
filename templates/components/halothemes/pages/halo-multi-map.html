@@ -1,0 +1,60 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{{cdn '/assets/js/theme/halothemes/haloMultiMap.js'}}"></script>
+<script type="text/javascript">
+    var ENVmap = new ENV_map();
+    var option = {
+        "token": "Envora_free",
+        "get_list": ".InfoFindInner",
+        "get_map": ".HL-ColRight .mapContact",
+        "get_search": ".search_map",
+        "data": [
+            {
+              "lat": 32.922179,
+              "lng": -111.692871,
+              "name": "",
+              "text": "<h4 class='halo-location-heading'><span>SURFup Skyline</span></h4>\
+                        <p class='halo-location-info location'>2905 East Skyline Drive Tucson, AZ 85718 United States</p>\
+                        <p class='halo-location-info number'>Phone: (091) 123-SURFUP</p>"
+            }, 
+            {
+                "lat": 33.382287, 
+                "lng": -111.964907,
+                "name": "",
+                "text": "<h4 class='halo-location-heading'><span>SURFup Arizona</span></h4>\
+                        <p class='halo-location-info location'>5000 Arizona Mills Circle Tempe, AZ 85282 United States</p>\
+                        <p class='halo-location-info number'>Phone: (091) 456-SURFUP</p>"
+            }, 
+            {
+                "lat": 33.503168,
+                "lng": -111.929448,
+                "name": "",
+                "text": "<h4 class='halo-location-heading'><span>SURFup Cameback</span></h4>\
+                        <p class='halo-location-info location'>7014 East CameLback Road Scottsdale, AZ 85251 United States</p>\
+                        <p class='halo-location-info number'>Phone: (091) 789-SURFUP</p>"
+            }, 
+            {
+                "lat": 33.387773,
+                "lng": -111.510688,
+                "name": "",
+                "text": "<h4 class='halo-location-heading'><span>SURFup Broadway</span></h4>\
+                        <p class='halo-location-info location'>5870 East Broadway Boulevard Tucson, AZ 85711 United States</p>\
+                        <p class='halo-location-info number'>Phone: (091) 321-SURFUP</p>"
+            }, 
+            {
+                "lat": 33.447723,
+                "lng": -112.684586,
+                "name": "",
+                "text": "<h4 class='halo-location-heading'><span>SURFup Skyline North</span></h4>\
+                        <p class='halo-location-info location'>7986 East Skyline Drive Tucson, AZ 85718 United States</p>\
+                        <p class='halo-location-info number'>Phone: (091) 312-SURFUP</p>"
+            }
+        ],
+        "zoom": 9,
+    };
+    ENVmap.config = function() {
+        this.vars.icon_defaults = {
+            'url': 'http://www.fisherinvestments.com/~/media/fisher-investments/images/social-icons/white-icons/fisher-marketminder-icon.png?h=24&w=24&la=en',
+        };
+    };
+    ENVmap.view(option);
+</script>

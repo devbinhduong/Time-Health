@@ -1,0 +1,29 @@
+<div id="ProductCarouselTopSellers" class="sidebarBlock">
+	<h2 class="sidebarBlock-heading">
+		{{lang 'products.top_sellers' }}
+		<a class="btnViewAll" href="#">{{lang 'common.view_all'}}</a>
+	</h2>
+
+	<section class="productCarousel" 
+		data-product-type="top_sellers" 
+	    data-list-name="Most Popular Products" 
+	    data-slick='{
+	        "rows": 3,
+	        "dots": true,
+	        "arrows": true,
+	        "infinite": false,
+	        "slidesToShow": 1,
+	        "slidesToScroll": 1,
+	        "adaptiveHeight": true
+	    }'
+	>
+	    {{#each products}}
+	    <div data-product-slide class="productCarousel-slide">
+	        {{> components/products/card-top-sellers settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating event="list" position=(add @index 1) productsnew=../productsnew}}
+	    </div>
+	    {{/each}}
+	    {{#if products.length '>' 1}}
+	        {{> components/carousel-content-announcement}}
+	    {{/if}}
+	</section>
+</div>

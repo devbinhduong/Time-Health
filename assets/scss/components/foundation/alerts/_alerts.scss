@@ -1,0 +1,38 @@
+// =============================================================================
+// ALERTS
+// =============================================================================
+
+.alertBox {
+    border-radius: $alert-radius;
+    color: stencilColor("alert-color");
+
+    &.banner {
+        margin: 0;
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+}
+
+.alertBox-icon {
+    .icon {
+        @include square(25px);
+    }
+}
+
+.alertBox--info {
+    color: stencilColor("alert-color-alt");
+    background-color: stencilColor("banner--deafault-backgroundColor");
+
+    .alertBox-close {
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        svg {
+            fill: $color-infoLight;
+        }
+    }
+}
+
+.alertBox--warning {
+    border-color: #fbf8e7;
+    background-color: #fbf8e7;
+}

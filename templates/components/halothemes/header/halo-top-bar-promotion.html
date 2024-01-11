@@ -1,0 +1,42 @@
+{{#if theme_settings.halo_top_bar_promotion}}
+	<div id="header_topBarPromotion">
+		<div class="container">
+			<div class="topBarPromotion-carousel"{{#if theme_settings.topBarPro_img}} data-image-bg="/product_images/uploaded_images/{{theme_settings.topBarPro_img}}"{{/if}} 
+				data-slick='{
+			        "dots": false,
+		            "arrows": false,
+		            "infinite": true,
+		            "mobileFirst": true,
+		            "vertical": true,
+		            "autoplay": true,
+		            "slidesToShow": 1,
+		            "slidesToScroll": 1,
+		            "responsive": [
+			            {
+			                "breakpoint": 768,
+			                "settings": {
+			                	"arrows": true
+			                }
+			            }
+			        ]
+		    	}'
+			>
+				{{#if theme_settings.halo_top_bar_promotion_text_1}}
+					<div class="topBarPromotion-item">
+						<a href="{{theme_settings.halo_top_bar_promotion_link_1}}">{{theme_settings.halo_top_bar_promotion_text_1}}</a>
+					</div>
+				{{/if}}
+				{{#if theme_settings.halo_top_bar_promotion_text_2}}
+					<div class="topBarPromotion-item">
+						<a href="{{theme_settings.halo_top_bar_promotion_link_2}}">{{theme_settings.halo_top_bar_promotion_text_2}}</a>
+					</div>
+				{{/if}}
+				{{#if theme_settings.halo_top_bar_promotion_text_3}}
+					<div class="topBarPromotion-item">
+						<a href="{{theme_settings.halo_top_bar_promotion_link_3}}">{{theme_settings.halo_top_bar_promotion_text_3}}</a>
+					</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+{{/if}}

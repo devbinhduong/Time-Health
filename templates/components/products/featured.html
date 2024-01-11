@@ -1,0 +1,16 @@
+<div id="homeProductFeatured" class="productCarouselBlock{{#if theme_settings.halo_homepage_layout_4}} haloProductBlockFull{{/if}}">
+	<div class="container{{#if theme_settings.halo_homepage_layout_4}} container-custom{{/if}}">
+		<h2 class="page-heading halo-heading">
+			{{lang 'products.featured' }}
+			<a class="btnViewAll" href="{{theme_settings.homeProductFeatured_viewAll_link}}">{{lang 'common.view_all'}}</a>
+		</h2>
+		
+		{{> components/products/carousel products=products list="Featured Products" productsnew=productsnew show_dots_bar=show_dots_bar id=id}}
+
+		{{#if theme_settings.halo_homepage_layout_4}}
+			<div class="progress" role="progressbar" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="100" data-bars>
+	            <div class="bar-thumb"></div>
+	        </div>
+        {{/if}}
+	</div>
+</div>

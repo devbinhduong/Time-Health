@@ -1,0 +1,19 @@
+{{#if children}}
+    <a class="navPages-action navPages-action-depth-max has-subMenu is-root{{#if is_active}} activePage{{/if}}{{#if theme_settings.menu_sale '==' name }} menu-sale{{/if}}"
+       href="{{url}}"
+       aria-label="{{name}}"
+    >
+        <span>{{name}}</span>
+        <i class="icon navPages-action-moreIcon" aria-hidden="true">
+            <svg><use xlink:href="#icon-chevron-down" /></svg>
+        </i>
+    </a>
+    {{> components/common/navigation-dropdown id=id }}
+{{else}}
+    <a class="navPages-action{{#if is_active}} activePage{{/if}}{{#if theme_settings.menu_sale '==' name }} menu-sale{{/if}}"
+       href="{{url}}"
+       aria-label="{{name}}"
+    >
+        <span>{{name}}</span>
+    </a>
+{{/if}}

@@ -1,0 +1,45 @@
+// Slick Carousel
+// -----------------------------------------------------------------------------
+//
+// Purpose: Settings for the vendor carousel, Slick
+//
+// -----------------------------------------------------------------------------
+
+$slick-font-path:                       "./fonts/";
+$slick-font-family:                     inherit;
+$slick-loader-path:                     null;
+$slick-arrow-color:                     stencilColor("carousel-arrow-color");
+$slick-arrow-color-hover:               stencilColor("carousel-arrow-color--hover");
+$slick-arrow-bgColor:                   rgba(stencilColor("carousel-arrow-bgColor"), 0.9);
+$slick-arrow-borderColor:               stencilColor("carousel-arrow-borderColor");
+$slick-play-pause-button-color:         stencilColor("carousel-play-pause-button-textColor");
+$slick-play-pause-button-color-hover:   stencilColor("carousel-play-pause-button-textColor--hover");
+$slick-play-pause-button-bgColor:       rgba(stencilColor("carousel-play-pause-button-bgColor"), 0.9);
+$slick-play-pause-button-borderColor:   stencilColor("carousel-play-pause-button-borderColor");
+$slick-dot-color:                       stencilColor("carousel-dot-color");
+$slick-dot-color-active:                stencilColor("carousel-dot-color-active");
+$slick-dot-bgColor:                     rgba(stencilColor("carousel-dot-bgColor"), 0.9);
+$slick-prev-character:                  "";
+$slick-next-character:                  "";
+$slick-dot-character:                   "";
+$slick-dot-size:                        60px;
+$slick-opacity-default:                 1;
+$slick-opacity-on-hover:                0.8;
+$slick-opacity-not-active:              0.6;
+$slick-arrows-offset:                   15px;
+
+
+// Stencil Additional Settings
+// -----------------------------------------------------------------------------
+//
+// Purpose: Additional settings for the slick plugin
+//
+// -----------------------------------------------------------------------------
+
+$carousel-bgColor:              stencilColor("carousel-bgColor");
+$carousel-description-color:    stencilColor("carousel-description-color");
+$carousel-title-color:          stencilColor("carousel-title-color");
+
+/* Vertical Carousel */
+$slick-arrow-ver-prev:       	url("data:image/svg+xml;charset=UTF-8,%3csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-up' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' class='svg-inline--fa fa-chevron-up fa-w-14 fa-2x'%3e%3cpath fill='currentColor' d='M4.465 366.475l7.07 7.071c4.686 4.686 12.284 4.686 16.971 0L224 178.053l195.494 195.493c4.686 4.686 12.284 4.686 16.971 0l7.07-7.071c4.686-4.686 4.686-12.284 0-16.97l-211.05-211.051c-4.686-4.686-12.284-4.686-16.971 0L4.465 349.505c-4.687 4.686-4.687 12.284 0 16.97z' class=''%3e%3c/path%3e%3c/svg%3e");
+$slick-arrow-ver-next:         url("data:image/svg+xml;charset=UTF-8,%3csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' class='svg-inline--fa fa-chevron-down fa-w-14 fa-2x'%3e%3cpath fill='currentColor' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z' class=''%3e%3c/path%3e%3c/svg%3e");

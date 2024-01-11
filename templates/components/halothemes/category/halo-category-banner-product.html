@@ -1,0 +1,14 @@
+{{#and (if image1) (if image2)}}
+	<div class="categoryBannerProduct">
+		<div class="categoryBannerProduct__item">
+			<a href="{{link1}}">
+				<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{image1}}" alt="Category Banner 1">
+			</a>
+		</div>
+		<div class="categoryBannerProduct__item">
+			<a href="{{link2}}">
+				<img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{image2}}" alt="Category Banner 2">
+			</a>
+		</div>
+	</div>
+{{/and}}

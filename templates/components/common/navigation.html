@@ -1,0 +1,154 @@
+<nav class="navUser">
+    {{#if theme_settings.halo_header_customTextLink}}
+        <ul class="navUser-section navUser-section--link">
+            <li class="navUser-item navUser-item--contact">
+                <a class="navUser-action navUserAction-contact"
+                   href="{{theme_settings.halo_header_customLink_1}}"
+                   aria-label="Contact"
+                >
+                    {{theme_settings.halo_header_customText_1}}
+                </a>
+            </li>
+            <li class="navUser-item navUser-item--about">
+                <a class="navUser-action navUserAction-about"
+                   href="{{theme_settings.halo_header_customLink_2}}"
+                   aria-label="About"
+                >
+                    {{theme_settings.halo_header_customText_2}}
+                </a>
+            </li>
+        </ul>
+    {{/if}}
+    {{#unless theme_settings.halo_homepage_layout_4}}
+      {{> components/common/currency-selector}}
+    {{/unless}}
+
+    <ul class="navUser-section navUser-section--alt">
+        {{#if customer.store_credit.value '>' 0}}
+            <li class="navUser-item">
+                <a class="navUser-action navUser-action--storeCredit"
+                   data-dropdown="storeCredit-dropdown"
+                   data-options="align:bottom"
+                   href="{{urls.cart}}"
+                   aria-label="{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}"
+                >
+                    <span class="navUser-action-divider">
+                        {{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
+                    </span>
+                </a>
+                <div class="dropdown-menu" id="storeCredit-dropdown" data-dropdown-content aria-hidden="true">
+                    {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+                </div>
+            </li>
+        {{/if}}
+        <li class="navUser-item navUser-itemBlock--compare">
+            <a class="navUser-action navUser-item--compare"
+               href="{{urls.compare}}"
+               data-compare-nav
+               aria-label="{{lang 'common.compare'}}"
+            >
+                <span class="navUser-compare--title">{{lang 'common.compare'}}</span>
+                <span class="countPill countPill--positive countPill--alt"></span>
+            </a>
+        </li>
+        {{#or theme_settings.halo_homepage_layout_1 theme_settings.halo_homepage_layout_2 }}
+            <li class="navUser-item navUser-item--account">
+                {{#if customer}}
+                    <a class="navUser-action navUserAction-login"
+                       href="{{urls.account.index}}"
+                       aria-label="{{lang 'common.account'}}"
+                    >
+                        {{lang 'common.account'}}
+                    </a>
+                {{else}}
+                    <a class="navUser-action navUserAction-login"
+                       href="{{urls.auth.login}}"
+                       aria-label="{{lang 'common.login'}}"
+                    >
+                        {{lang 'common.login'}}
+                    </a>
+                {{/if}}
+            </li>
+        {{/or}}
+        <li class="navUser-item">
+            <button class="navUser-action navUser-action--quickSearch quick-search-expand"
+               type="button"
+               id="quick-search-expand"
+               data-search="quickSearch"
+               aria-controls="quickSearch"
+               aria-label="{{lang 'common.search'}}"
+            >   
+                {{#if theme_settings.halo_homepage_layout_1}}
+                    <svg aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                {{else if theme_settings.halo_homepage_layout_2}}
+                    <svg aria-hidden="true"><use xlink:href="#icon-search2"></use></svg>
+                {{else}}
+                    <svg aria-hidden="true"><use xlink:href="#icon-search3"></use></svg>
+                {{/if}}
+                <span>{{lang 'common.search'}}</span>
+            </button>
+        </li>
+        {{#or theme_settings.halo_homepage_layout_3 or theme_settings.halo_homepage_layout_4 }}
+            <li class="navUser-item navUser-item--account">
+                {{#if customer}}
+                    <a class="navUser-action navUserAction-login"
+                       href="{{urls.account.index}}"
+                       aria-label="{{lang 'common.account'}}"
+                    >
+                        <div class="navUser-icon">
+                            <svg aria-hidden="true"><use xlink:href="#icon-user-2"></use></svg>
+                        </div>
+                    </a>
+                {{else}}
+                    <div class="navUser-item__item">
+                        <a class="navUser-action navUserAction-login"
+                           href="{{urls.auth.login}}"
+                           aria-label="{{lang 'common.login'}}"
+                        >
+                            <div class="navUser-icon">
+                                <svg aria-hidden="true"><use xlink:href="#icon-user-2"></use></svg>
+                            </div>
+                        </a>
+                    </div>
+                {{/if}}
+            </li>
+            {{#if settings.show_wishlist}}
+                <li class="navUser-item navUser-item--wishlist">
+                    <div class="navUser-item__item">
+                        <a class="navUser-action" 
+                           href="{{urls.account.wishlists.all}}"
+                           aria-label="{{lang 'account.wishlists.heading'}}"
+                        >
+                            <div class="navUser-icon">
+                                <svg class="icon" role="img" aria-label="{{lang 'account.wishlists.heading'}}">
+                                    <title>{{lang 'account.wishlists.heading'}}</title>
+                                    <desc>{{lang 'account.wishlists.heading'}}</desc>
+                                    <use xlink:href="#icon-wishlist-2"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            {{/if}}
+        {{/or}}
+        <li class="navUser-item navUser-item--cart">
+            <a class="navUser-action navUser-actionCart"
+               data-cart-preview
+               data-options="align:right"
+               href="{{urls.cart}}"
+               aria-label="{{lang 'cart.nav_aria_label'}}"
+            > 
+            {{#if theme_settings.halo_homepage_layout_4 }}
+                <svg aria-hidden="true"><use xlink:href="#icon-cart-2"></use></svg>
+            {{ else }}
+                <svg aria-hidden="true"><use xlink:href="#icon-cart"></use></svg>
+            {{/if}}
+                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+                <span class="countPill cart-quantity"></span>
+            </a>
+        </li>
+    </ul>
+    {{#if theme_settings.halo_homepage_layout_4}}
+      {{> components/common/currency-selector}}
+    {{/if}}
+</nav>
