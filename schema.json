@@ -23,6 +23,11 @@
         "force_reload": true,
         "options": [
           {
+            "group": "Comfortaa",
+            "label": "Comfortaa",
+            "value": "Google_Comfortaa_400"
+          },
+          {
             "group": "Jost",
             "label": "Jost",
             "value": "Google_Jost_400"
@@ -70,6 +75,11 @@
         "id": "body-font",
         "force_reload": true,
         "options": [
+          {
+            "group": "Comfortaa",
+            "label": "Comfortaa",
+            "value": "Google_Comfortaa_400"
+          },
           {
             "group": "Jost",
             "label": "Jost",

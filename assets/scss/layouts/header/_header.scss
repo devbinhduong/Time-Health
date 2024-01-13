@@ -26,7 +26,7 @@
     position: absolute;
     transform: translate(-50%, calc(-100% - #{$header-height}));
     transition: transform 0.3s;
-    z-index: zIndex('highest');
+    z-index: zIndex("highest");
 
     &:focus {
         transform: translate(-50%, 0%);
@@ -35,7 +35,7 @@
 
 .header {
     background-color: $header-bg;
-    border-bottom: container('border');
+    border-bottom: container("border");
     padding: 13px 0;
 
     .home-layout-2 & {
@@ -73,7 +73,7 @@
     &.is-open {
         height: auto;
 
-        @include breakpoint('medium') {
+        @include breakpoint("medium") {
             height: auto;
         }
     }
@@ -95,7 +95,7 @@
         }
     }
 
-    [data-page-type='default'] &:not(.is-sticky) {
+    [data-page-type="default"] &:not(.is-sticky) {
         border-color: transparent;
     }
 }
@@ -110,21 +110,21 @@ body.quickSearch-open .header.is-sticky {
     text-align: center;
     height: $header-height;
 
-    @include breakpoint('small') {
+    @include breakpoint("small") {
         // 4
         margin-left: remCalc($header-toggle-width * 1.5);
         margin-right: remCalc($header-toggle-width * 1.5);
     }
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
         margin: 0;
         padding: 0;
         height: auto;
 
         .header.fixed & {
-            background-color: color('greys', 'lightest');
+            background-color: color("greys", "lightest");
             margin: 0;
-            padding: spacing('quarter') 0;
+            padding: spacing("quarter") 0;
             position: absolute;
             top: 0;
             width: 100%;
@@ -142,10 +142,10 @@ body.quickSearch-open .header.is-sticky {
         position: relative;
         text-decoration: none;
         width: 70%;
-        z-index: zIndex('lower');
+        z-index: zIndex("lower");
 
         // scss-lint:disable NestingDepth
-        @include breakpoint('medium') {
+        @include breakpoint("medium") {
             background: none;
             border-bottom: 0;
             display: inline-flex;
@@ -154,11 +154,11 @@ body.quickSearch-open .header.is-sticky {
         }
 
         &:hover {
-            color: color('link', 'hover');
+            color: color("link", "hover");
         }
 
         &:active {
-            color: color('link', 'active');
+            color: color("link", "active");
         }
     }
 }
@@ -167,7 +167,7 @@ body.quickSearch-open .header.is-sticky {
     display: block;
     font-family: $fontFamily-hero;
     font-size: $fontSize-logo-small; // 1
-    font-weight: stencilFontWeight('headings-font');
+    font-weight: stencilFontWeight("headings-font");
     letter-spacing: remCalc(2px);
     margin-left: auto;
     margin-right: auto;
@@ -176,11 +176,11 @@ body.quickSearch-open .header.is-sticky {
     text-transform: uppercase;
     white-space: nowrap;
 
-    @include breakpoint('small') {
+    @include breakpoint("small") {
         font-size: $fontSize-logo-medium;
     }
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
         display: inline;
         font-size: $fontSize-logo-large;
         max-width: none;
@@ -188,7 +188,7 @@ body.quickSearch-open .header.is-sticky {
         padding: 0;
 
         .header.fixed & {
-            font-size: fontSize('larger');
+            font-size: fontSize("larger");
         }
     }
 }
@@ -197,13 +197,13 @@ body.quickSearch-open .header.is-sticky {
     position: relative;
     width: 100%;
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
         // min-height: get-height(stencilString('logo_size'));
     }
 }
 
 .header-logo-image-container:after {
-    content: '';
+    content: "";
     display: block;
 }
 
@@ -212,7 +212,7 @@ body.quickSearch-open .header.is-sticky {
     display: block;
     margin: 0 auto;
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
         max-height: none;
     }
 }
@@ -221,7 +221,7 @@ body.quickSearch-open .header.is-sticky {
     // 5
     max-height: remCalc($header-height) - $header-logo-marginVertical * 2;
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
         max-height: none;
     }
 }
@@ -239,7 +239,7 @@ body.quickSearch-open .header.is-sticky {
     overflow: hidden;
     padding: 0 remCalc(18);
     position: relative;
-    z-index: zIndex('high');
+    z-index: zIndex("high");
 
     @media (min-width: 1200px) {
         display: none;
@@ -248,22 +248,21 @@ body.quickSearch-open .header.is-sticky {
     .mobileMenu-toggleIcon,
     .mobileMenu-toggleIcon::before,
     .mobileMenu-toggleIcon::after {
-        background: stencilColor('icon-color');
-        content: '';
+        background: stencilColor("icon-color");
+        content: "";
         display: block;
         height: 2px;
         position: absolute;
         transform: rotate(0deg);
-        transition: transform 100ms ease-in, top 100ms ease-in 150ms,
-            bottom 100ms ease-in 150ms; // 1
+        transition: transform 100ms ease-in, top 100ms ease-in 150ms, bottom 100ms ease-in 150ms; // 1
         width: remCalc(20);
 
         .home-layout-2 & {
-            background: stencilColor('header-color');
+            background: stencilColor("header-color");
         }
 
         .home-layout-3 & {
-            background: stencilColor('header-color');
+            background: stencilColor("header-color");
         }
     }
 
@@ -290,8 +289,7 @@ body.quickSearch-open .header.is-sticky {
             background-color: $header-font-color;
             bottom: auto;
             top: auto;
-            transition: transform 100ms ease-in 150ms, top 100ms ease-in,
-                bottom 100ms ease-in; // Animate lines from hamburger to 'x'
+            transition: transform 100ms ease-in 150ms, top 100ms ease-in, bottom 100ms ease-in; // Animate lines from hamburger to 'x'
         }
 
         &::before {
@@ -471,7 +469,7 @@ body.quickSearch-open .header.is-sticky {
 // -----------------------------------------------------------------------------
 
 #header_topBarPromotion {
-    background-color: stencilColor('topBarPromotion_bgColor');
+    background-color: stencilColor("topBarPromotion_bgColor");
     background-repeat: repeat;
 
     .container {
@@ -521,7 +519,7 @@ body.quickSearch-open .header.is-sticky {
                 display: block;
                 text-decoration: none;
                 font-weight: 700;
-                color: stencilColor('topBarPromotion_textColor');
+                color: stencilColor("topBarPromotion_textColor");
                 vertical-align: top;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -565,12 +563,12 @@ body.quickSearch-open .header.is-sticky {
                 .home-layout-4 & {
                     width: 10px;
                     height: 2px;
-                    background: stencilColor('topBarPromotion_textColor');
+                    background: stencilColor("topBarPromotion_textColor");
                 }
             }
             &:after {
                 .home-layout-4 & {
-                    background: stencilColor('topBarPromotion_textColor');
+                    background: stencilColor("topBarPromotion_textColor");
                 }
             }
 
@@ -578,10 +576,7 @@ body.quickSearch-open .header.is-sticky {
                 left: -20px;
 
                 &:before {
-                    @include carousel-arrow-color(
-                        stencilColor('topBarPromotion_textColor'),
-                        'prev'
-                    );
+                    @include carousel-arrow-color(stencilColor("topBarPromotion_textColor"), "prev");
                     .home-layout-4 & {
                         background-image: none;
                     }
@@ -592,10 +587,7 @@ body.quickSearch-open .header.is-sticky {
                 right: -20px;
 
                 &:before {
-                    @include carousel-arrow-color(
-                        stencilColor('topBarPromotion_textColor'),
-                        'next'
-                    );
+                    @include carousel-arrow-color(stencilColor("topBarPromotion_textColor"), "next");
                     .home-layout-4 & {
                         background-image: none;
                     }
@@ -648,7 +640,7 @@ body.quickSearch-open .header.is-sticky {
     }
 }
 .header-tabs {
-    background: stencilColor('headeTabs_bgColor');
+    background: stencilColor("headeTabs_bgColor");
     display: flex;
     flex-wrap: nowrap;
     align-items: stretch;
@@ -668,7 +660,7 @@ body.quickSearch-open .header.is-sticky {
     .need-help {
         display: flex;
         align-items: center;
-        color: stencilColor('headeTabs_textColor');
+        color: stencilColor("headeTabs_textColor");
         position: relative;
         .need-help--btn {
             padding: 0;
@@ -684,7 +676,7 @@ body.quickSearch-open .header.is-sticky {
             height: 18px;
             display: inline-block;
             border-radius: 50%;
-            border: 1px solid stencilColor('headeTabs_textColor');
+            border: 1px solid stencilColor("headeTabs_textColor");
             margin-right: 10px;
             font-size: 15px;
         }
@@ -700,8 +692,8 @@ body.quickSearch-open .header.is-sticky {
 }
 
 .header-tabs--list .tab-item a {
-    color: stencilColor('headeTabs_textColor');
-    border-right: 1px solid rgba(stencilColor('headeTabs_textColor'), 0.4);
+    color: stencilColor("headeTabs_textColor");
+    border-right: 1px solid rgba(stencilColor("headeTabs_textColor"), 0.4);
     padding: 12px 15px;
     display: flex;
     align-items: center;
@@ -718,15 +710,15 @@ body.quickSearch-open .header.is-sticky {
 }
 .header-tabs .tab--item--active a,
 .header-tabs--list .tab-item a:hover {
-    background: stencilColor('headeTabs_textColor');
-    color: stencilColor('headeTabs_bgColor');
+    background: stencilColor("headeTabs_textColor");
+    color: stencilColor("headeTabs_bgColor");
 }
 .need-help--dropdown {
     position: fixed;
     right: 0;
     width: 100%;
     bottom: 0;
-    background: stencilColor('headeTabs_bgColor');
+    background: stencilColor("headeTabs_bgColor");
     z-index: 12;
     opacity: 0;
     visibility: hidden;
@@ -782,7 +774,7 @@ body.quickSearch-open .header.is-sticky {
                 color: $color-textBase;
                 text-decoration: none;
                 @media (min-width: 1025px) {
-                    color: stencilColor('headeTabs_textColor');
+                    color: stencilColor("headeTabs_textColor");
                 }
                 &:hover {
                     text-decoration: underline;
@@ -949,21 +941,115 @@ body.quickSearch-open .header.is-sticky {
 
 /* Mint start custom */
 .home-layout-custom {
-    .customPromotion {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    #header_topBarPromotion {
+        background-image: url("https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/header-top-promotion-bg.jpg");
+        background-position: bottom center;
+        background-size: cover;
+        background-color: transparent;
+        margin-bottom: -10px;
+        padding-bottom: 5px;
+        position: relative;
+        z-index: 999;
 
-        .customPromotion__left {
-            p {
-                color: #ffffff;
-            }
-        }
-
-        .customPromotion__right {
+        .customPromotion {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: space-between;
+
+            .customPromotion__left {
+                padding: 8.5px 20px;
+                line-height: 24px;
+                margin-top: 5px;
+                p {
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: #ffffff;
+                    margin-bottom: 0;
+                }
+            }
+
+            .customPromotion__right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .promotionRight__item {
+                    &--social {
+                        .socialLinks {
+                            line-height: 1;
+                            .socialLinks-item {
+                                margin: 0;
+                                margin-right: 13px;
+
+                                .icon {
+                                    border: none;
+                                    width: 27px;
+                                    height: 27px;
+                                    svg {
+                                        fill: #ffffff;
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+
+                                    &--facebook {
+                                        svg {
+                                            width: 18px;
+                                            height: 20px;
+                                        }
+                                    }
+
+                                    &--twitter {
+                                        svg {
+                                            width: 19px;
+                                            height: 20px;
+                                        }
+                                    }
+
+                                    &--instagram {
+                                        svg {
+                                            width: 18px;
+                                            height: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &--account {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        min-height: 44px;
+                        padding-left: 20px;
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            width: 1px;
+                            height: 42px;
+                            top: 0;
+                            left: 0;
+                            background-color: rgba(255, 255, 255, 0.33);
+                        }
+                        .icon {
+                            width: 21px;
+                            height: 21px;
+
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+
+                        .navUserAction-login {
+                            padding: 0;
+                            color: #ffffff;
+                            font-weight: 300;
+                            margin-left: 12px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
