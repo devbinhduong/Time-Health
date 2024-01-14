@@ -1,12 +1,11 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
-
-{{> components/halothemes/header/halo-top-bar-promotion}}
+{{> components/custom/header/custom-top-header-promotion}}
 
 <header class="header header-logo--{{theme_settings.halo_position_logo}}" role="banner">
     {{#if theme_settings.enable_tabs}}
           {{> components/halothemes/header/header-tabs}}
      {{/if}}
-    <div class="header-center header__desktop">
+    <div class="header-center header__desktop header__desktopCustom">
         {{#if theme_settings.halo_position_logo '==' 'center'}}
             <div class="header__desktop--left">
                 <div class="navPages-container" id="menu" data-menu>
@@ -14,7 +13,7 @@
                 </div>
             </div>
         {{/if}}
-        <div class="{{#if theme_settings.halo_position_logo '==' 'center'}}header__desktop--center{{else}}header__desktop--left{{/if}}">
+        <div class="{{#if theme_settings.halo_position_logo '==' 'center'}}header__desktop--center{{else}}header__desktop--left{{/if}} headerCustom__left">
             {{#if page_type '===' 'default'}}
                 <h1 class="header-logo">
                     {{> components/common/store-logo}}
@@ -26,15 +25,14 @@
             {{/if}}
         </div>
         {{#if theme_settings.halo_position_logo '==' 'left'}}
-            <div class="header__desktop--center">
+            <div class="header__desktop--center headerCustom__right">
+                {{> components/custom/header/custom-navigation}}
+                
                 <div class="navPages-container" id="menu" data-menu>
                     {{> components/common/navigation-menu}}
                 </div>
             </div>
         {{/if}}
-        <div class="header__desktop--right">
-            {{> components/common/navigation}}
-        </div>
     </div>
 
     <div class="header__mobile">

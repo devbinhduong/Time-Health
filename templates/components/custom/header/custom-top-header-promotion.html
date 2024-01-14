@@ -20,7 +20,22 @@
                             </g>
                         </svg>
                     </span>
-                    <a class="navUser-action navUserAction-login" href="/login.php" aria-label="Sign in"> Login </a>
+
+                    {{#if customer}}
+                        <a class="navUser-action navUserAction-login"
+                           href="{{urls.account.index}}"
+                           aria-label="{{lang 'common.account'}}"
+                        >
+                            {{lang 'common.account'}}
+                        </a>
+                    {{else}}
+                        <a class="navUser-action navUserAction-login"
+                           href="{{urls.auth.login}}"
+                           aria-label="{{lang 'common.login2'}}"
+                        >
+                            {{lang 'common.login2'}}
+                        </a>
+                    {{/if}}
                 </div>
             </div>
         </div>

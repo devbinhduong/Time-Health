@@ -47,7 +47,14 @@
     >
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
-        {{> components/common/header }} {{> components/common/body }} {{> components/common/footer }}
+        {{#if theme_settings.custom_layout}}
+            {{> components/custom/header/custom-header}}
+        {{else}}
+            {{> components/common/header }}
+        {{/if}}
+
+        {{> components/common/body }} 
+        {{> components/common/footer }}
 
         <script>
             window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";
