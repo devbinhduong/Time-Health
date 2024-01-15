@@ -7,6 +7,7 @@ import { defaultModal } from './global/modal';
 import swal from './global/sweet-alert';
 import CartItemDetails from './common/cart-item-details';
 import haloCalculateFreeShipping from './halothemes/haloCalculateFreeShipping';
+import calculateHeaderCart from './custom/calculateHeaderCart';
 
 export default class Cart extends PageManager {
     onReady() {
@@ -14,8 +15,7 @@ export default class Cart extends PageManager {
         this.$cartContent = $('[data-cart-content]');
         this.$cartMessages = $('[data-cart-status]');
         this.$cartTotals = $('[data-cart-totals]');
-        this.$overlay = $('[data-cart] .loadingOverlay')
-            .hide(); // TODO: temporary until roper pulls in his cart components
+        this.$overlay = $('[data-cart] .loadingOverlay').hide(); // TODO: temporary until roper pulls in his cart components
         this.$activeCartItemId = null;
         this.$activeCartItemBtnAction = null;
 
@@ -23,8 +23,10 @@ export default class Cart extends PageManager {
         this.bindEvents();
         haloCalculateFreeShipping(this.context);
 
+        calculateHeaderCart(this.context);
+
         var time = $('.cart-notification').data('count-down');
-        if($('.cart-notification').length && time != ''){
+        if ($('.cart-notification').length && time != '') {
             var duration = time * 60,
                 element = $('.cart-notification .cart-count-down');
             this.startTimer(duration, element);
@@ -48,7 +50,8 @@ export default class Cart extends PageManager {
         const minQty = parseInt($el.data('quantityMin'), 10);
         const minError = $el.data('quantityMinError');
         const maxError = $el.data('quantityMaxError');
-        const newQty = $target.data('action') === 'inc' ? oldQty + 1 : oldQty - 1;
+        const newQty =
+            $target.data('action') === 'inc' ? oldQty + 1 : oldQty - 1;
         // Does not quality for min/max quantity
         if (newQty < minQty) {
             return swal.fire({
@@ -69,7 +72,7 @@ export default class Cart extends PageManager {
 
             if (response.data.status === 'succeed') {
                 // if the quantity is changed "1" from "0", we have to remove the row.
-                const remove = (newQty === 0);
+                const remove = newQty === 0;
 
                 this.refreshContent(remove);
             } else {
@@ -121,7 +124,7 @@ export default class Cart extends PageManager {
 
             if (response.data.status === 'succeed') {
                 // if the quantity is changed "1" from "0", we have to remove the row.
-                const remove = (newQty === 0);
+                const remove = newQty === 0;
 
                 this.refreshContent(remove);
             } else {
@@ -163,50 +166,64 @@ export default class Cart extends PageManager {
         modal.open();
         this.$modal.find('.modal-content').addClass('hide-content');
 
-        utils.api.productAttributes.configureInCart(itemId, options, (err, response) => {
-            modal.updateContent(response.content);
-            const $productOptionsContainer = $('[data-product-attributes-wrapper]', this.$modal);
-            const modalBodyReservedHeight = $productOptionsContainer.outerHeight();
-            $productOptionsContainer.css('height', modalBodyReservedHeight);
+        utils.api.productAttributes.configureInCart(
+            itemId,
+            options,
+            (err, response) => {
+                modal.updateContent(response.content);
+                const $productOptionsContainer = $(
+                    '[data-product-attributes-wrapper]',
+                    this.$modal
+                );
+                const modalBodyReservedHeight =
+                    $productOptionsContainer.outerHeight();
+                $productOptionsContainer.css('height', modalBodyReservedHeight);
 
-            this.productDetails = new CartItemDetails(this.$modal, context);
+                this.productDetails = new CartItemDetails(this.$modal, context);
 
-            this.bindGiftWrappingForm();
+                this.bindGiftWrappingForm();
 
-            modal.setupFocusTrap();
-        });
+                modal.setupFocusTrap();
+            }
+        );
 
         utils.hooks.on('product-option-change', (event, currentTarget) => {
             const $form = $(currentTarget).find('form');
             const $submit = $('input.button', $form);
             const $messageBox = $('.alertMessageBox');
 
-            utils.api.productAttributes.optionChange(productId, $form.serialize(), (err, result) => {
-                const data = result.data || {};
+            utils.api.productAttributes.optionChange(
+                productId,
+                $form.serialize(),
+                (err, result) => {
+                    const data = result.data || {};
 
-                if (err) {
-                    swal.fire({
-                        text: err,
-                        icon: 'error',
-                    });
-                    return false;
-                }
+                    if (err) {
+                        swal.fire({
+                            text: err,
+                            icon: 'error',
+                        });
+                        return false;
+                    }
 
-                if (data.purchasing_message) {
-                    $('p.alertBox-message', $messageBox).text(data.purchasing_message);
-                    $submit.prop('disabled', true);
-                    $messageBox.show();
-                } else {
-                    $submit.prop('disabled', false);
-                    $messageBox.hide();
-                }
+                    if (data.purchasing_message) {
+                        $('p.alertBox-message', $messageBox).text(
+                            data.purchasing_message
+                        );
+                        $submit.prop('disabled', true);
+                        $messageBox.show();
+                    } else {
+                        $submit.prop('disabled', false);
+                        $messageBox.hide();
+                    }
 
-                if (!data.purchasable || !data.instock) {
-                    $submit.prop('disabled', true);
-                } else {
-                    $submit.prop('disabled', false);
+                    if (!data.purchasable || !data.instock) {
+                        $submit.prop('disabled', true);
+                    } else {
+                        $submit.prop('disabled', false);
+                    }
                 }
-            });
+            );
         });
     }
 
@@ -238,11 +255,17 @@ export default class Cart extends PageManager {
             this.bindEvents();
             this.$overlay.hide();
 
-            const quantity = $('[data-cart-quantity]', this.$cartContent).data('cartQuantity') || 0;
+            const quantity =
+                $('[data-cart-quantity]', this.$cartContent).data(
+                    'cartQuantity'
+                ) || 0;
 
             $('body').trigger('cart-quantity-update', quantity);
 
-            $(`[data-cart-itemid='${this.$activeCartItemId}']`, this.$cartContent)
+            $(
+                `[data-cart-itemid='${this.$activeCartItemId}']`,
+                this.$cartContent
+            )
                 .filter(`[data-action='${this.$activeCartItemBtnAction}']`)
                 .trigger('focus');
         });
@@ -252,13 +275,22 @@ export default class Cart extends PageManager {
 
     bindCartEvents() {
         const debounceTimeout = 400;
-        const cartUpdate = bind(debounce(this.cartUpdate, debounceTimeout), this);
-        const cartUpdateQtyTextChange = bind(debounce(this.cartUpdateQtyTextChange, debounceTimeout), this);
-        const cartRemoveItem = bind(debounce(this.cartRemoveItem, debounceTimeout), this);
+        const cartUpdate = bind(
+            debounce(this.cartUpdate, debounceTimeout),
+            this
+        );
+        const cartUpdateQtyTextChange = bind(
+            debounce(this.cartUpdateQtyTextChange, debounceTimeout),
+            this
+        );
+        const cartRemoveItem = bind(
+            debounce(this.cartRemoveItem, debounceTimeout),
+            this
+        );
         let preVal;
 
         // cart update
-        $('[data-cart-update]', this.$cartContent).on('click', event => {
+        $('[data-cart-update]', this.$cartContent).on('click', (event) => {
             const $target = $(event.currentTarget);
 
             event.preventDefault();
@@ -268,17 +300,19 @@ export default class Cart extends PageManager {
         });
 
         // cart qty manually updates
-        $('.cart-item-qty-input', this.$cartContent).on('focus', function onQtyFocus() {
-            preVal = this.value;
-        }).change(event => {
-            const $target = $(event.currentTarget);
-            event.preventDefault();
+        $('.cart-item-qty-input', this.$cartContent)
+            .on('focus', function onQtyFocus() {
+                preVal = this.value;
+            })
+            .change((event) => {
+                const $target = $(event.currentTarget);
+                event.preventDefault();
 
-            // update cart quantity
-            cartUpdateQtyTextChange($target, preVal);
-        });
+                // update cart quantity
+                cartUpdateQtyTextChange($target, preVal);
+            });
 
-        $('.cart-remove', this.$cartContent).on('click', event => {
+        $('.cart-remove', this.$cartContent).on('click', (event) => {
             const itemId = $(event.currentTarget).data('cartItemid');
             const string = $(event.currentTarget).data('confirmDelete');
             swal.fire({
@@ -294,7 +328,7 @@ export default class Cart extends PageManager {
             event.preventDefault();
         });
 
-        $('[data-item-edit]', this.$cartContent).on('click', event => {
+        $('[data-item-edit]', this.$cartContent).on('click', (event) => {
             const itemId = $(event.currentTarget).data('itemEdit');
             const productId = $(event.currentTarget).data('productId');
             event.preventDefault();
@@ -308,7 +342,7 @@ export default class Cart extends PageManager {
         const $couponForm = $('.coupon-form');
         const $codeInput = $('[name="couponcode"]', $couponForm);
 
-        $('.coupon-code-add').on('click', event => {
+        $('.coupon-code-add').on('click', (event) => {
             event.preventDefault();
 
             $(event.currentTarget).hide();
@@ -317,7 +351,7 @@ export default class Cart extends PageManager {
             $codeInput.trigger('focus');
         });
 
-        $('.coupon-code-cancel').on('click', event => {
+        $('.coupon-code-cancel').on('click', (event) => {
             event.preventDefault();
 
             $couponContainer.hide();
@@ -325,7 +359,7 @@ export default class Cart extends PageManager {
             $('.coupon-code-add').show();
         });
 
-        $couponForm.on('submit', event => {
+        $couponForm.on('submit', (event) => {
             const code = $codeInput.val();
 
             event.preventDefault();
@@ -356,21 +390,21 @@ export default class Cart extends PageManager {
         const $certForm = $('.cart-gift-certificate-form');
         const $certInput = $('[name="certcode"]', $certForm);
 
-        $('.gift-certificate-add').on('click', event => {
+        $('.gift-certificate-add').on('click', (event) => {
             event.preventDefault();
             $(event.currentTarget).hide();
             $certContainer.show();
             $('.gift-certificate-cancel').show();
         });
 
-        $('.gift-certificate-cancel').on('click', event => {
+        $('.gift-certificate-cancel').on('click', (event) => {
             event.preventDefault();
             $certContainer.hide();
             $('.gift-certificate-add').show();
             $('.gift-certificate-cancel').hide();
         });
 
-        $certForm.on('submit', event => {
+        $certForm.on('submit', (event) => {
             const code = $certInput.val();
 
             event.preventDefault();
@@ -398,7 +432,7 @@ export default class Cart extends PageManager {
     bindGiftWrappingEvents() {
         const modal = defaultModal();
 
-        $('[data-item-giftwrap]').on('click', event => {
+        $('[data-item-giftwrap]').on('click', (event) => {
             const itemId = $(event.currentTarget).data('itemGiftwrap');
             const options = {
                 template: 'cart/modals/gift-wrapping-form',
@@ -408,16 +442,20 @@ export default class Cart extends PageManager {
 
             modal.open();
 
-            utils.api.cart.getItemGiftWrappingOptions(itemId, options, (err, response) => {
-                modal.updateContent(response.content);
+            utils.api.cart.getItemGiftWrappingOptions(
+                itemId,
+                options,
+                (err, response) => {
+                    modal.updateContent(response.content);
 
-                this.bindGiftWrappingForm();
-            });
+                    this.bindGiftWrappingForm();
+                }
+            );
         });
     }
 
     bindGiftWrappingForm() {
-        $('.giftWrapping-select').on('change', event => {
+        $('.giftWrapping-select').on('change', (event) => {
             const $select = $(event.currentTarget);
             const id = $select.val();
             const index = $select.data('index');
@@ -426,7 +464,9 @@ export default class Cart extends PageManager {
                 return;
             }
 
-            const allowMessage = $select.find(`option[value=${id}]`).data('allowMessage');
+            const allowMessage = $select
+                .find(`option[value=${id}]`)
+                .data('allowMessage');
 
             $(`.giftWrapping-image-${index}`).hide();
             $(`#giftWrapping-image-${index}-${id}`).show();
@@ -466,19 +506,23 @@ export default class Cart extends PageManager {
         this.bindGiftCertificateEvents();
 
         // initiate shipping estimator module
-        this.shippingEstimator = new ShippingEstimator($('[data-shipping-estimator]'));
+        this.shippingEstimator = new ShippingEstimator(
+            $('[data-shipping-estimator]')
+        );
     }
 
     startTimer(duration, element) {
-        var timer = duration, minutes, seconds;
+        var timer = duration,
+            minutes,
+            seconds;
         var startCoundown = setInterval(function () {
-            minutes = parseInt(timer / 60, 10)
+            minutes = parseInt(timer / 60, 10);
             seconds = parseInt(timer % 60, 10);
 
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
 
-            element.text(minutes + ":" + seconds);
+            element.text(minutes + ':' + seconds);
 
             if (--timer < 0) {
                 clearInterval(startCoundown);

@@ -22,7 +22,12 @@ export default class StencilDropdown {
             .attr('aria-hidden', 'true');
 
         if ($dropDown.hasClass('dropdown--quickSearch')) {
-            $('body').removeClass('quickSearch-open');
+            if (
+                window.innerWidth < 1024 &&
+                document.body.classList.contains('home-layout-custom')
+            ) {
+                $('body').removeClass('quickSearch-open');
+            }
         }
     }
 
@@ -36,7 +41,12 @@ export default class StencilDropdown {
             .attr('aria-hidden', 'false');
 
         if ($dropDown.hasClass('dropdown--quickSearch')) {
-            $('body').addClass('quickSearch-open');
+            if (
+                window.innerWidth < 1024 &&
+                document.body.classList.contains('home-layout-custom')
+            ) {
+                $('body').addClass('quickSearch-open');
+            }
         }
 
         // callback "show"

@@ -1,4 +1,4 @@
-<div class="quickSearch-form">
+<div class="quickSearch-form quickSearch-form-custom">
   <div class="container">
     {{> components/common/modal/modal-close-btn additional_attr='data-drop-down-close'}}
     
@@ -21,6 +21,9 @@
             </div>
         </fieldset>
     </form>
+  {{else}}
+    <!-- Search Mobile For Custom Layout -->
+    <div class="custom-quickSearch-mobile"></div>
    {{/unless}}
 
   </div>

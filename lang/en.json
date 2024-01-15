@@ -897,7 +897,7 @@
         "errorMessage": "There was a problem retrieving your results. Please try again in a few seconds.",
         "quick_search": {
             "input_label": "Search",
-            "input_placeholder": "Search entire store here"
+            "input_placeholder": "Search for products, categories.."
         },
         "results": {
             "form_label": "Search Keyword:",

@@ -5,8 +5,8 @@ import haloCalculateFreeShipping from './haloCalculateFreeShipping';
 export default function (context) {
     const modal = modalFactory('#modal')[0];
 
-    if(context.themeSettings.haloAjaxAddToCart){
-        if(context.themeSettings.haloAddToCartAction !== 'cart'){
+    if (context.themeSettings.haloAjaxAddToCart) {
+        if (context.themeSettings.haloAddToCartAction !== 'cart') {
             $(document).on('click', '.halo-add-to-cart', (event) => {
                 if (window.FormData === undefined) {
                     return;
@@ -19,9 +19,7 @@ export default function (context) {
 
                 event.preventDefault();
 
-                $addToCartBtn
-                    .text(waitMessage)
-                    .prop('disabled', true);
+                $addToCartBtn.text(waitMessage).prop('disabled', true);
 
                 if (productId === 0) {
                     return;
@@ -33,9 +31,7 @@ export default function (context) {
                 utils.api.cart.itemAdd(formData, (err, response) => {
                     const errorMessage = err || response.data.error;
 
-                    $addToCartBtn
-                        .text(originalBtnVal)
-                        .prop('disabled', false);
+                    $addToCartBtn.text(originalBtnVal).prop('disabled', false);
 
                     if (errorMessage) {
                         const tmp = document.createElement('DIV');
@@ -51,46 +47,53 @@ export default function (context) {
                         return;
                     }
 
-                    if (context.themeSettings.haloAddToCartAction === 'sidebar'){
+                    if (
+                        context.themeSettings.haloAddToCartAction === 'sidebar'
+                    ) {
                         const options = {
-                            template: 'common/cart-preview'
+                            template: 'common/cart-preview',
                         };
                         const loadingClass = 'is-loading';
                         const $body = $('body');
                         const $cartDropdown = $('#cart-preview-dropdown');
-                        const $cartLoading = $('<div class="loadingOverlay"></div>');
+                        const $cartLoading = $(
+                            '<div class="loadingOverlay"></div>'
+                        );
                         const $sideCartBlock = $('#sideBlock_cart');
 
-                        setTimeout(function(){ 
+                        setTimeout(function () {
                             $sideCartBlock.show();
                             $body.toggleClass('openCartSidebar is-side-block');
                             $sideCartBlock.toggleClass('is-open');
                         }, 500);
 
-                        $cartDropdown
-                            .addClass(loadingClass)
-                            .html($cartLoading);
-                        $cartLoading
-                            .show();
+                        $cartDropdown.addClass(loadingClass).html($cartLoading);
+                        $cartLoading.show();
 
                         utils.api.cart.getContent(options, (err, response) => {
                             if (err) {
                                 return;
                             }
-                            
+
                             $cartDropdown
                                 .removeClass(loadingClass)
                                 .html(response);
-                            $cartLoading
-                                .hide();
+                            $cartLoading.hide();
 
-                            const quantity = $(response).find('[data-cart-quantity]').data('cartQuantity') || 0;
+                            const quantity =
+                                $(response)
+                                    .find('[data-cart-quantity]')
+                                    .data('cartQuantity') || 0;
 
                             $body.trigger('cart-quantity-update', quantity);
                             haloCalculateFreeShipping(context);
                         });
-                    } else if (context.themeSettings.haloAddToCartAction === 'popup'){
-                        modal.$modal.removeClass().addClass('modal modal--preview');
+                    } else if (
+                        context.themeSettings.haloAddToCartAction === 'popup'
+                    ) {
+                        modal.$modal
+                            .removeClass()
+                            .addClass('modal modal--preview');
                         modal.open({ size: 'large' });
 
                         updateCartContent(modal, response.data.cart_item.hash);
@@ -110,7 +113,9 @@ export default function (context) {
             modal.updateContent(response);
 
             const $body = $('body');
-            const quantity = $(response).find('[data-cart-quantity]').data('cartQuantity') || 0;
+            const quantity =
+                $(response).find('[data-cart-quantity]').data('cartQuantity') ||
+                0;
 
             $body.trigger('cart-quantity-update', quantity);
         });
@@ -125,7 +130,7 @@ export default function (context) {
             config: {
                 cart: {
                     suggestions: {
-                        limit: 4
+                        limit: 4,
                     },
                 },
             },

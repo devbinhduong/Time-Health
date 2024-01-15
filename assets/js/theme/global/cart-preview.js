@@ -4,6 +4,7 @@ import utils from '@bigcommerce/stencil-utils';
 import swal from './sweet-alert';
 import haloQuickEditCart from '../halothemes/haloQuickEditCart';
 import haloCalculateFreeShipping from '../halothemes/haloCalculateFreeShipping';
+import calculateHeaderCart from '../custom/calculateHeaderCart';
 
 export const CartPreviewEvents = {
     close: 'closed.fndtn.dropdown',
@@ -26,7 +27,9 @@ export default function (secureBaseUrl, cartId, context) {
     haloQuickEditCart(context);
 
     $body.on('cart-quantity-update', (event, quantity) => {
-        $cart.attr('aria-label', (_, prevValue) => prevValue.replace(/\d+/, quantity));
+        $cart.attr('aria-label', (_, prevValue) =>
+            prevValue.replace(/\d+/, quantity)
+        );
 
         if (!quantity) {
             $cart.addClass('navUser-item--cart__hidden-s');
@@ -42,7 +45,7 @@ export default function (secureBaseUrl, cartId, context) {
         }
     });
 
-    $cart.on('click', event => {
+    $cart.on('click', (event) => {
         const options = {
             template: 'common/cart-preview',
         };
@@ -60,28 +63,23 @@ export default function (secureBaseUrl, cartId, context) {
         if ($('body[data-page-type="cart"]').length) {
             const cartContentTop = $('.page-content--cart').offset().top - 20;
 
-            $("html, body").animate({ scrollTop: cartContentTop }, 500);
+            $('html, body').animate({ scrollTop: cartContentTop }, 500);
             return;
         }
 
-        $cartDropdown
-            .addClass(loadingClass)
-            .html($cartLoading);
-        $cartLoading
-            .show();
+        $cartDropdown.addClass(loadingClass).html($cartLoading);
+        $cartLoading.show();
 
         utils.api.cart.getContent(options, (err, response) => {
-            $cartDropdown
-                .removeClass(loadingClass)
-                .html(response);
-            $cartLoading
-                .hide();
+            $cartDropdown.removeClass(loadingClass).html(response);
+            $cartLoading.hide();
 
             haloCalculateFreeShipping(context);
+            calculateHeaderCart(context);
         });
     });
 
-    $cart2.on('click', event => {
+    $cart2.on('click', (event) => {
         const options = {
             template: 'common/cart-preview',
         };
@@ -99,31 +97,26 @@ export default function (secureBaseUrl, cartId, context) {
         if ($('body[data-page-type="cart"]').length) {
             const cartContentTop = $('.page-content--cart').offset().top - 20;
 
-            $("html, body").animate({ scrollTop: cartContentTop }, 500);
+            $('html, body').animate({ scrollTop: cartContentTop }, 500);
             return;
         }
 
         const $sideCart = $('#sideBlock_cart');
 
         $sideCart.show();
-        setTimeout(function() {
+        setTimeout(function () {
             $sideCart.toggleClass('is-open');
             $('body').toggleClass('is-side-block');
 
-            $cartDropdown
-                .addClass(loadingClass)
-                .html($cartLoading);
-            $cartLoading
-                .show();
+            $cartDropdown.addClass(loadingClass).html($cartLoading);
+            $cartLoading.show();
 
             utils.api.cart.getContent(options, (err, response) => {
-                $cartDropdown
-                    .removeClass(loadingClass)
-                    .html(response);
-                $cartLoading
-                    .hide();
+                $cartDropdown.removeClass(loadingClass).html(response);
+                $cartLoading.hide();
 
                 haloCalculateFreeShipping(context);
+                calculateHeaderCart(context);
             });
         }, 1);
     });
@@ -141,21 +134,24 @@ export default function (secureBaseUrl, cartId, context) {
 
         // Get updated cart quantity from the Cart API
         const cartQtyPromise = new Promise((resolve, reject) => {
-            utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl, cartId }, (err, qty) => {
-                if (err) {
-                    // If this appears to be a 404 for the cart ID, set cart quantity to 0
-                    if (err === 'Not Found') {
-                        resolve(0);
-                    } else {
-                        reject(err);
+            utils.api.cart.getCartQuantity(
+                { baseUrl: secureBaseUrl, cartId },
+                (err, qty) => {
+                    if (err) {
+                        // If this appears to be a 404 for the cart ID, set cart quantity to 0
+                        if (err === 'Not Found') {
+                            resolve(0);
+                        } else {
+                            reject(err);
+                        }
                     }
+                    resolve(qty);
                 }
-                resolve(qty);
-            });
+            );
         });
 
         // If the Cart API gives us a different quantity number, update it
-        cartQtyPromise.then(qty => {
+        cartQtyPromise.then((qty) => {
             quantity = qty;
             $body.trigger('cart-quantity-update', quantity);
         });
@@ -163,37 +159,48 @@ export default function (secureBaseUrl, cartId, context) {
         $body.trigger('cart-quantity-update', quantity);
     }
 
-    $(document).on('click','.previewCart .previewCartItem-remove', (event) => {
+    $(document).on('click', '.previewCart .previewCartItem-remove', (event) => {
         event.preventDefault();
         const itemId = $(event.currentTarget).data('cartItemid');
 
         cartRemoveItem(itemId);
     });
 
-    $(document).on('focus','.previewCart .form-input--incrementTotal', (event) => {
-        const $target = $(event.currentTarget);
-        $target.data('preVal', $target.val());
-    });
+    $(document).on(
+        'focus',
+        '.previewCart .form-input--incrementTotal',
+        (event) => {
+            const $target = $(event.currentTarget);
+            $target.data('preVal', $target.val());
+        }
+    );
 
-    $(document).on('change','.previewCart .form-input--incrementTotal', (event) => {
-        const $target = $(event.currentTarget);
-        var preVal= $target.data('preVal');
-        event.preventDefault();
+    $(document).on(
+        'change',
+        '.previewCart .form-input--incrementTotal',
+        (event) => {
+            const $target = $(event.currentTarget);
+            var preVal = $target.data('preVal');
+            event.preventDefault();
 
-        cartUpdateQtyTextChange($target, preVal);
-    });
+            cartUpdateQtyTextChange($target, preVal);
+        }
+    );
 
-    $(document).on('click','.previewCartItem-qty [data-cart-update]', (event) => {
-        const $target = $(event.currentTarget);
+    $(document).on(
+        'click',
+        '.previewCartItem-qty [data-cart-update]',
+        (event) => {
+            const $target = $(event.currentTarget);
 
-        event.preventDefault();
+            event.preventDefault();
 
-        // update cart quantity
-        cartUpdate($target);
-    });
+            // update cart quantity
+            cartUpdate($target);
+        }
+    );
 
     function cartUpdate($target) {
-           
         const itemId = $target.data('cart-itemid');
         const $el = $(`#qty-${itemId}`);
         const oldQty = parseInt($el.val(), 10);
@@ -201,7 +208,8 @@ export default function (secureBaseUrl, cartId, context) {
         const minQty = parseInt($el.data('quantityMin'), 10);
         const minError = $el.data('quantityMinError');
         const maxError = $el.data('quantityMaxError');
-        const newQty = $target.data('action') === 'inc' ? oldQty + 1 : oldQty - 1;
+        const newQty =
+            $target.data('action') === 'inc' ? oldQty + 1 : oldQty - 1;
         let invalidEntry;
 
         // Does not quality for min/max quantity
@@ -226,7 +234,7 @@ export default function (secureBaseUrl, cartId, context) {
             utils.api.cart.itemUpdate(itemId, newQty, (err, response) => {
                 if (response.data.status === 'succeed') {
                     // if the quantity is changed "1" from "0", we have to remove the row.
-                    const remove = (newQty === 0);
+                    const remove = newQty === 0;
 
                     refreshContent(remove);
                 } else {
@@ -237,7 +245,7 @@ export default function (secureBaseUrl, cartId, context) {
                     });
                 }
             });
-        }        
+        }
     }
 
     function cartUpdateQtyTextChange($target, preVal = null) {
@@ -279,7 +287,7 @@ export default function (secureBaseUrl, cartId, context) {
         utils.api.cart.itemUpdate(itemId, newQty, (err, response) => {
             if (response.data.status === 'succeed') {
                 // if the quantity is changed "1" from "0", we have to remove the row.
-                const remove = (newQty === 0);
+                const remove = newQty === 0;
                 refreshContent(remove);
             } else {
                 $el.val(oldQty);
@@ -309,24 +317,22 @@ export default function (secureBaseUrl, cartId, context) {
             template: 'common/cart-preview',
         };
 
-        $cartDropdown
-            .addClass(loadingClass)
-            .prepend($cartLoading);
-        $cartLoading
-            .show();
+        $cartDropdown.addClass(loadingClass).prepend($cartLoading);
+        $cartLoading.show();
 
         utils.api.cart.getContent(options, (err, response) => {
-            $cartDropdown
-                .removeClass(loadingClass)
-                .html(response);
-            $cartLoading
-                .hide();
+            $cartDropdown.removeClass(loadingClass).html(response);
+            $cartLoading.hide();
 
-            const quantity = $(response).find('[data-cart-quantity]').data('cartQuantity') || $('[data-cart-quantity]').data('cartQuantity') || 0;
+            const quantity =
+                $(response).find('[data-cart-quantity]').data('cartQuantity') ||
+                $('[data-cart-quantity]').data('cartQuantity') ||
+                0;
 
             $body.trigger('cart-quantity-update', quantity);
 
             haloCalculateFreeShipping(context);
+            calculateHeaderCart(context);
         });
     }
 }

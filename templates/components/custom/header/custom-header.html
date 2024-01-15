@@ -1,46 +1,45 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
 {{> components/custom/header/custom-top-header-promotion}}
 
-<header class="header header-logo--{{theme_settings.halo_position_logo}}" role="banner">
-    {{#if theme_settings.enable_tabs}}
-          {{> components/halothemes/header/header-tabs}}
-     {{/if}}
-    <div class="header-center header__desktop header__desktopCustom">
-        {{#if theme_settings.halo_position_logo '==' 'center'}}
-            <div class="header__desktop--left">
-                <div class="navPages-container" id="menu" data-menu>
-                    {{> components/common/navigation-menu}}
+<header class="header header-logo--{{theme_settings.halo_position_logo}} header-custom" role="banner">
+    <div class="container">
+        <div class="header-center header__desktop header__desktopCustom">
+            {{#if theme_settings.halo_position_logo '==' 'center'}}
+                <div class="header__desktop--left">
+                    <div class="navPages-container" id="menu" data-menu>
+                        {{> components/common/navigation-menu}}
+                    </div>
                 </div>
+            {{/if}}
+            <div class="{{#if theme_settings.halo_position_logo '==' 'center'}}header__desktop--center{{else}}header__desktop--left{{/if}} headerCustom__left">
+                {{#if page_type '===' 'default'}}
+                    <h1 class="header-logo">
+                        {{> components/common/store-logo}}
+                    </h1>
+                {{else}}
+                    <div class="header-logo">
+                        {{> components/common/store-logo}}
+                    </div>
+                {{/if}}
             </div>
-        {{/if}}
-        <div class="{{#if theme_settings.halo_position_logo '==' 'center'}}header__desktop--center{{else}}header__desktop--left{{/if}} headerCustom__left">
-            {{#if page_type '===' 'default'}}
-                <h1 class="header-logo">
-                    {{> components/common/store-logo}}
-                </h1>
-            {{else}}
-                <div class="header-logo">
-                    {{> components/common/store-logo}}
+            {{#if theme_settings.halo_position_logo '==' 'left'}}
+                <div class="header__desktop--center headerCustom__right">
+                    {{> components/custom/header/custom-navigation}}
+                    
+                    <div class="navPages-container" id="menu" data-menu>
+                        {{> components/common/navigation-menu}}
+                    </div>
                 </div>
             {{/if}}
         </div>
-        {{#if theme_settings.halo_position_logo '==' 'left'}}
-            <div class="header__desktop--center headerCustom__right">
-                {{> components/custom/header/custom-navigation}}
-                
-                <div class="navPages-container" id="menu" data-menu>
-                    {{> components/common/navigation-menu}}
-                </div>
-            </div>
-        {{/if}}
-    </div>
-
-    <div class="header__mobile">
-        {{> components/halothemes/header/halo-header-mobile}}
-    </div>
     
-    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
-        {{> components/common/quick-search name='nav-quick-search'}}
+        <div class="header__mobile">
+            {{> components/halothemes/header/halo-header-mobile}}
+        </div>
+        
+        <div class="dropdown dropdown--quickSearch custom-dropdown" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
+            {{> components/common/quick-search name='nav-quick-search'}}
+        </div>
     </div>
 </header>
 {{{region name="header_bottom--global"}}}

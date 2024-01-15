@@ -1,13 +1,26 @@
-<nav class="navUser">
-    <div class="item--quicksearch halo-search halo-search-main">
-        <div id="quickSearch" class="quickSearch">
-            {{> components/common/quick-search name='quick_search_header'}}
-        </div>
-    </div>
-</nav>
 
 <nav class="navUser navUser__custom">
-    <ul class="navUser-section navUser-section--alt">
+    <div class="custom-quickSearch-pc navUser__custom-search">
+        <form class="form" onsubmit="return false" data-url="{{urls.search}}" data-quick-search-form>
+            <fieldset class="form-fieldset">
+                <div class="form-field">
+                    <label class="is-srOnly" for="{{name}}">{{lang "search.quick_search.input_label"}}</label>
+                    <input class="form-input form-input-customSearch"
+                          data-search-quick
+                          name="{{name}}"
+                          id="{{name}}"
+                          data-error-message="{{lang 'search.error.empty_field'}}"
+                          placeholder="{{lang 'search.quick_search.input_placeholder'}}"
+                          autocomplete="off"
+                    >
+                    <button class="quickSearch-btn" type="submit" aria-label="Submit Quick Search">
+                      <svg aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <ul class="navUser-section navUser-section--alt navUser__custom-cart">
         <li class="navUser-item navUser-item--cart navUser-item--customCart">
             <a class="navUser-action navUser-actionCart"
                data-cart-preview
@@ -24,4 +37,3 @@
         </li>
     </ul>
 </nav>
-

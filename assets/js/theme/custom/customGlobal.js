@@ -3,6 +3,7 @@ import { defaultModal } from '../global/modal';
 import { load } from 'webfontloader';
 import event from '../global/jquery-migrate/event';
 import { forEach } from 'lodash';
+import calculateHeaderCart from './calculateHeaderCart';
 
 export default function (context) {
     const $context = context,
@@ -18,6 +19,10 @@ export default function (context) {
 
             /* Add Funcion Here */
             headerQuickSearch();
+
+            calculateHeaderCart(theme_settings);
+
+            console.log('theme_settings', theme_settings);
         }
     }
 
@@ -87,12 +92,16 @@ export default function (context) {
 
     /* Header Quick Search */
     function headerQuickSearch() {
-        let quickSearchInput = document.querySelector('.custom-headerSearch'),
-            quickSearchButtonDefault = document.querySelector(
-                '#quick-search-expand'
+        let quickSearchInput = document.querySelector(
+                '.form-input-customSearch'
             ),
             quickSearchDropdown = document.querySelector('#quickSearch');
 
         if (!quickSearchInput) return;
+
+        quickSearchInput.addEventListener('click', (e) => {
+            quickSearchDropdown.classList.add('is-open');
+            quickSearchDropdown.classList.add('f-open-dropdown');
+        });
     }
 }

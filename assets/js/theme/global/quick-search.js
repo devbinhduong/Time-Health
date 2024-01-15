@@ -4,12 +4,16 @@ import StencilDropDown from './stencil-dropdown';
 import urlUtils from '../common/utils/url-utils';
 
 export default function () {
-    const TOP_STYLING = 'top: 49px;';
+    const TOP_STYLING = 'top: 100px;';
     const $quickSearchResults = $('.quickSearchResults');
     const $quickSearchForms = $('[data-quick-search-form]');
     const $quickSearchExpand = $('.quick-search-expand');
     const $searchQuery = $quickSearchForms.find('[data-search-quick]');
     const $quickSearch_recommended = $('.quickSearch-recommended');
+
+    /* Check Layout Custom */
+    const isCustomLayout =
+        document.body.classList.contains('home-layout-custom');
 
     const stencilDropDownExtendables = {
         hide: () => {
@@ -36,7 +40,7 @@ export default function () {
             $(e.target).closest(
                 '[data-prevent-quick-search-close], .modal-background'
             ).length === 0 &&
-            !document.body.classList.contains('home-layout-custom')
+            !isCustomLayout
         ) {
             stencilDropDown.hide($container);
         }

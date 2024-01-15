@@ -292,6 +292,11 @@
             top: 1px;
             right: -9px;
         }
+
+        .home-layout-custom & {
+            width: 19px;
+            height: 19px;
+        }
     }
 }
 
@@ -449,10 +454,11 @@
         right: 0 !important; // 1
         width: 100% !important;
         z-index: zIndex('high');
+        top: 0 !important;
 
         /* Custom Change */
-        body:not(.home-layout-custom) & {
-            top: 0 !important;
+        .home-layout-custom & {
+            top: 130px !important;
         }
     }
 
@@ -985,6 +991,16 @@
             &:hover span {
                 background-size: 100% 1px;
             }
+        }
+    }
+}
+
+/* Mint Start Custom  */
+.quickSearch-form {
+    &.quickSearch-form-custom {
+        background-color: #ffffff;
+        > .container {
+            min-height: 40px;
         }
     }
 }
