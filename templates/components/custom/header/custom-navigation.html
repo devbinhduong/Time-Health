@@ -1,68 +1,13 @@
-<nav class="navUser navUser__custom">
-    {{#if theme_settings.halo_header_customTextLink}}
-        <ul class="navUser-section navUser-section--link">
-            <li class="navUser-item navUser-item--contact">
-                <a class="navUser-action navUserAction-contact"
-                   href="{{theme_settings.halo_header_customLink_1}}"
-                   aria-label="Contact"
-                >
-                    {{theme_settings.halo_header_customText_1}}
-                </a>
-            </li>
-            <li class="navUser-item navUser-item--about">
-                <a class="navUser-action navUserAction-about"
-                   href="{{theme_settings.halo_header_customLink_2}}"
-                   aria-label="About"
-                >
-                    {{theme_settings.halo_header_customText_2}}
-                </a>
-            </li>
-        </ul>
-    {{/if}}
+<nav class="navUser">
+    <div class="item--quicksearch halo-search halo-search-main">
+        <div id="quickSearch" class="quickSearch">
+            {{> components/common/quick-search name='quick_search_header'}}
+        </div>
+    </div>
+</nav>
 
+<nav class="navUser navUser__custom">
     <ul class="navUser-section navUser-section--alt">
-        {{#if customer.store_credit.value '>' 0}}
-            <li class="navUser-item">
-                <a class="navUser-action navUser-action--storeCredit"
-                   data-dropdown="storeCredit-dropdown"
-                   data-options="align:bottom"
-                   href="{{urls.cart}}"
-                   aria-label="{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}"
-                >
-                    <span class="navUser-action-divider">
-                        {{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
-                    </span>
-                </a>
-                <div class="dropdown-menu" id="storeCredit-dropdown" data-dropdown-content aria-hidden="true">
-                    {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
-                </div>
-            </li>
-        {{/if}}
-        <li class="navUser-item navUser-itemBlock--compare">
-            <a class="navUser-action navUser-item--compare"
-               href="{{urls.compare}}"
-               data-compare-nav
-               aria-label="{{lang 'common.compare'}}"
-            >
-                <span class="navUser-compare--title">{{lang 'common.compare'}}</span>
-                <span class="countPill countPill--positive countPill--alt"></span>
-            </a>
-        </li>
-        <li class="navUser-item navUser-item--customSearch">
-            <div class="custom-headerSearch" style="display: none">
-                <input type="text" placeholder="Search for products, categories..">
-            </div>
-            <button class="navUser-action navUser-action--quickSearch quick-search-expand"
-               type="button"
-               id="quick-search-expand"
-               data-search="quickSearch"
-               aria-controls="quickSearch"
-               aria-label="{{lang 'common.search'}}"
-            >   
-            <svg aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
-                <span>{{lang 'common.search'}}</span>
-            </button>
-        </li>
         <li class="navUser-item navUser-item--cart navUser-item--customCart">
             <a class="navUser-action navUser-actionCart"
                data-cart-preview
@@ -79,3 +24,4 @@
         </li>
     </ul>
 </nav>
+

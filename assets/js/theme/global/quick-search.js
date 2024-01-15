@@ -22,48 +22,70 @@ export default function () {
         },
     };
     const stencilDropDown = new StencilDropDown(stencilDropDownExtendables);
-    stencilDropDown.bind($('[data-search="quickSearch"]'), $('#quickSearch'), TOP_STYLING);
+    stencilDropDown.bind(
+        $('[data-search="quickSearch"]'),
+        $('#quickSearch'),
+        TOP_STYLING
+    );
 
     stencilDropDownExtendables.onBodyClick = (e, $container) => {
         // If the target element has this data tag or one of it's parents, do not close the search results
         // We have to specify `.modal-background` because of limitations around Foundation Reveal not allowing
         // any modification to the background element.
-        if ($(e.target).closest('[data-prevent-quick-search-close], .modal-background').length === 0) {
+        if (
+            $(e.target).closest(
+                '[data-prevent-quick-search-close], .modal-background'
+            ).length === 0 &&
+            !document.body.classList.contains('home-layout-custom')
+        ) {
             stencilDropDown.hide($container);
         }
     };
 
     // stagger searching for 200ms after last input
     const doSearch = _.debounce((searchQuery) => {
-        utils.api.search.search(searchQuery, { template: 'search/quick-results' }, (err, response) => {
-            if (err) {
-                return false;
+        utils.api.search.search(
+            searchQuery,
+            { template: 'search/quick-results' },
+            (err, response) => {
+                if (err) {
+                    return false;
+                }
+
+                $quickSearch_recommended.hide();
+                $quickSearchResults.html(response);
+                const $quickSearchResultsCurrent =
+                    $quickSearchResults.filter(':visible');
+
+                const $noResultsMessage = $quickSearchResultsCurrent.find(
+                    '.quickSearchMessage'
+                );
+                if ($noResultsMessage.length) {
+                    $noResultsMessage.attr({
+                        role: 'status',
+                        'aria-live': 'polite',
+                    });
+                } else {
+                    const $quickSearchAriaMessage =
+                        $quickSearchResultsCurrent.next();
+                    $quickSearchAriaMessage.addClass('u-hidden');
+
+                    const predefinedText = $quickSearchAriaMessage.data(
+                        'search-aria-message-predefined-text'
+                    );
+                    const itemsFoundCount =
+                        $quickSearchResultsCurrent.find('.product').length;
+
+                    $quickSearchAriaMessage.text(
+                        `${itemsFoundCount} ${predefinedText} ${searchQuery}`
+                    );
+
+                    setTimeout(() => {
+                        $quickSearchAriaMessage.removeClass('u-hidden');
+                    }, 100);
+                }
             }
-
-            $quickSearch_recommended.hide();
-            $quickSearchResults.html(response);
-            const $quickSearchResultsCurrent = $quickSearchResults.filter(':visible');
-
-            const $noResultsMessage = $quickSearchResultsCurrent.find('.quickSearchMessage');
-            if ($noResultsMessage.length) {
-                $noResultsMessage.attr({
-                    role: 'status',
-                    'aria-live': 'polite',
-                });
-            } else {
-                const $quickSearchAriaMessage = $quickSearchResultsCurrent.next();
-                $quickSearchAriaMessage.addClass('u-hidden');
-
-                const predefinedText = $quickSearchAriaMessage.data('search-aria-message-predefined-text');
-                const itemsFoundCount = $quickSearchResultsCurrent.find('.product').length;
-
-                $quickSearchAriaMessage.text(`${itemsFoundCount} ${predefinedText} ${searchQuery}`);
-
-                setTimeout(() => {
-                    $quickSearchAriaMessage.removeClass('u-hidden');
-                }, 100);
-            }
-        });
+        );
     }, 200);
 
     utils.hooks.on('search-quick', (event, currentTarget) => {
@@ -81,7 +103,7 @@ export default function () {
     });
 
     // Catch the submission of the quick-search forms
-    $quickSearchForms.on('submit', event => {
+    $quickSearchForms.on('submit', (event) => {
         event.preventDefault();
 
         const $target = $(event.currentTarget);

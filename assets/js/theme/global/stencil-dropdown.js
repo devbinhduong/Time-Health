@@ -17,7 +17,9 @@ export default class StencilDropdown {
             this.extendables.hide();
         }
 
-        $dropDown.removeClass('is-open f-open-dropdown').attr('aria-hidden', 'true');
+        $dropDown
+            .removeClass('is-open f-open-dropdown')
+            .attr('aria-hidden', 'true');
 
         if ($dropDown.hasClass('dropdown--quickSearch')) {
             $('body').removeClass('quickSearch-open');
@@ -29,7 +31,9 @@ export default class StencilDropdown {
             $dropDown.attr('style', style).attr('aria-hidden', 'false');
         }
 
-        $dropDown.addClass('is-open f-open-dropdown').attr('aria-hidden', 'false');
+        $dropDown
+            .addClass('is-open f-open-dropdown')
+            .attr('aria-hidden', 'false');
 
         if ($dropDown.hasClass('dropdown--quickSearch')) {
             $('body').addClass('quickSearch-open');
@@ -44,7 +48,7 @@ export default class StencilDropdown {
     bind($dropDownTrigger, $container, style) {
         let modalOpened = false;
 
-        $dropDownTrigger.on('click', event => {
+        $dropDownTrigger.on('click', (event) => {
             const $cart = $('.is-open[data-cart-preview]');
 
             if ($cart) {
@@ -58,23 +62,28 @@ export default class StencilDropdown {
             }
         });
 
-        $('body').on('click', e => {
-            // Call onClick handler
-            if (this.extendables && this.extendables.onBodyClick) {
-                this.extendables.onBodyClick(e, $container);
-            }
-        }).on('keyup', (e) => {
-            // If they hit escape and the modal isn't open, close the search
-            if (e.which === 27 && !modalOpened) {
+        $('body')
+            .on('click', (e) => {
+                // Call onClick handler
+                if (this.extendables && this.extendables.onBodyClick) {
+                    this.extendables.onBodyClick(e, $container);
+                }
+            })
+            .on('keyup', (e) => {
+                // If they hit escape and the modal isn't open, close the search
+                if (e.which === 27 && !modalOpened) {
+                    this.hide($container);
+                }
+            })
+            .on('open.fndtn.reveal', '[data-reveal]', () => {
+                modalOpened = true;
+            })
+            .on('close.fndtn.reveal', '[data-reveal]', () => {
+                modalOpened = false;
+            })
+            .on('click', '[data-drop-down-close]', () => {
+                modalOpened = false;
                 this.hide($container);
-            }
-        }).on('open.fndtn.reveal', '[data-reveal]', () => {
-            modalOpened = true;
-        }).on('close.fndtn.reveal', '[data-reveal]', () => {
-            modalOpened = false;
-        }).on('click', '[data-drop-down-close]', () => {
-            modalOpened = false;
-            this.hide($container);
-        });
+            });
     }
 }

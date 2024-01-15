@@ -2,17 +2,18 @@
   <div class="container">
     {{> components/common/modal/modal-close-btn additional_attr='data-drop-down-close'}}
     
+   {{#unless theme_settings.custom_layout}}
     <form class="form" onsubmit="return false" data-url="{{urls.search}}" data-quick-search-form>
         <fieldset class="form-fieldset">
             <div class="form-field">
                 <label class="is-srOnly" for="{{name}}">{{lang "search.quick_search.input_label"}}</label>
                 <input class="form-input"
-                       data-search-quick
-                       name="{{name}}"
-                       id="{{name}}"
-                       data-error-message="{{lang 'search.error.empty_field'}}"
-                       placeholder="{{lang 'search.quick_search.input_placeholder'}}"
-                       autocomplete="off"
+                      data-search-quick
+                      name="{{name}}"
+                      id="{{name}}"
+                      data-error-message="{{lang 'search.error.empty_field'}}"
+                      placeholder="{{lang 'search.quick_search.input_placeholder'}}"
+                      autocomplete="off"
                 >
                 <button class="quickSearch-btn" type="submit" aria-label="Submit Quick Search">
                   <svg aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
@@ -20,6 +21,8 @@
             </div>
         </fieldset>
     </form>
+   {{/unless}}
+
   </div>
 </div>
 <div class="container">

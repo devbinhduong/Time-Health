@@ -16,11 +16,19 @@ import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 import haloGloBal from './halothemes/haloGloBal';
+import customGlobal from './custom/customGlobal';
 
 export default class Global extends PageManager {
     onReady() {
         const {
-            channelId, cartId, productId, categoryId, secureBaseUrl, maintenanceModeSettings, adminBarLanguage, showAdminBar,
+            channelId,
+            cartId,
+            productId,
+            categoryId,
+            secureBaseUrl,
+            maintenanceModeSettings,
+            adminBarLanguage,
+            showAdminBar,
         } = this.context;
         cartPreview(secureBaseUrl, cartId, this.context);
         quickSearch();
@@ -32,10 +40,20 @@ export default class Global extends PageManager {
         mobileMenuToggle();
         privacyCookieNotification();
         if (showAdminBar) {
-            adminBar(secureBaseUrl, channelId, maintenanceModeSettings, JSON.parse(adminBarLanguage), productId, categoryId);
+            adminBar(
+                secureBaseUrl,
+                channelId,
+                maintenanceModeSettings,
+                JSON.parse(adminBarLanguage),
+                productId,
+                categoryId
+            );
         }
         loadingProgressBar();
         svgInjector();
         haloGloBal(this.context);
+
+        /* Custom JS File By Mint */
+        customGlobal(this.context);
     }
 }
