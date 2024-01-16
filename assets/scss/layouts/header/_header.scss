@@ -983,6 +983,10 @@ body.quickSearch-open .header.is-sticky {
             align-items: center;
             justify-content: space-between;
 
+            @include smax-l {
+                justify-content: center;
+            }
+
             .customPromotion__left {
                 padding: 8.5px 20px;
                 line-height: 24px;
@@ -999,6 +1003,10 @@ body.quickSearch-open .header.is-sticky {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
+                @include smax-l {
+                    display: none;
+                }
 
                 .promotionRight__item {
                     &--social {
@@ -1074,6 +1082,42 @@ body.quickSearch-open .header.is-sticky {
                             font-weight: 300;
                             margin-left: 12px;
                         }
+
+                        /* Currency */
+                        .navUser-section {
+                            margin-bottom: 0;
+                            margin-left: 0;
+
+                            .navUser-action--currencySelector {
+                                color: #ffffff;
+                                font-weight: 300;
+                                margin-left: 12px;
+
+                                .icon {
+                                    width: 10px;
+                                    height: 10px;
+                                    transform: translateY(-2px);
+                                    svg {
+                                        fill: #ffffff;
+                                        stroke: #ffffff;
+                                    }
+                                }
+
+                                .cur-flag {
+                                    transform: translateY(-2px);
+                                }
+                            }
+
+                            #currencySelection {
+                                background-color: #ffffff;
+
+                                .dropdown-menu-item {
+                                    > a {
+                                        padding: 8px 0;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1082,7 +1126,7 @@ body.quickSearch-open .header.is-sticky {
 }
 
 /* Header Main */
-@include smin-m {
+@include smin-l {
     .header {
         &.header-custom {
             padding-bottom: 10px;
@@ -1102,31 +1146,65 @@ body.quickSearch-open .header.is-sticky {
             > .container {
                 position: static;
             }
+
+            /* Header Sticky */
+            &.is-sticky {
+                padding: 0;
+                .headerCustom__left,
+                .navUser__custom-cart {
+                    display: none;
+                }
+
+                .header__desktopCustom {
+                    padding: 0;
+                }
+
+                .custom-quickSearch-pc {
+                    max-width: 246px;
+                }
+
+                .headerCustom__right {
+                    flex-direction: row-reverse;
+                    padding-top: 0;
+
+                    .navPages-list {
+                        .navPages-item {
+                            padding: 13px 20px;
+                            > a {
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     .header__desktopCustom {
         justify-content: flex-start;
 
         &.header-center {
-            padding: 17px 0;
+            padding: 10px 0 17px;
         }
 
         .headerCustom__left {
-            margin-right: 65px;
+            margin-right: 55px;
         }
 
         .headerCustom__right {
             flex: 1;
             display: flex;
             flex-direction: column;
+            padding-top: 7px;
 
             .navUser__custom {
                 display: flex;
                 width: 100%;
+                margin-bottom: 11px;
 
                 &-search {
                     width: 100%;
                     max-width: 725px;
+                    margin-left: 16px;
 
                     .form {
                         margin-bottom: 0;
@@ -1148,9 +1226,13 @@ body.quickSearch-open .header.is-sticky {
                             line-height: 100%;
                             padding: 10px 15px;
                             margin: 0;
-                            border: 1px solid #dddddd;
                             border-radius: 3px;
                             box-sizing: border-box;
+
+                            &::placeholder {
+                                opacity: 0.4;
+                                font-style: italic;
+                            }
                         }
                     }
 
@@ -1180,7 +1262,7 @@ body.quickSearch-open .header.is-sticky {
                 }
 
                 &-cart {
-                    margin-left: 34px;
+                    margin-left: 23px;
                     .navUser-item {
                         &--customCart {
                             display: flex;
@@ -1211,6 +1293,10 @@ body.quickSearch-open .header.is-sticky {
                             .custom-priceTotal {
                                 margin-left: 20px;
                                 cursor: pointer;
+                                font-size: 15px;
+                                color: #000000;
+                                font-weight: 600;
+                                margin-left: 20px;
                             }
                         }
                     }

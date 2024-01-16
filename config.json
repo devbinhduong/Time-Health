@@ -632,7 +632,7 @@
         "pace-progress-backgroundColor": "#999999",
         "spinner-borderColor-dark": "#999999",
         "spinner-borderColor-light": "#ffffff",
-        "hide_content_navigation": true,
+        "hide_content_navigation": false,
         "optimizedCheckout-header-backgroundColor": "#f6f6f6",
         "optimizedCheckout-show-backgroundImage": false,
         "optimizedCheckout-backgroundImage": "",
