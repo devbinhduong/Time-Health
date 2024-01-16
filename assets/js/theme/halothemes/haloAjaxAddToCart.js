@@ -1,6 +1,7 @@
 import utils from '@bigcommerce/stencil-utils';
 import modalFactory, { ModalEvents } from '../global/modal';
 import haloCalculateFreeShipping from './haloCalculateFreeShipping';
+import calculateHeaderCart from '../custom/calculateHeaderCart';
 
 export default function (context) {
     const modal = modalFactory('#modal')[0];
@@ -86,6 +87,8 @@ export default function (context) {
                                     .data('cartQuantity') || 0;
 
                             $body.trigger('cart-quantity-update', quantity);
+
+                            calculateHeaderCart(context.themeSettings);
                             haloCalculateFreeShipping(context);
                         });
                     } else if (
@@ -97,7 +100,8 @@ export default function (context) {
                         modal.open({ size: 'large' });
 
                         updateCartContent(modal, response.data.cart_item.hash);
-                        haloCalculateFreeShipping(context);
+                        haloCalculateFreeShipping(context.themeSettings);
+                        calculateHeaderCart(context);
                     }
                 });
             });

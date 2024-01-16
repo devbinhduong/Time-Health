@@ -2,6 +2,7 @@ import $ from 'jquery';
 import utils from '@bigcommerce/stencil-utils';
 import _ from 'lodash';
 import haloCalculateFreeShipping from './haloCalculateFreeShipping';
+import calculateHeaderCart from '../custom/calculateHeaderCart';
 
 export default function (context) {
     const relate_tab = '#related-product';
@@ -463,6 +464,7 @@ export default function (context) {
 
             $body.trigger('cart-quantity-update', quantity);
             haloCalculateFreeShipping(context);
+            calculateHeaderCart(context.themeSettings);
 
             if (onComplete) {
                 onComplete(response);

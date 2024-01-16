@@ -5,6 +5,7 @@ import swal from '../global/sweet-alert';
 import ShippingEstimator from '../cart/shipping-estimator';
 import giftCertCheck from '../common/gift-certificate-validator';
 import haloCalculateFreeShipping from './haloCalculateFreeShipping';
+import calculateHeaderCart from '../custom/calculateHeaderCart';
 
 export default function (context) {
     var $cartContent = $('[data-cart-content]'),
@@ -963,10 +964,12 @@ export default function (context) {
 
                     $body.trigger('cart-quantity-update', quantity);
                     haloCalculateFreeShipping(context);
+                    calculateHeaderCart(context.themeSettings);
                 });
             } else {
                 refreshContent();
                 haloCalculateFreeShipping(context);
+                calculateHeaderCart(context.themeSettings);
             }
         }
 

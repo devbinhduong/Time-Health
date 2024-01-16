@@ -838,7 +838,7 @@ export default class ProductDetails extends ProductDetailsBase {
 
                         $body.trigger('cart-quantity-update', quantity);
                         haloCalculateFreeShipping(this.context);
-                        calculateHeaderCart(this.context);
+                        calculateHeaderCart(this.context.themeSettings);
                     });
                 } else {
                     // Open preview modal and update content

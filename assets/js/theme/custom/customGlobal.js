@@ -19,10 +19,8 @@ export default function (context) {
 
             /* Add Funcion Here */
             headerQuickSearch();
-
             calculateHeaderCart(theme_settings);
-
-            console.log('theme_settings', theme_settings);
+            triggerHeaderCart();
         }
     }
 
@@ -102,6 +100,18 @@ export default function (context) {
         quickSearchInput.addEventListener('click', (e) => {
             quickSearchDropdown.classList.add('is-open');
             quickSearchDropdown.classList.add('f-open-dropdown');
+        });
+    }
+
+    /* Trigger Header Cart  */
+    function triggerHeaderCart() {
+        const totalPriceText = document.querySelector('.custom-priceTotal'),
+            cartIcon = document.querySelector('.navUser-actionCart');
+
+        if (!totalPriceText) return;
+
+        totalPriceText.addEventListener('click', (e) => {
+            cartIcon.click();
         });
     }
 }

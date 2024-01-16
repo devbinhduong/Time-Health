@@ -75,7 +75,7 @@ export default function (secureBaseUrl, cartId, context) {
             $cartLoading.hide();
 
             haloCalculateFreeShipping(context);
-            calculateHeaderCart(context);
+            calculateHeaderCart(context.themeSettings);
         });
     });
 
@@ -116,7 +116,7 @@ export default function (secureBaseUrl, cartId, context) {
                 $cartLoading.hide();
 
                 haloCalculateFreeShipping(context);
-                calculateHeaderCart(context);
+                calculateHeaderCart(context.themeSettings);
             });
         }, 1);
     });
@@ -332,7 +332,7 @@ export default function (secureBaseUrl, cartId, context) {
             $body.trigger('cart-quantity-update', quantity);
 
             haloCalculateFreeShipping(context);
-            calculateHeaderCart(context);
+            calculateHeaderCart(context.themeSettings);
         });
     }
 }

@@ -23,7 +23,7 @@ export default class Cart extends PageManager {
         this.bindEvents();
         haloCalculateFreeShipping(this.context);
 
-        calculateHeaderCart(this.context);
+        calculateHeaderCart(this.context.themeSettings);
 
         var time = $('.cart-notification').data('count-down');
         if ($('.cart-notification').length && time != '') {
