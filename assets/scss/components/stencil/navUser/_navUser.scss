@@ -458,7 +458,9 @@
 
         /* Custom Change */
         .home-layout-custom & {
-            top: 130px !important;
+            @include smin-l {
+                top: 130px !important;
+            }
         }
     }
 
@@ -1001,6 +1003,12 @@
         background-color: #ffffff;
         > .container {
             min-height: 40px;
+        }
+
+        .form-input-customSearch {
+            @include smax-l {
+                font-size: 14px;
+            }
         }
     }
 }

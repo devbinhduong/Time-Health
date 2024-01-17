@@ -3,3 +3,42 @@
     border-top: 3px solid #b51b25 !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
 }
+
+.custom-underline {
+    @include smin-l {
+        &::before {
+            content: '';
+            background-color: #b94844;
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            opacity: 1;
+            height: 2px;
+            -webkit-transition: all 0.3s ease-out 0s;
+            -moz-transition: all 0.3s ease-out 0s;
+            -ms-transition: all 0.3s ease-out 0s;
+            -o-transition: all 0.3s ease-out 0s;
+            transition: all 0.3s ease-out 0s;
+        }
+    }
+}
+
+.custom-navigation-color {
+    color: #b51b25 !important;
+}
+
+.hide-on-tablet {
+    @include smax-l {
+        display: none;
+    }
+}
+
+.hide-above-tablet {
+    @include smin-l {
+        display: none;
+    }
+}
+
+/* Anh Thao */

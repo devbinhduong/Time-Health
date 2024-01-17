@@ -1861,7 +1861,7 @@
         .navPages-list {
             &.navPages-list-megamenu {
                 @include smin-l {
-                    margin-left: -22px;
+                    margin-left: -20px;
                     display: flex;
                 }
             }
@@ -1880,6 +1880,7 @@
                         position: relative;
                         display: inline-block;
                         margin-left: 0;
+                        width: 0;
 
                         &::after {
                             content: '';

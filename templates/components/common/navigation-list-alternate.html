@@ -10,7 +10,7 @@
     </a>
     {{> components/common/navigation-dropdown id=id }}
 {{else}}
-    <a class="navPages-action{{#if is_active}} activePage{{/if}}{{#if theme_settings.menu_sale '==' name }} menu-sale{{/if}}"
+    <a class="navPages-action{{#if is_active}} activePage{{/if}}{{#if theme_settings.menu_sale '==' name }} menu-sale{{/if}}{{#if specification}} custom-underline custom-navigation-color{{/if}}"
        href="{{url}}"
        aria-label="{{name}}"
     >

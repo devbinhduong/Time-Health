@@ -14,11 +14,11 @@
             <div class="{{#if theme_settings.halo_position_logo '==' 'center'}}header__desktop--center{{else}}header__desktop--left{{/if}} headerCustom__left">
                 {{#if page_type '===' 'default'}}
                     <h1 class="header-logo">
-                        {{> components/common/store-logo}}
+                        {{> components/custom/header/custom-store-logo}}
                     </h1>
                 {{else}}
                     <div class="header-logo">
-                        {{> components/common/store-logo}}
+                        {{> components/custom/header/custom-store-logo}}
                     </div>
                 {{/if}}
             </div>
@@ -34,7 +34,7 @@
         </div>
     
         <div class="header__mobile">
-            {{> components/halothemes/header/halo-header-mobile}}
+            {{> components/custom/header/custom-header-mobile}}
         </div>
         
         <div class="dropdown dropdown--quickSearch custom-dropdown" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>

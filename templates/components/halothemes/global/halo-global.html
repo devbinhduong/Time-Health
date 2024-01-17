@@ -14,4 +14,9 @@
 	{{#if theme_settings.haloRecentlyBought}}
 		<div id="recently_bought_list"></div>
 	{{/if}}
+
+	<!-- Navigation Bottom Mobile -->
+	{{#if theme_settings.custom_layout}}
+		{{> components/custom/header/custom-bottom-navigation }}
+	{{/if}}
 </div>

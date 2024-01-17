@@ -21,6 +21,7 @@ export default function (context) {
             headerQuickSearch();
             calculateHeaderCart(theme_settings);
             triggerHeaderCart();
+            appendSearchMobile();
         }
     }
 
@@ -29,6 +30,12 @@ export default function (context) {
         $(document).ready(function () {
             const wWidth = window.innerWidth,
                 tScroll = $(this).scrollTop();
+
+            if (wWidth < 1200) {
+                navigationBottomStickyMobile(tScroll);
+                navigationBottomMobile();
+                triggerSearchMobile();
+            }
 
             var slickWrapperList = $('.section-slick');
 
@@ -40,8 +47,13 @@ export default function (context) {
 
         /* Scroll Event */
         $(window).on('scroll', (e) => {
-            const $target = $(e.currentTarget);
-            const $scrollTop = $target.scrollTop();
+            const $target = $(e.currentTarget),
+                wWidth = window.innerWidth,
+                $scrollTop = $target.scrollTop();
+
+            if (wWidth < 1200) {
+                navigationBottomStickyMobile($scrollTop);
+            }
 
             loadFunction();
         });
@@ -52,7 +64,9 @@ export default function (context) {
         });
 
         /* Resize */
-        $(window).on('resize', (e) => {});
+        $(window).on('resize', (e) => {
+            appendSearchMobile();
+        });
     }
     eventLoad();
 
@@ -113,5 +127,82 @@ export default function (context) {
         totalPriceText.addEventListener('click', (e) => {
             cartIcon.click();
         });
+    }
+
+    /* Navigation Bottom Mobile */
+    function navigationBottomStickyMobile(tScroll) {
+        let navigationBottom = document.querySelector('.navigationBottom');
+
+        if (!navigationBottom) return;
+
+        if (tScroll < scroll_position) {
+            navigationBottom.classList.add('is-active');
+        } else {
+            navigationBottom.classList.remove('is-active');
+        }
+
+        scroll_position = tScroll;
+    }
+
+    /* Navigation Bottom Function */
+    function navigationBottomMobile() {
+        const navigationCart = document.querySelector(
+                '.navigationBottom__item--cart'
+            ),
+            navigationAccount = document.querySelector(
+                '.navigationBottom__item--account'
+            ),
+            navigationMenu = document.querySelector(
+                '.navigationBottom__item--menu'
+            );
+
+        if (!navigationCart || !navigationAccount || !navigationMenu) return;
+
+        navigationCart.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document
+                .querySelector('.header__mobile .navUser-actionCart')
+                .click();
+        });
+
+        navigationAccount.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document
+                .querySelector('.header__mobile .navUserAction-login')
+                .click();
+        });
+
+        navigationMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document
+                .querySelector('.header__mobile .mobileMenu-toggle')
+                .click();
+        });
+    }
+
+    function triggerSearchMobile() {
+        const searchIcon = document.querySelector(
+                '#quick-search-expand-mobile'
+            ),
+            searchInput = document.querySelector('.searchMobile__input');
+
+        if (!searchIcon || !searchInput) return;
+
+        searchInput.addEventListener('click', (e) => {
+            searchIcon.click();
+        });
+    }
+
+    function appendSearchMobile() {
+        const searchPC = document.querySelector('.custom-quickSearch-pc'),
+            searchMobile = document.querySelector('.custom-quickSearch-mobile'),
+            searchFormPC = searchPC.querySelector('.form'),
+            searchFormMobile = searchMobile.querySelector('.form');
+
+        if (window.innerWidth < 1200) {
+            searchMobile.appendChild(searchFormPC);
+        } else {
+            searchPC.appendChild(searchFormMobile);
+        }
     }
 }

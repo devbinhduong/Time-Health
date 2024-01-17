@@ -1,5 +1,5 @@
 {
-  "name": "SURFup Custom Header Part 1",
+  "name": "SURFup Custom Done Header No Test",
   "version": "1.1.1",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -1204,7 +1204,8 @@
         "haloHome3Section9": "halo-section-9",
         "haloHome3Section10": "halo-section-10",
         "custom_layout": true,
-        "custom_top_headerPromotion": true
+        "custom_top_headerPromotion": true,
+        "logo_mobile_image": "logo-mobile.png"
       }
     },
     {

@@ -37,6 +37,11 @@ export default function (context) {
     var check_homeTestimonialCarousel = true;
     var check_homeGalleryCarousel = true;
     var check_lookbookCarousel = true;
+
+    /* Mint start check Custom Layout */
+    const isCustomLayout =
+        document.body.classList.contains('home-layout-custom');
+
     if ($('#azBrandsTable').length) {
         AZBrands(context);
     }
@@ -747,6 +752,9 @@ export default function (context) {
     addMenuMobile();
 
     function stickyHeader(tScroll) {
+        /* Dont use header sticky for custom layout on tablet and mobile */
+        if (isCustomLayout && window.innerWidth < 1200) return;
+
         if (theme_settings.halo_headerSticky) {
             if (tScroll > h_promotion && tScroll < scroll_position) {
                 if (!$('.header-height').length) {
