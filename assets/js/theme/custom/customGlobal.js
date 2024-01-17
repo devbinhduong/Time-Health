@@ -4,6 +4,7 @@ import { load } from "webfontloader";
 import event from "../global/jquery-migrate/event";
 import { forEach } from "lodash";
 import calculateHeaderCart from "./calculateHeaderCart";
+import haloAddOption from "../halothemes/haloAddOptionForProduct";
 
 export default function (context) {
     const $context = context,
@@ -21,6 +22,8 @@ export default function (context) {
             headerQuickSearch();
             calculateHeaderCart(theme_settings);
             triggerHeaderCart();
+
+            loadProductByCategory();
 
             if (window.innerWidth < 1200) {
                 appendSearchMobile();
@@ -192,6 +195,57 @@ export default function (context) {
             searchMobile.appendChild(searchFormPC);
         } else {
             searchPC.appendChild(searchFormMobile);
+        }
+    }
+
+    function loadProductByCategory() {
+        var $categoryUrlData = "custom-products-by-category-tabs";
+
+        const $options = {
+            template: "products/carousel-3",
+        };
+
+        const $cardSample = $(".product-by-category .productCarousel-sample");
+        var customProductBlock = $(".product-by-category [data-custom-products-by-category-tabs]");
+        var blockId = customProductBlock.attr("id");
+
+        if ($(".product-by-category [data-custom-products-by-category-tabs]").length) {
+            if (customProductBlock.find(".productCarousel").length) {
+                customProductBlock.find(".productCarousel").slick("refresh");
+            } else {
+                loadProducts2($(customProductBlock), $cardSample, $options, $categoryUrlData, blockId);
+            }
+        }
+    }
+
+    function loadProducts2($productBlock2, $thisSample, $options, $catUrlData, blockId) {
+        var $catUrl = $productBlock2.data($catUrlData);
+
+        if ($catUrl != undefined) {
+            $catUrl = $catUrl.replace(/https?:\/\/[^/]+/, "");
+
+            console.log("run");
+
+            utils.api.getPage($catUrl, $options, (err, response) => {
+                $productBlock2.html(response);
+                $thisSample.remove();
+                var newText = $productBlock2.parent().find(".newTextAjax").text();
+
+                $productBlock2.find(".card").each(function () {
+                    var id = $(this).data("product-id");
+                    var a = arrNew.indexOf($(this).data("product-id"));
+                    if (a != -1) {
+                        $(this)
+                            .find(".halo-product-badge")
+                            .prepend(
+                                '<div class="product-badge new-badge"><span class="text">' + newText + "</span></div>"
+                            );
+                    }
+                });
+
+                haloAddOption($context, blockId);
+                $("[data-slick]", $productBlock2).slick();
+            });
         }
     }
 }
