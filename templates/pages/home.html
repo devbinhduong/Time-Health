@@ -27,62 +27,264 @@ blog:
     {{/each}}
 
 <div class="main full">
-    {{#if theme_settings.halo_homepage_layout_1}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section1}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section2}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section3}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section4}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section5}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section6}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section7}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section8}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section9}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section10}}
-        {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section11}}
-    {{/if}}
-    {{#if theme_settings.halo_homepage_layout_2}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section1}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section2}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section3}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section4}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section5}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section6}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section7}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section8}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section9}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section10}}
-        {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section11}}
-    {{/if}}
-    {{#if theme_settings.halo_homepage_layout_3}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section1}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section2}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section3}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section4}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section5}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section6}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section7}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section8}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section9}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section10}}
-        {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section11}}
-    {{/if}}
-    {{#if theme_settings.halo_homepage_layout_4}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section1}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section2}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section3}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section4 show_dots_bar="true"}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section5}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section6 show_dots_bar="true"}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section7}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section8}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section9}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section10}}
-        {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section11}}
+    {{#if theme_settings.custom_layout}}
+        <h3>Top Seller</h3>
+        {{#if products.top_sellers}}
+            {{> components/products/carousel-2 products=products.top_sellers columns=theme_settings.homepage_top_products_column_count list="Top Sellers" productsnew=products.new id="TabTopProductCarousel" show_dots_bar=show_dots_bar}}
+        {{/if}}
+
+        <h3>New</h3>
+        {{#if products.new}}
+            {{> components/products/carousel-2 products=products.new columns=theme_settings.homepage_new_products_column_count list="New Products" productsnew=products.new id="TabNewProductCarousel" show_dots_bar=show_dots_bar}}
+        {{/if}}
+
+         <!-- Section halo-block-banner-width-text -->
+        <div class="halo-block halo-block-custom halo-block-banner-width-text style-1">
+            <div class="container">
+                <div class="halo-block-header">
+                    <h3 class="title">Welcome to Time Health</h3>
+                    <h4 class="sub-title">Leading the Way in Natural, Plant-Based Nutrition.</h4>
+                </div>
+                <div class="halo-block-content">
+                    <div class="block-banner">
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-1.png" alt="Banner image 1">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-2.png" alt="Banner image 2">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-3.png" alt="Banner image 3">
+                        </div>
+                    </div>
+                    <div class="block-desc">
+                        <p class="desc">
+                            At Time Health, we’re dedicated to delivering high-quality, expertly formulated supplements & vitamins to customers across the UK. Tailored to suit your unique health needs, our products are made up of carefully sourced ingredients, free from added nasties.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section halo-block-custom style 2 -->
+        <div class="halo-block halo-block-custom halo-block-banner-width-text style-2">
+            <div class="container">
+                <div class="halo-block-header">
+                    <h3 class="title">Explore Our Range of Supplements & Vitamins</h3>
+                    <h4 class="sub-title">Search by health need</h4>
+                </div>
+                <div class="halo-block-content">
+                    <div class="block-banner">
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/immunity.png" alt="Banner immunity">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/energy.png" alt="Banner Energy">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/anti-ageing.png" alt="Banner Anti Ageing">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/cognitivejpg.png" alt="Banner Cognitivejpg">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/vision.png" alt="Banner Vision">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/sleep.png" alt="Banner Sleep">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/fertility.png" alt="Banner Fertility">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/inflammation.png" alt="Banner Inflammation">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/bones-and-teeth.png" alt="Banner Bones And Teeth">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/heart.png" alt="Banner Heart">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/beauty.png" alt="Banner Beauty">
+                            </a>
+                        </div>
+                        <div class="banner-item">
+                            <a href="/">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/all-products.png" alt="Banner All Products">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="block-action">
+                        <h4 class="title">Need help deciding?</h4>
+                        <a class="btn" href="/">Take our supplements quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section halo-block-custom halo-block-custom-review -->
+        <div class="halo-block halo-block-custom halo-block-custom-review">
+            <div class="container">
+                <div class="halo-block-header">
+                    <h3 class="title">Recommended by Experts</h3>
+                    <h4 class="sub-title">A word from our practitioners</h4>
+                </div>
+                <div class="halo-block-content">
+                    <div class="block-content-wrapper">
+                        <div class="custom-review-item">
+                            <div class="avata">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/izzy.png" alt="Avata izzy">
+                            </div>
+                            <div class="review-content">
+                                <h4 class="title">Isobel Hamilton, BA (Hons), DipCNM, mANP, BANT, CNHC – Nutrition Consultant</h4>
+                                <div class="testimonial">
+                                    <p class="desc">“Time Health produces a wide range of fantastic supplements, which harness the power of plants and their by-products in unique, bioavailable formulas, which allow me to optimise my clients protocols effectively. I appreciate Time Health’s focus on creating these potent, but affordable supplements, avoiding unnecessary fillers and harmful additives, and their attention and focus on the growing research available in the field of nutrition and health.”</p>
+                                    <p class="desc">Specialisms Include: Gut health (IBS, IBD & SIBO), hormonal imbalance, PCOS, fatigue/sleep.</p>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <h4 class="name">Well Bean Nutrition™</h4>
+                                <p class="time">Book a free 20 minute appointment with Isobel:</p>
+                                <a href="/">wellbeannutrition.co.uk</a>
+                            </div>
+                            <div class="rating">
+                                <span class="icon bgRating--full"></span>
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-action">
+                        <h4 class="title">Need professional health advice?</h4>
+                        <a class="btn" href="/">Speak with a trusted practitioner</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section halo-block-custom-instagram -->
+        <div class="halo-block halo-block-custom halo-block-custom-instagram">
+            <div class="container">
+                <div class="halo-block-header">
+                    <h3 class="title">Follow us on Instagram!</h3>
+                    <h4 class="sub-title">Send us your pictures by using @TimeHealthUK</h4>
+                </div>
+                <div class="halo-block-content">
+                    <!-- add code app -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section halo-block-banner-width-text style-3-->
+        <div class="halo-block halo-block-custom halo-block-banner-width-text style-3">
+            <div class="container">
+                <div class="halo-block-header">
+                    <h3 class="title">As Seen In..</h3>
+                    <h4 class="sub-title">Time Health in the press</h4>
+                </div>
+                <div class="halo-block-content">
+                    <div class="block-banner">
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-custom-4.png" alt="Banner image 1">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-custom-5.png" alt="Banner image 2">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-custom-6.png" alt="Banner image 3">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-custom-1.png" alt="Banner image 4">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-custom-2.png" alt="Banner image 5">
+                        </div>
+                        <div class="banner-item">
+                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/banner-custom-3.png" alt="Banner image 6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        {{#if theme_settings.halo_homepage_layout_1}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section1}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section2}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section3}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section4}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section5}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section6}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section7}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section8}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section9}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section10}}
+            {{> components/halothemes/home/halo-section-home-1 halo-section=theme_settings.haloHome1Section11}}
+        {{/if}}
+        {{#if theme_settings.halo_homepage_layout_2}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section1}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section2}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section3}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section4}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section5}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section6}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section7}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section8}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section9}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section10}}
+            {{> components/halothemes/home/halo-section-home-2 halo-section=theme_settings.haloHome2Section11}}
+        {{/if}}
+        {{#if theme_settings.halo_homepage_layout_3}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section1}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section2}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section3}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section4}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section5}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section6}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section7}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section8}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section9}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section10}}
+            {{> components/halothemes/home/halo-section-home-3 halo-section=theme_settings.haloHome3Section11}}
+        {{/if}}
+        {{#if theme_settings.halo_homepage_layout_4}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section1}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section2}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section3}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section4 show_dots_bar="true"}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section5}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section6 show_dots_bar="true"}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section7}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section8}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section9}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section10}}
+            {{> components/halothemes/home/halo-section-home-4 halo-section=theme_settings.haloHome4Section11}}
+        {{/if}}
     {{/if}}
 
-    <!-- Anh Thao -->
-
-    
 </div>
 {{/partial}}
 {{> layout/base}}

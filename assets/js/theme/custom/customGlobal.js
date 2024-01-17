@@ -1,9 +1,9 @@
-import utils from '@bigcommerce/stencil-utils';
-import { defaultModal } from '../global/modal';
-import { load } from 'webfontloader';
-import event from '../global/jquery-migrate/event';
-import { forEach } from 'lodash';
-import calculateHeaderCart from './calculateHeaderCart';
+import utils from "@bigcommerce/stencil-utils";
+import { defaultModal } from "../global/modal";
+import { load } from "webfontloader";
+import event from "../global/jquery-migrate/event";
+import { forEach } from "lodash";
+import calculateHeaderCart from "./calculateHeaderCart";
 
 export default function (context) {
     const $context = context,
@@ -40,7 +40,7 @@ export default function (context) {
                 triggerSearchMobile();
             }
 
-            var slickWrapperList = $('.section-slick');
+            var slickWrapperList = $(".section-slick");
 
             /* Loop All Slick Slider */
             forEach(slickWrapperList, (slickWrapperItem) => {
@@ -49,7 +49,7 @@ export default function (context) {
         });
 
         /* Scroll Event */
-        $(window).on('scroll', (e) => {
+        $(window).on("scroll", (e) => {
             const $target = $(e.currentTarget),
                 wWidth = window.innerWidth,
                 $scrollTop = $target.scrollTop();
@@ -62,12 +62,12 @@ export default function (context) {
         });
 
         /* Mouse Over Touch Start */
-        $(document).on('keydown mousemove touchstart', (e) => {
+        $(document).on("keydown mousemove touchstart", (e) => {
             loadFunction();
         });
 
         /* Resize */
-        $(window).on('resize', (e) => {
+        $(window).on("resize", (e) => {
             if (window.innerWidth < 1200) {
                 appendSearchMobile();
             }
@@ -77,10 +77,10 @@ export default function (context) {
 
     /* Slick Function */
     function slickCarousel(wrap) {
-        const showDesktop = wrap.data('slick-show-desktop'),
-            showTablet = wrap.data('slick-show-tablet'),
-            showMobile = wrap.data('slick-show-mobile'),
-            showDotbars = wrap.data('dots-bar');
+        const showDesktop = wrap.data("slick-show-desktop"),
+            showTablet = wrap.data("slick-show-tablet"),
+            showMobile = wrap.data("slick-show-mobile"),
+            showDotbars = wrap.data("dots-bar");
 
         wrap.slick({
             dots: showDotbars,
@@ -109,41 +109,39 @@ export default function (context) {
 
     /* Header Quick Search */
     function headerQuickSearch() {
-        let quickSearchInput = document.querySelector(
-                '.form-input-customSearch'
-            ),
-            quickSearchDropdown = document.querySelector('#quickSearch');
+        let quickSearchInput = document.querySelector(".form-input-customSearch"),
+            quickSearchDropdown = document.querySelector("#quickSearch");
 
         if (!quickSearchInput) return;
 
-        quickSearchInput.addEventListener('click', (e) => {
-            quickSearchDropdown.classList.add('is-open');
-            quickSearchDropdown.classList.add('f-open-dropdown');
+        quickSearchInput.addEventListener("click", (e) => {
+            quickSearchDropdown.classList.add("is-open");
+            quickSearchDropdown.classList.add("f-open-dropdown");
         });
     }
 
     /* Trigger Header Cart  */
     function triggerHeaderCart() {
-        const totalPriceText = document.querySelector('.custom-priceTotal'),
-            cartIcon = document.querySelector('.navUser-actionCart');
+        const totalPriceText = document.querySelector(".custom-priceTotal"),
+            cartIcon = document.querySelector(".navUser-actionCart");
 
         if (!totalPriceText) return;
 
-        totalPriceText.addEventListener('click', (e) => {
+        totalPriceText.addEventListener("click", (e) => {
             cartIcon.click();
         });
     }
 
     /* Navigation Bottom Mobile */
     function navigationBottomStickyMobile(tScroll) {
-        let navigationBottom = document.querySelector('.navigationBottom');
+        let navigationBottom = document.querySelector(".navigationBottom");
 
         if (!navigationBottom) return;
 
         if (tScroll < scroll_position) {
-            navigationBottom.classList.add('is-active');
+            navigationBottom.classList.add("is-active");
         } else {
-            navigationBottom.classList.remove('is-active');
+            navigationBottom.classList.remove("is-active");
         }
 
         scroll_position = tScroll;
@@ -151,58 +149,44 @@ export default function (context) {
 
     /* Navigation Bottom Function */
     function navigationBottomMobile() {
-        const navigationCart = document.querySelector(
-                '.navigationBottom__item--cart'
-            ),
-            navigationAccount = document.querySelector(
-                '.navigationBottom__item--account'
-            ),
-            navigationMenu = document.querySelector(
-                '.navigationBottom__item--menu'
-            );
+        const navigationCart = document.querySelector(".navigationBottom__item--cart"),
+            navigationAccount = document.querySelector(".navigationBottom__item--account"),
+            navigationMenu = document.querySelector(".navigationBottom__item--menu");
 
         if (!navigationCart || !navigationAccount || !navigationMenu) return;
 
-        navigationCart.addEventListener('click', (e) => {
+        navigationCart.addEventListener("click", (e) => {
             e.stopPropagation();
-            document
-                .querySelector('.header__mobile .navUser-actionCart')
-                .click();
+            document.querySelector(".header__mobile .navUser-actionCart").click();
         });
 
-        navigationAccount.addEventListener('click', (e) => {
+        navigationAccount.addEventListener("click", (e) => {
             e.stopPropagation();
-            document
-                .querySelector('.header__mobile .navUserAction-login')
-                .click();
+            document.querySelector(".header__mobile .navUserAction-login").click();
         });
 
-        navigationMenu.addEventListener('click', (e) => {
+        navigationMenu.addEventListener("click", (e) => {
             e.stopPropagation();
-            document
-                .querySelector('.header__mobile .mobileMenu-toggle')
-                .click();
+            document.querySelector(".header__mobile .mobileMenu-toggle").click();
         });
     }
 
     function triggerSearchMobile() {
-        const searchIcon = document.querySelector(
-                '#quick-search-expand-mobile'
-            ),
-            searchInput = document.querySelector('.searchMobile__input');
+        const searchIcon = document.querySelector("#quick-search-expand-mobile"),
+            searchInput = document.querySelector(".searchMobile__input");
 
         if (!searchIcon || !searchInput) return;
 
-        searchInput.addEventListener('click', (e) => {
+        searchInput.addEventListener("click", (e) => {
             searchIcon.click();
         });
     }
 
     function appendSearchMobile() {
-        const searchPC = document.querySelector('.custom-quickSearch-pc'),
-            searchMobile = document.querySelector('.custom-quickSearch-mobile'),
-            searchFormPC = searchPC.querySelector('.form'),
-            searchFormMobile = searchMobile.querySelector('.form');
+        const searchPC = document.querySelector(".custom-quickSearch-pc"),
+            searchMobile = document.querySelector(".custom-quickSearch-mobile"),
+            searchFormPC = searchPC.querySelector(".form"),
+            searchFormMobile = searchMobile.querySelector(".form");
 
         if (window.innerWidth < 1200) {
             searchMobile.appendChild(searchFormPC);
