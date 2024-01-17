@@ -1053,26 +1053,6 @@
         "id": "footer-info-3-link5"
       },
       {
-        "type": "text",
-        "label": "Text 6",
-        "id": "footer-info-3-text6"
-      },
-      {
-        "type": "text",
-        "label": "Link Text 6",
-        "id": "footer-info-3-link6"
-      },
-      {
-        "type": "text",
-        "label": "Text 7",
-        "id": "footer-info-3-text7"
-      },
-      {
-        "type": "text",
-        "label": "Link Text 7",
-        "id": "footer-info-3-link7"
-      },
-      {
         "type": "heading",
         "content": "Subscription Form"
       },

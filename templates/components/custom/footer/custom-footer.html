@@ -1,0 +1,106 @@
+{{> components/halothemes/banners/halo-topBottom-banner position = "bottom"}}
+
+<footer class="footer custom-footer" role="contentinfo">
+    <div class="container">
+        <section class="footer-info">
+            <article class="footer-info-col footer-info-col--4" data-section-type="footer-categories">
+               <a href="https://timehealth.co.uk/customer-reviews/">
+                    <img decoding="async" class="aligncenter" src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/footer-review-logo.png">
+                </a>
+
+                <!-- Trustpilot Review App -->
+                <div class="custom-text-review">
+                    <span>See our <strong>679</strong> reviews on</span>
+                </div>
+            </article>
+
+            <article class="footer-info-col footer-info-col--3" data-section-type="footer-categories">
+                <h3 class="footer-info-heading footer-info-heading--toggle">{{theme_settings.footer-info-1-heading}}</h3>
+                <ul class="footer-info-list">
+                    {{#each categories}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--3" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading footer-info-heading--toggle">{{theme_settings.footer-info-2-heading}}</h3>
+                <ul class="footer-info-list">
+                    {{#if theme_settings.footer-info-2-text1}}
+                        <li><a href="{{theme_settings.footer-info-2-link1}}">{{theme_settings.footer-info-2-text1}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-2-text2}}
+                        <li><a href="{{theme_settings.footer-info-2-link2}}">{{theme_settings.footer-info-2-text2}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-2-text3}}
+                        <li><a href="{{theme_settings.footer-info-2-link3}}">{{theme_settings.footer-info-2-text3}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-2-text4}}
+                        <li><a href="{{theme_settings.footer-info-2-link4}}">{{theme_settings.footer-info-2-text4}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-2-text5}}
+                        <li><a href="{{theme_settings.footer-info-2-link5}}">{{theme_settings.footer-info-2-text5}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--2" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading footer-info-heading--toggle">{{theme_settings.footer-info-3-heading}}</h3>
+                <ul class="footer-info-list">
+                    {{#if theme_settings.footer-info-3-text1}}
+                        <li><a href="{{theme_settings.footer-info-3-link1}}">{{theme_settings.footer-info-3-text1}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text2}}
+                        <li><a href="{{theme_settings.footer-info-3-link2}}">{{theme_settings.footer-info-3-text2}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text3}}
+                        <li><a href="{{theme_settings.footer-info-3-link3}}">{{theme_settings.footer-info-3-text3}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text4}}
+                        <li><a href="{{theme_settings.footer-info-3-link4}}">{{theme_settings.footer-info-3-text4}}</a></li>
+                    {{/if}}
+                    {{#if theme_settings.footer-info-3-text5}}
+                        <li><a href="{{theme_settings.footer-info-3-link5}}">{{theme_settings.footer-info-3-text5}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+        </section>
+        
+        <!-- Custom Footer Social Link -->
+        <div class="customFooterSocial">
+            <ul class="customFooterSocial__list">
+                <li class="customFooterSocial__item">
+                    <a href="https://instagram.com/timehealthuk/" class="customFooterSocial__link">
+                        <img decoding="async" loading="lazy" class="alignnone wp-image-43238" src="https://timehealth.co.uk/wp-content/uploads/2018/10/insta-icon-1.svg" alt="" width="71" height="77">
+                    </a>
+                </li>
+                <li class="customFooterSocial__item">
+                    <a href="https://www.facebook.com/timehealthuk/" class="customFooterSocial__link">
+                        <img decoding="async" loading="lazy" class="alignnone wp-image-43237" src="https://timehealth.co.uk/wp-content/uploads/2018/10/fb-icon-1.svg" alt="" width="69" height="72">
+                    </a>
+                </li>
+                <li class="customFooterSocial__item">
+                    <a href="https://twitter.com/timehealthuk/" class="customFooterSocial__link">
+                        <img decoding="async" loading="lazy" class="alignnone wp-image-43319" src="https://timehealth.co.uk/wp-content/uploads/2018/10/twitter-icon-3.svg" alt="" width="80" height="71">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+</footer>
+{{#unless theme_settings.enable_recently_viewed_products }}
+    {{#if theme_settings.halo-back-to-top}}
+        <div id="haloBackToTop" class="halo-back-to-top">
+            <a href="#">
+                <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"></use></svg>
+            </a>
+        </div>
+    {{/if }}
+{{/unless}}

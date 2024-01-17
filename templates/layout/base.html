@@ -54,7 +54,12 @@
         {{/if}}
 
         {{> components/common/body }} 
-        {{> components/common/footer }}
+        
+        {{#if theme_settings.custom_layout}}
+            {{> components/custom/footer/custom-footer}}
+        {{else}}
+            {{> components/common/footer }}
+        {{/if}}
 
         <script>
             window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";

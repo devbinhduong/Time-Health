@@ -21,7 +21,10 @@ export default function (context) {
             headerQuickSearch();
             calculateHeaderCart(theme_settings);
             triggerHeaderCart();
-            appendSearchMobile();
+
+            if (window.innerWidth < 1200) {
+                appendSearchMobile();
+            }
         }
     }
 
@@ -65,7 +68,9 @@ export default function (context) {
 
         /* Resize */
         $(window).on('resize', (e) => {
-            appendSearchMobile();
+            if (window.innerWidth < 1200) {
+                appendSearchMobile();
+            }
         });
     }
     eventLoad();
