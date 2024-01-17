@@ -28,27 +28,6 @@ blog:
 
 <div class="main full">
     {{#if theme_settings.custom_layout}}
-        <h3>Top Seller</h3>
-        {{#if products.top_sellers}}
-            {{> components/products/carousel-2 products=products.top_sellers columns=theme_settings.homepage_top_products_column_count list="Top Sellers" productsnew=products.new id="TabTopProductCarousel" show_dots_bar=show_dots_bar}}
-        {{/if}}
-
-        <h3>New</h3>
-        {{#if products.new}}
-            {{> components/products/carousel-2 products=products.new columns=theme_settings.homepage_new_products_column_count list="New Products" productsnew=products.new id="TabNewProductCarousel" show_dots_bar=show_dots_bar}}
-        {{/if}}
-
-        <section class="product-by-category">
-            <div class="container">
-                {{> components/custom/home/load-products-by-category productsnew=products.new category_id=378 id="customProductByCategory" show_dots_bar=show_dots_bar}}
-
-                {{> components/halothemes/products/halo-sample-product}}
-                {{> components/halothemes/products/halo-sample-product}}
-                {{> components/halothemes/products/halo-sample-product}}
-                {{> components/halothemes/products/halo-sample-product}}
-            </div>
-        </section>
-        
         <!-- Section halo-block-banner-width-text -->
         <div class="halo-block halo-block-custom halo-block-banner-width-text style-1">
             <div class="container">
@@ -154,6 +133,64 @@ blog:
                 </div>
             </div>
         </div>
+
+        <!-- Home Product Block Best Seller -->
+        <section class="home-productBlock custom-topSeller">
+            <div class="container">
+                <div class="topSeller">
+                    <div class="halo-block-header">
+                        <h3 class="title">Bestselling Supplements & Vitamins</h3>
+                        <h4 class="sub-title">Our customer favourites</h4>
+                    </div>
+
+                    <div class="custom-block-product">
+                        {{#if products.top_sellers}}
+                            {{> components/products/carousel-2 products=products.top_sellers columns=theme_settings.homepage_top_products_column_count list="Top Sellers" productsnew=products.new id="TabTopProductCarousel" show_dots_bar=show_dots_bar}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Home Product Block 2 Columns -->
+        <section class="home-productBlock custom-newSale">
+            <div class="container">
+                <div class="newSale__wrapper">
+                    <div class="newSale__block newSale__block--new">
+                        <div class="halo-block-header">
+                            <h3 class="title">New Launches</h3>
+                            <h4 class="sub-title">Latest additions to our range</h4>
+                        </div>
+                        <div class="custom-block-product">
+                            {{#if products.new}}
+                                {{> components/products/carousel-2 products=products.new columns=2 list="New Products" productsnew=products.new id="TabNewProductCarousel" show_dots_bar=show_dots_bar}}
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <div class="newSale__block newSale__block--sale product-by-category">
+                        <div class="halo-block-header">
+                            <h3 class="title">Sale Items</h3>
+                            <h4 class="sub-title">Save even more on selected products!</h4>
+                        </div>
+
+                        <div class="custom-block-product">
+                            {{> components/custom/home/load-products-by-category productsnew=products.new category_id=378 id="customProductByCategory" show_dots_bar=show_dots_bar}}
+                            {{> components/halothemes/products/halo-sample-product}}
+                            {{> components/halothemes/products/halo-sample-product}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-by-category">
+            <div class="container">
+                
+            </div>
+        </section>
+
+        <!-- Recently Post -->
+        {{> components/halothemes/home/home-recent-posts post=blog.recent_posts}}
 
         <!-- Section halo-block-custom halo-block-custom-review -->
         <div class="halo-block halo-block-custom halo-block-custom-review">

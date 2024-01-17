@@ -722,7 +722,7 @@
         "pdp-retail-price-label": "MSRP:",
         "pdp-custom-fields-tab-label": "Additional Information",
         "category_header_type": "image",
-        "halo_recent_post": false,
+        "halo_recent_post": true,
         "halo_recent_post-title": "Recent Posts",
         "paymentbuttons-paypal-layout": "vertical",
         "paymentbuttons-paypal-color": "gold",
