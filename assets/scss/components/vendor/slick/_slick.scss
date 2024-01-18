@@ -5,7 +5,6 @@
 //
 // -----------------------------------------------------------------------------
 
-
 //
 // Next and Previous buttons for all carousels
 //
@@ -41,7 +40,6 @@
         }
 
         &.slick-disabled {
-
             &:hover,
             &:focus {
                 background-color: $slick-arrow-bgColor;
@@ -52,14 +50,13 @@
     .home-layout-3 & {
         border-width: 1px;
         border-radius: 8px;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
 
         &:focus {
             background-color: $slick-arrow-bgColor;
         }
 
         &.slick-disabled {
-
             &:hover,
             &:focus {
                 background-color: $slick-arrow-bgColor;
@@ -84,7 +81,7 @@
             position: absolute;
         }
         &::after {
-            content: "";
+            content: '';
             height: remCalc(17px);
             width: remCalc(10px);
             background-image: none;
@@ -97,7 +94,7 @@
         }
 
         &.slick-disabled {
-            &::before, 
+            &::before,
             &::after {
                 opacity: $slick-opacity-not-active;
             }
@@ -125,18 +122,18 @@
         background-size: 100%;
         background-color: $slick-arrow-borderColor;
         .home-layout-4 & {
-            &::before, 
+            &::before,
             &::after {
-               background-image: none;
+                background-image: none;
             }
         }
         &:not(.slick-disabled) {
             border-color: $slick-arrow-borderColor;
             background-color: $slick-arrow-borderColor;
             .home-layout-4 & {
-                &::before, 
+                &::before,
                 &::after {
-                   background: $slick-arrow-color-hover;
+                    background: $slick-arrow-color-hover;
                 }
             }
         }
@@ -170,7 +167,6 @@
         }
     }
     &:hover {
-
         // scss-lint:disable NestingDepth
         &::before {
             @include carousel-arrow-color($slick-arrow-color-hover, 'next');
@@ -187,10 +183,12 @@
         }
 
         &:hover {
-
             // scss-lint:disable NestingDepth
             &::before {
-                @include carousel-arrow-color($slick-arrow-color-hover, 'next2')
+                @include carousel-arrow-color(
+                    $slick-arrow-color-hover,
+                    'next2'
+                );
             }
         }
 
@@ -228,7 +226,6 @@
     }
 
     &:hover {
-
         // scss-lint:disable NestingDepth
         &::before {
             @include carousel-arrow-color($slick-arrow-color-hover, 'prev');
@@ -246,10 +243,12 @@
         }
 
         &:hover {
-
             // scss-lint:disable NestingDepth
             &::before {
-                @include carousel-arrow-color($slick-arrow-color-hover, 'prev2')
+                @include carousel-arrow-color(
+                    $slick-arrow-color-hover,
+                    'prev2'
+                );
             }
         }
 
@@ -263,7 +262,6 @@
     display: block;
     width: 100%;
 }
-
 
 //
 // Carousel dots
@@ -314,7 +312,6 @@
         }
 
         &.slick-active {
-
             // scss-lint:disable NestingDepth
             button::before {
                 background: $slick-dot-color-active;
@@ -352,7 +349,8 @@
                         width: 43px !important;
                         border-radius: 5px;
                         left: 50%;
-                        transition: background 100ms ease-out, width 300ms ease-out;
+                        transition: background 100ms ease-out,
+                            width 300ms ease-out;
                         background: #28c7b7;
                     }
                 }
@@ -363,7 +361,6 @@
                 border: 1px solid $slick-dot-color-active;
             }
         }
-
     }
 }
 
@@ -374,7 +371,6 @@
     position: relative;
 }
 
-
 //
 // disabled carousel elements
 // -----------------------------------------------------------------------------
@@ -382,7 +378,6 @@
     cursor: $cursor-default-value;
     opacity: 0.5;
 }
-
 
 //
 // Slick track
@@ -401,7 +396,6 @@ div.slick-slider {
     *width: 100%;
 }
 
-
 //
 // Carousel tooltips for buttons and bullets
 // -----------------------------------------------------------------------------
@@ -413,7 +407,7 @@ div.slick-slider {
     margin-top: 10px;
     @include addFocusTooltip($attr: aria-label);
 
-    @include breakpoint("small") {
+    @include breakpoint('small') {
         display: block;
     }
 
@@ -425,7 +419,6 @@ div.slick-slider {
     .slick-prev:focus &,
     .slick-next:focus &,
     .slick-dots button:focus & {
-
         &:before,
         &:after {
             display: block;
@@ -479,7 +472,7 @@ div.slick-slider {
     display: none;
     position: absolute;
     left: 15px;
-    bottom: spacing("third");
+    bottom: spacing('third');
     height: 32px;
     min-width: 60px;
     max-width: 60px;
@@ -491,7 +484,7 @@ div.slick-slider {
     text-overflow: ellipsis;
     color: $slick-play-pause-button-color;
     transition: color 100ms ease-out;
-    z-index: zIndex("lowest");
+    z-index: zIndex('lowest');
     border: 1px solid $slick-play-pause-button-borderColor;
     border-radius: 4px;
     @include carouselOpaqueBackgrounds($slick-play-pause-button-bgColor);
@@ -501,17 +494,59 @@ div.slick-slider {
         max-width: 90px;
     }
 
-    @include breakpoint("small") {
+    @include breakpoint('small') {
         max-width: 150px;
         font-size: 18px;
     }
 
-    @include breakpoint("medium") {
+    @include breakpoint('medium') {
         left: 25px;
-        bottom: spacing("single");
+        bottom: spacing('single');
     }
 
     &:hover {
         color: $slick-play-pause-button-color-hover;
+    }
+}
+
+/* Mint Start Custom Slick */
+.home-layout-custom {
+    .slick-dots {
+        > li {
+            button {
+                border: none;
+                background-color: #d7d7d7;
+                border-radius: 12px;
+                height: 10px;
+
+                &::before {
+                    height: 10px;
+                    background-color: inherit;
+                    border-radius: 12px;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+            &.slick-active {
+                width: 43px;
+
+                button {
+                    background-color: #b94844;
+                    width: 100%;
+                    border-radius: 12px;
+                    height: 10px;
+
+                    &::before {
+                        background-color: inherit;
+                        border-radius: 12px;
+                        width: 100%;
+                        height: 10px;
+                        left: 0;
+                        top: 0;
+                    }
+                }
+            }
+        }
     }
 }

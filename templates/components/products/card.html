@@ -1,5 +1,6 @@
 <article
     class="card
+    {{#if theme_settings.custom_layout}} custom-card{{/if}}
     {{#if alternate}} card--alternate{{/if}}"
     data-product-id="{{id}}"
     data-test="card-{{id}}"
@@ -104,82 +105,85 @@
             </div>
         </a>
 
-        <figcaption class="card-figcaption">
-            {{#if theme_settings.halo_homepage_layout_1}}
-                <div class="card-figcaption-top">
-                    {{#if settings.show_wishlist}}
-                        <button href="/wishlist.php?action=add&product_id={{id}}" class="wishlist button{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}">
-                            <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
-                            <span class="text">{{lang 'account.wishlists.add'}}</span>
-                        </button>
-                    {{/if}}
-                    {{#unless hide_product_quick_view}}
-                        {{#if theme_settings.show_product_quick_view}}
-                            <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
-                                <svg><use xlink:href="#icon-quick-view"/></svg>
-                                <span>{{lang 'products.quick_view'}}</span>
+        {{#unless theme_settings.custom_layout}}
+            <figcaption class="card-figcaption">
+                {{#if theme_settings.halo_homepage_layout_1}}
+                    <div class="card-figcaption-top">
+                        {{#if settings.show_wishlist}}
+                            <button href="/wishlist.php?action=add&product_id={{id}}" class="wishlist button{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}">
+                                <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
+                                <span class="text">{{lang 'account.wishlists.add'}}</span>
                             </button>
                         {{/if}}
-                    {{/unless}}
-                </div>
-            {{else}}
-                <div class="card-figcaption-top">
-                    {{#if settings.show_wishlist}}
-                        <button href="/wishlist.php?action=add&product_id={{id}}" class="wishlist button{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}">
-                            <span class="icon-action">
-                                {{#if theme_settings.halo_homepage_layout_3}}
-                                    <svg class="icon"><use xlink:href="#icon-wishlist-2"/></svg>
-                                {{else}}
-                                    <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
-                                {{/if}}
-                            </span>
-                            <span class="text">{{lang 'account.wishlists.add'}}</span>
-                        </button>
-                    {{/if}}
-                    {{#unless hide_product_quick_view}}
-                        {{#if theme_settings.show_product_quick_view}}
-                            <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
-                                <span>
+                        {{#unless hide_product_quick_view}}
+                            {{#if theme_settings.show_product_quick_view}}
+                                <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
+                                    <svg><use xlink:href="#icon-quick-view"/></svg>
+                                    <span>{{lang 'products.quick_view'}}</span>
+                                </button>
+                            {{/if}}
+                        {{/unless}}
+                    </div>
+                {{else}}
+                    <div class="card-figcaption-top">
+                        {{#if settings.show_wishlist}}
+                            <button href="/wishlist.php?action=add&product_id={{id}}" class="wishlist button{{#if theme_settings.show_product_wishlist_mb}} show-mobile{{/if}}">
+                                <span class="icon-action">
                                     {{#if theme_settings.halo_homepage_layout_3}}
-                                        <svg><use xlink:href="#icon-quick-view-2"/></svg>
-                                    {{else if theme_settings.halo_homepage_layout_4}}
-                                        <svg><use xlink:href="#icon-quick-view-3"/></svg>
+                                        <svg class="icon"><use xlink:href="#icon-wishlist-2"/></svg>
                                     {{else}}
-                                        <svg><use xlink:href="#icon-quick-view"/></svg>
+                                        <svg class="icon"><use xlink:href="#icon-wishlist"/></svg>
                                     {{/if}}
                                 </span>
-                                <span>{{lang 'products.quick_view'}}</span>
+                                <span class="text">{{lang 'account.wishlists.add'}}</span>
                             </button>
                         {{/if}}
-                    {{/unless}}
-                </div>
-            {{/if}}
-            {{#or customer (unless settings.hide_price_from_guests)}}
-                {{#if show_cart_action}}
-                    <div class="card-figcaption-bottom">
-                        {{#if has_options}}
-                            {{#if theme_settings.halo_quick_shop}}
-                                <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">
-                                    {{#if theme_settings.halo_homepage_layout_4}}<span class="text">{{/if}}{{#if theme_settings.halo_homepage_layout_3}}{{lang 'products.quick_shop'}}{{else}}{{lang 'products.quick_shop_2'}}{{/if}}{{#if theme_settings.halo_homepage_layout_4}}</span>{{/if}}
-                                </a>
-                            {{else}}
-                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{#unless hide_product_quick_view}}
+                            {{#if theme_settings.show_product_quick_view}}
+                                <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
+                                    <span>
+                                        {{#if theme_settings.halo_homepage_layout_3}}
+                                            <svg><use xlink:href="#icon-quick-view-2"/></svg>
+                                        {{else if theme_settings.halo_homepage_layout_4}}
+                                            <svg><use xlink:href="#icon-quick-view-3"/></svg>
+                                        {{else}}
+                                            <svg><use xlink:href="#icon-quick-view"/></svg>
+                                        {{/if}}
+                                    </span>
+                                    <span>{{lang 'products.quick_view'}}</span>
+                                </button>
                             {{/if}}
-                        {{/if}}
-                        {{#if pre_order}}
-                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
-                        {{/if}}
-                        {{#if add_to_cart_url }}
-                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{#if theme_settings.halo_homepage_layout_2}}{{lang 'products.add_to_cart_2'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}</a>
-                            <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
-                        {{/if}}
-                        {{#if out_of_stock_message }}
-                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button button--outOfStock" data-product-id="{{id}}">{{out_of_stock_message}}</a>
-                        {{/if}}
+                        {{/unless}}
                     </div>
                 {{/if}}
-            {{/or}}
-        </figcaption>
+                {{#or customer (unless settings.hide_price_from_guests)}}
+                    {{#if show_cart_action}}
+                        <div class="card-figcaption-bottom">
+                            {{#if has_options}}
+                                {{#if theme_settings.halo_quick_shop}}
+                                    <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">
+                                        {{#if theme_settings.halo_homepage_layout_4}}<span class="text">{{/if}}{{#if theme_settings.halo_homepage_layout_3}}{{lang 'products.quick_shop'}}{{else}}{{lang 'products.quick_shop_2'}}{{/if}}{{#if theme_settings.halo_homepage_layout_4}}</span>{{/if}}
+                                    </a>
+                                {{else}}
+                                    <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                {{/if}}
+                            {{/if}}
+                            {{#if pre_order}}
+                                <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                            {{/if}}
+                            {{#if add_to_cart_url }}
+                                <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{#if theme_settings.halo_homepage_layout_2}}{{lang 'products.add_to_cart_2'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}</a>
+                                <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                            {{/if}}
+                            {{#if out_of_stock_message }}
+                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button button--outOfStock" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                            {{/if}}
+                        </div>
+                    {{/if}}
+                {{/or}}
+            </figcaption>
+        {{/unless}}
+       
         {{#or customer (unless settings.hide_price_from_guests)}}
             {{#if show_cart_action}}
                 {{#if has_options}}
@@ -189,7 +193,16 @@
                 {{/if}}
             {{/if}}
         {{/or}}
+
+        <div class="card-instock">
+            {{#if out_of_stock_message}}
+                <span class="out-of-stock">{{out_of_stock_message}}</span>
+            {{else}}
+                <span class="instock">In Stock</span>
+            {{/if}}
+        </div>
     </figure>
+   
     <div class="card-body">
         {{#and (if brand.name) (if theme_settings.halo_card_brand)}}
             <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
@@ -284,4 +297,42 @@
             </label>
         {{/if}}
     </div>
+    <!-- Custom Card figcaption Bottom On Custom Layout -->
+    {{#if theme_settings.custom_layout}}
+        <figcaption class="custom-card-figcaption">
+            <div class="cardFigcaption__left">
+                {{#if theme_settings.show_product_quick_view}}
+                    <button class="button button--small quickview" data-event-type="product-click" data-product-id="{{id}}">
+                        <svg><use xlink:href="#icon-search"/></svg>
+                    </button>
+                {{/if}}
+            </div>
+            
+            {{#or customer (unless settings.hide_price_from_guests)}}
+                {{#if show_cart_action}}
+                    <div class="cardFigcaption__right">
+                        {{#if has_options}}
+                            {{#if theme_settings.halo_quick_shop}}
+                                <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">
+                                    <span class="text">{{lang 'products.quick_shop'}}</span>
+                                </a>
+                            {{else}}
+                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                            {{/if}}
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{#if theme_settings.halo_homepage_layout_2}}{{lang 'products.add_to_cart_2'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}</a>
+                            <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button button--outOfStock" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            {{/or}}
+        </figcaption>
+    {{/if}}
 </article>

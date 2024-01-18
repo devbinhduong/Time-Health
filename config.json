@@ -1087,7 +1087,7 @@
         "haloSidebar_blog": true,
         "halo-sidebar-recent-post": true,
         "halo_sidebar_popular_tags": true,
-        "halo_card_brand": true,
+        "halo_card_brand": false,
         "halo_card_ratings": true,
         "halo_card_title": "ellipsis",
         "halo_card_title-line": "2",

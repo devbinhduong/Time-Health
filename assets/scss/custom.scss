@@ -1,6 +1,7 @@
 @font-face {
-    font-family: "Lumios Marker";
-    src: url("../fonts/Lumios-Marker.woff2") format("woff2"), url("../fonts/Lumios-Marker.woff") format("woff");
+    font-family: 'Lumios Marker';
+    src: url('../fonts/Lumios-Marker.woff2') format('woff2'),
+        url('../fonts/Lumios-Marker.woff') format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -15,7 +16,7 @@
 .custom-underline {
     @include smin-l {
         &::before {
-            content: "";
+            content: '';
             background-color: #b94844;
             position: absolute;
             display: inline-block;
@@ -275,5 +276,48 @@
         background-color: #fafafa;
         margin: 50px 0px;
         padding: 70px 0px 120px;
+    }
+
+    /* Mint start custom */
+    .home-productBlock {
+        .sub-title {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .slick-list {
+            padding-bottom: 60px;
+        }
+        &.custom-topSeller {
+            background-color: #fafafa;
+            padding-top: 50px;
+            padding-bottom: 80px;
+        }
+        &.custom-newSale {
+            background-color: #fafafa;
+            .newSale__block--new {
+                .productCarousel {
+                    margin-right: 0;
+                }
+            }
+
+            .newSale__block--sale {
+                .productCarousel {
+                    margin-left: 0;
+                }
+            }
+
+            .newSale__wrapper {
+                display: flex;
+                margin-left: -15px;
+                margin-right: -15px;
+
+                .newSale__block {
+                    max-width: 50%;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+        }
     }
 }
