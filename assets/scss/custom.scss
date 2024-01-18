@@ -1,7 +1,6 @@
 @font-face {
-    font-family: 'Lumios Marker';
-    src: url('../fonts/Lumios-Marker.woff2') format('woff2'),
-        url('../fonts/Lumios-Marker.woff') format('woff');
+    font-family: "Lumios Marker";
+    src: url("../fonts/Lumios-Marker.woff2") format("woff2"), url("../fonts/Lumios-Marker.woff") format("woff");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -16,7 +15,7 @@
 .custom-underline {
     @include smin-l {
         &::before {
-            content: '';
+            content: "";
             background-color: #b94844;
             position: absolute;
             display: inline-block;
@@ -327,7 +326,41 @@
 
                 .newSale__block {
                     @media (min-width: 1261px) {
-                        max-width: 50%;
+                        width: 50%;
+                    }
+
+                    .productGrid-custom {
+                        margin-left: 0;
+                    }
+
+                    .productCarousel-sample {
+                        width: 50%;
+
+                        &:nth-child(4) {
+                            display: none;
+                        }
+
+                        @media (max-width: 1260px) {
+                            width: 33.3333%;
+                            &:nth-child(3) {
+                                display: block;
+                            }
+                        }
+
+                        @media (max-width: 850px) {
+                            width: 50%;
+                            &:nth-child(3) {
+                                display: none;
+                            }
+                        }
+
+                        @media (max-width: 551px) {
+                            width: 100%;
+
+                            &:nth-child(4) {
+                                display: none;
+                            }
+                        }
                     }
                 }
             }
@@ -337,6 +370,16 @@
     /* Home Recently Post */
     .halo-block-post {
         background-color: #fafafa;
+        margin-top: 0;
+        padding-top: 0;
+
+        .halo-block-header {
+            .title {
+                padding-top: 23px;
+                padding-bottom: 0;
+            }
+            margin-bottom: 60px;
+        }
         .halo-row {
             padding: 0;
             @include smin-l {

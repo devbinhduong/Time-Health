@@ -4,23 +4,23 @@
 <span class="newTextAjax">New</span>
 {{#each categories}}
     {{#if id '==' ../category_id}}
-        <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../columns}}" data-custom-products-by-category-tabs="{{url}}">
+        <ul id="product-by-cate-{{id}}" class="productGrid-custom productGrid--maxCol{{../../columns}}" data-custom-products-by-category-tabs="{{url}}">
         </ul>
     {{else}}
         {{#each children}}
             {{#if id '==' ../../../category_id}}
-                <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../../../columns}}" data-custom-products-by-category-tabs="{{url}}">
+                <ul id="product-by-cate-{{id}}" class="productGrid-custom productGrid--maxCol{{../../../../columns}}" data-custom-products-by-category-tabs="{{url}}">
                 </ul>
             {{else}}
                 {{#each children}}
                     {{#if id '==' ../../../../../category_id}}
-                        <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../../../../../columns}}" data-custom-products-by-category-tabs="{{url}}">
+                        <ul id="product-by-cate-{{id}}" class="productGrid-custom productGrid--maxCol{{../../../../../../columns}}" data-custom-products-by-category-tabs="{{url}}">
                         </ul>
 
                     {{else}}
                         {{#each children}}
                             {{#if id '==' ../../../../../../../category_id}}
-                                <ul id="product-by-cate-{{id}}" class="productGrid productGrid--maxCol{{../../../../../../../../columns}}" data-custom-products-by-category-tabs="{{url}}">
+                                <ul id="product-by-cate-{{id}}" class="productGrid-custom productGrid--maxCol{{../../../../../../../../columns}}" data-custom-products-by-category-tabs="{{url}}">
                                 </ul>
                             {{/if}}
                         {{/each}}
