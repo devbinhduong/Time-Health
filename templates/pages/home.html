@@ -22,11 +22,14 @@ blog:
 
 {{#partial "page"}}
 
+{{#unless theme_settings.custom_layout}}
     {{#each shipping_messages}}
         {{> components/common/alert/alert-info message}}
     {{/each}}
+{{/unless}}
 
 <div class="main full">
+
     {{#if theme_settings.custom_layout}}
         <!-- Section halo-block-banner-width-text -->
         <div class="halo-block halo-block-custom halo-block-banner-width-text style-1">
@@ -160,6 +163,7 @@ blog:
                             <h3 class="title">New Launches</h3>
                             <h4 class="sub-title">Latest additions to our range</h4>
                         </div>
+                        
                         <div class="custom-block-product">
                             {{#if products.new}}
                                 {{> components/products/carousel-2 products=products.new columns=2 list="New Products" productsnew=products.new id="TabNewProductCarousel" show_dots_bar=show_dots_bar}}
@@ -183,10 +187,11 @@ blog:
             </div>
         </section>
 
-        <section class="product-by-category">
-            <div class="container">
-                
-            </div>
+        <!-- Section Home Banner -->
+        <section class="section-home-only-banner">
+            <a href="https://ecologi.com/timehealthltd" class="homeBanner__link">
+                <img src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/home-banner-desktop.jpg" alt="Home Banner Ecologi">
+            </a>
         </section>
 
         <!-- Recently Post -->
@@ -200,7 +205,7 @@ blog:
                     <h4 class="sub-title">A word from our practitioners</h4>
                 </div>
                 <div class="halo-block-content">
-                    <div class="block-content-wrapper">
+                    <div class="block-content-wrapper section-slick">
                         <div class="custom-review-item">
                             <div class="avata">
                                 <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-nsheq/images/stencil/original/image-manager/izzy.png" alt="Avata izzy">
@@ -216,6 +221,55 @@ blog:
                                 <h4 class="name">Well Bean Nutrition™</h4>
                                 <p class="time">Book a free 20 minute appointment with Isobel:</p>
                                 <a href="/">wellbeannutrition.co.uk</a>
+                            </div>
+                            <div class="rating">
+                                <span class="icon bgRating--full"></span>
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                            </div>
+                        </div>
+
+                        <div class="custom-review-item">
+                            <div class="avata">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://timehealth.co.uk/wp-content/uploads/2023/02/tony-1-120x120.jpg.webp" alt="Avata izzy">
+                            </div>
+                            <div class="review-content">
+                                <h4 class="title">Tony Pemberton – Precision Wellness Practitioner</h4>
+                                <div class="testimonial">
+                                    <p class="desc">““We recommend Time Health products to clients with them being UK manufactured and GMP certified, with a great range for those looking to optimise health. Our favourite being Longevity as it has 7 different ingredients, with a broad range of benefits. Perfect for those busy clients who keep their supplement intake to the bare minimum.”</p>
+                                    <p class="desc">Specialisms Include: DNA and epigenetic testing, health and nutrition consultations, supplement advice, blood testing, microbiome testing.</p>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <p class="time">Book an appointment with Tony::</p>
+                                <a href="https://www.epicgenetics.co.uk/">epicgenetics.co.uk</a>
+                            </div>
+                            <div class="rating">
+                                <span class="icon bgRating--full"></span>
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                                <span class="icon bgRating--full"></span> 
+                            </div>
+                        </div>
+
+                        <div class="custom-review-item">
+                            <div class="avata">
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://timehealth.co.uk/wp-content/uploads/2020/06/Katharine-2-120x120.jpg.webp" alt="Avata izzy">
+                            </div>
+                            <div class="review-content">
+                                <h4 class="title">Katharine Tate, (BEd (Hons), FAETC, Dip ION (Distinction), BANT, CNHC) – Nutritional Therapist</h4>
+                                <div class="testimonial">
+                                    <p class="desc">“I recommend a number of Time Health supplements to my clients as they are exactly what their branding suggests ‘Pure and Simple’. I particularly like their range of enzymes and Longvida Curcumin, as they’re highly bioavailable, not packed full of fillers and excipients and they’re very reasonably priced and therefore hugely accessible.”</p>
+                                    <p class="desc">Specialisms include: Allergies, digestion, mood, hormonal imbalance, skin health and learning difficulties.</p>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <h4 class="name">The Food Teacher™</h4>
+                                <p class="time">Book an appointment with Katharine:</p>
+                                <a href="https://www.thefoodteacher.co.uk/clinic">thefoodteacher.co.uk</a>
                             </div>
                             <div class="rating">
                                 <span class="icon bgRating--full"></span>

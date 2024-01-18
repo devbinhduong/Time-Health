@@ -278,6 +278,12 @@
         padding: 70px 0px 120px;
     }
 
+    // section-home-only-banner
+    .section-home-only-banner {
+        padding: 30px 0px 30px;
+        background-color: #fafafa;
+    }
+
     /* Mint start custom */
     .home-productBlock {
         .sub-title {
@@ -286,7 +292,7 @@
         }
 
         .slick-list {
-            padding-bottom: 60px;
+            padding-bottom: 75px;
         }
         &.custom-topSeller {
             background-color: #fafafa;
@@ -297,25 +303,126 @@
             background-color: #fafafa;
             .newSale__block--new {
                 .productCarousel {
-                    margin-right: 0;
+                    @media (min-width: 1261px) {
+                        margin-right: 0;
+                    }
                 }
             }
 
             .newSale__block--sale {
                 .productCarousel {
-                    margin-left: 0;
+                    @media (min-width: 1261px) {
+                        margin-left: 0;
+                    }
                 }
             }
 
             .newSale__wrapper {
                 display: flex;
-                margin-left: -15px;
-                margin-right: -15px;
+                @media (max-width: 1261px) {
+                    margin-left: 0;
+                    margin-right: 0;
+                    flex-direction: column;
+                }
 
                 .newSale__block {
-                    max-width: 50%;
-                    padding-left: 15px;
-                    padding-right: 15px;
+                    @media (min-width: 1261px) {
+                        max-width: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Home Recently Post */
+    .halo-block-post {
+        background-color: #fafafa;
+        .halo-row {
+            padding: 0;
+            @include smin-l {
+                margin-left: -35px;
+                margin-right: -35px;
+            }
+            .halo-row-item {
+                @include smin-l {
+                    padding-left: 35px;
+                    padding-right: 35px;
+                }
+
+                .item {
+                    background-color: #ffffff;
+
+                    .item-image {
+                        position: relative;
+
+                        .image-with-overlay {
+                            margin-bottom: 15px;
+                        }
+                    }
+
+                    .date {
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        color: #ffffff;
+                        background-color: #cca91f;
+                        width: 52px;
+                        height: 52px;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        font-size: 14px;
+                        font-weight: 700;
+                        line-height: 18px;
+                        padding-left: 8px;
+                        padding-right: 8px;
+                    }
+
+                    .item-content {
+                        max-width: 100%;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        text-align: center;
+
+                        .title {
+                            border-bottom: 2px solid #e6e6e6;
+                            font-weight: 600;
+                            color: #333;
+                            font-size: 25px;
+                            margin-bottom: 8px;
+                            padding-bottom: 13px;
+
+                            a {
+                                color: inherit;
+                            }
+                        }
+
+                        .summary {
+                            font-size: 15px;
+                            margin-bottom: 5px;
+                            font-weight: 300;
+                            line-height: 24px;
+                            color: #0a0202;
+                            margin-bottom: 12px;
+                            padding: 0;
+                        }
+
+                        .button {
+                            background-color: transparent;
+                            color: #b94844;
+                            border: none;
+                            text-transform: uppercase;
+                            padding: 0;
+                            font-weight: 700;
+                            font-size: 14px;
+
+                            &:hover {
+                                letter-spacing: 1.5px;
+                            }
+                        }
+                    }
                 }
             }
         }

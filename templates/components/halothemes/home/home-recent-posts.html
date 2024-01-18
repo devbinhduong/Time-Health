@@ -1,11 +1,18 @@
 {{#if theme_settings.halo_recent_post}}
 	<div class="halo-block halo-block-post home_below_recent_posts">
 		<div class="container container-custom">
-			{{#if theme_settings.halo_recent_post-title}}
+			{{#if theme_settings.custom_layout}}
 				<div class="halo-block-header">
-		            <h2 class="title">{{theme_settings.halo_recent_post-title}}</h2>
-		        </div>
-		    {{/if}}
+					<h3 class="title">Articles</h3>
+					<h4 class="sub-title">Stay up to date with our latest blog posts</h4>
+				</div>
+			{{else}}
+				{{#if theme_settings.halo_recent_post-title}}
+					<div class="halo-block-header">
+						<h2 class="title">{{theme_settings.halo_recent_post-title}}</h2>
+					</div>
+				{{/if}}
+			{{/if}}
 	        <div class="halo-recent-post halo-row disable-srollbar">
         		{{#each post}}
 	        		<div class="halo-row-slider">
@@ -21,6 +28,10 @@
 						                    default_image=../theme_settings.default_image_product
 						                }}
 					                </a>
+
+									{{#if ../theme_settings.custom_layout}}
+								   		<p class="date">{{date_published}}</p>
+								   {{/if}}
 					            </div>
 						        <div class="item-content">
 						            <h3 class="title">
@@ -30,7 +41,9 @@
 							                <a href="{{url}}">{{title}}</a>
 							            {{/if}}
 						            </h3>
-						            <p class="date">{{date_published}}</p>
+						           {{#unless ../theme_settings.custom_layout}}
+								   		<p class="date">{{date_published}}</p>
+								   {{/unless}}
 						            <div class="summary">
 						                {{{summary}}}&hellip;
 						            </div>
