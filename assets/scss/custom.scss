@@ -1,6 +1,7 @@
 @font-face {
-    font-family: "Lumios Marker";
-    src: url("../fonts/Lumios-Marker.woff2") format("woff2"), url("../fonts/Lumios-Marker.woff") format("woff");
+    font-family: 'Lumios Marker';
+    src: url('../fonts/Lumios-Marker.woff2') format('woff2'),
+        url('../fonts/Lumios-Marker.woff') format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -15,7 +16,7 @@
 .custom-underline {
     @include smin-l {
         &::before {
-            content: "";
+            content: '';
             background-color: #b94844;
             position: absolute;
             display: inline-block;
@@ -89,6 +90,22 @@
         @media (min-width: 768px) {
             padding: 40px 0px;
         }
+
+        &.halo-block-banner-width-text {
+            &.style-1 {
+                @include smin-s {
+                    padding-bottom: 0;
+                }
+            }
+
+            &.style-2 {
+                @include smin-s {
+                    padding-top: 24px;
+                    padding-bottom: 72px;
+                }
+            }
+        }
+
         .halo-block-content {
             text-align: center;
             .block-banner {
@@ -218,6 +235,9 @@
 
     // halo-block-custom-review
     .halo-block-custom-review {
+        @include smin-l {
+            padding-top: 80px;
+        }
         .halo-block-content {
             width: 100%;
             max-width: 1040px;
@@ -275,6 +295,9 @@
         background-color: #fafafa;
         margin: 50px 0px;
         padding: 70px 0px 120px;
+
+        margin-top: 30px;
+        margin-bottom: 40px;
     }
 
     // section-home-only-banner
@@ -287,7 +310,7 @@
     .home-productBlock {
         .sub-title {
             margin-top: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 42px;
         }
 
         .slick-list {
@@ -295,8 +318,12 @@
         }
         &.custom-topSeller {
             background-color: #fafafa;
-            padding-top: 50px;
-            padding-bottom: 80px;
+            padding-top: 45px;
+            padding-bottom: 66px;
+
+            .slick-dots {
+                bottom: -20px;
+            }
         }
         &.custom-newSale {
             background-color: #fafafa;
@@ -322,6 +349,10 @@
                     margin-left: 0;
                     margin-right: 0;
                     flex-direction: column;
+                }
+
+                .sub-title {
+                    margin-top: 0;
                 }
 
                 .newSale__block {
@@ -378,7 +409,7 @@
                 padding-top: 23px;
                 padding-bottom: 0;
             }
-            margin-bottom: 60px;
+            margin-bottom: 54px;
         }
         .halo-row {
             padding: 0;
@@ -394,6 +425,7 @@
 
                 .item {
                     background-color: #ffffff;
+                    padding-bottom: 40px;
 
                     .item-image {
                         position: relative;
@@ -436,6 +468,7 @@
                             font-size: 25px;
                             margin-bottom: 8px;
                             padding-bottom: 13px;
+                            line-height: 27.5px;
 
                             a {
                                 color: inherit;
@@ -470,4 +503,8 @@
             }
         }
     }
+}
+
+.home-layout-custom[data-page-type='default'] .body {
+    margin-bottom: 10px;
 }

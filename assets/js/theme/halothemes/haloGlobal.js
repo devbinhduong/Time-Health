@@ -2061,7 +2061,7 @@ export default function (context) {
                 check_homeBlogPostsCarousel = false;
 
                 $homeBlogPostsCarousel.slick({
-                    dots: false,
+                    dots: true,
                     arrows: false,
                     infinite: false,
                     mobileFirst: false,
